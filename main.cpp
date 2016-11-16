@@ -12,7 +12,7 @@ int main() {
     // w = inverse(noise coherence(k) + diagonal loading*Matrix Identity)*steering vector /
     //         hermitian(steering vector) * [inverse(noise coherence(k) + diagonal loading*Matrix Identity)] * steering vector
 
-    
+
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
