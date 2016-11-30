@@ -11,4 +11,5 @@ MVDR with steering vector estimation:
 	1. steering vector estimated from covariance matrix
 	2. to get the covariance matrix, I use the CGMM (complex gaussian Mixture Model)
 	3. Both above formula are from 2nd winner of chime4.
+	4. The process same as baseline with modification on covariance matrix and steering vector.
 	Notes: Progress-> count the lambda of the CGMM

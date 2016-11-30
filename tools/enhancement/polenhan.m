@@ -41,13 +41,15 @@ addpath ../utils;
 % addpath ../utils/ArrayToolbox;
 % audio input path / segmented utterances
 % change data to remote directory to safe the space add "../CHiME4/CHiME3/"
-% upath=['../../data/audio/16kHz/isolated_' track '_track/'];
-upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
+upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
+% upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
 epath=['../../data/audio/16kHz/z430_enhanced_super_' track '_track/'];
 % path to continuous recordings
-cpath='../../../CHiME3/data/audio/16kHz/embedded/';
-bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+cpath='../../data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='../../data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+% cpath='../../../CHiME3/data/audio/16kHz/embedded/';
+% bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % path to JSON annotations
 apath=['../../data/annotations/'];
 
@@ -281,13 +283,13 @@ for set_ind = 1:length(sets),
       snr(utt_ind,1) = ENV_NUMBER;
       snr(utt_ind,2) = 10*log10(sum(output.^2) ./ sum(sum(n.^2)));
       % disp(snr(utt_ind,2));
-      disp('finish');
+      % disp('finish');
       % Write WAV file
       output=output/max(abs(output));
-      disp([edir uname '.wav']);
+      % disp([edir uname '.wav']);
       audiowrite([edir uname '.wav'],output,fs);
       disp([edir uname '.wav']);
     end
-    csvwrite(['SNR_mvdr_' mode '.csv'],snr);
+    csvwrite(['SNR_mvdr_all_data' mode '.csv'],snr);
   end
 end
