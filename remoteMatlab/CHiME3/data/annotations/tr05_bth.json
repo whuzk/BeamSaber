@@ -1,0 +1,203 @@
+[
+    {
+        "dot": "The offer expires at five P\\. M\\. E\\. D\\. T\\. July first", 
+        "end": 854.9774375000000, 
+        "environment": "BTH", 
+        "prompt": "The offer expires at five p. m. E. D. T. July first.", 
+        "speaker": "M02", 
+        "start": 849.1176250000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "404O030E"
+    }, 
+    {
+        "dot": "Rather than raise interest rates to support the currency the Fed has focused on maintaining ample liquidity to fend off a recession following the stock market crash", 
+        "end": 530.6190000000000, 
+        "environment": "BTH", 
+        "prompt": "Rather than raise interest rates to support the currency, the Fed has focused on maintaining ample liquidity to fend off a recession following the stock-market crash.", 
+        "speaker": "F03", 
+        "start": 519.4315625000000, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "01JC0215"
+    }, 
+    {
+        "dot": "A joint is rolled and passed around", 
+        "end": 871.2567500000000, 
+        "environment": "BTH", 
+        "prompt": "A joint is rolled and passed around.", 
+        "speaker": "M02", 
+        "start": 867.7208750000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "01KO0305"
+    }, 
+    {
+        "dot": "And Ford never reached more than two million owners at all", 
+        "end": 747.4223750000000, 
+        "environment": "BTH", 
+        "prompt": "And Ford never reached more than two million owners at all.", 
+        "speaker": "M01", 
+        "start": 743.4824374999999, 
+        "wavfile": "M01_141118_010_BTH", 
+        "wsj_name": "01YO0316"
+    }, 
+    {
+        "dot": "For larger accounts employees are restricted to borrowing half the total but no more than fifty thousand dollars", 
+        "end": 959.7981250000000, 
+        "environment": "BTH", 
+        "prompt": "For larger accounts, employees are restricted to borrowing half the total, but no more than fifty thousand dollars.", 
+        "speaker": "M01", 
+        "start": 952.4744375000000, 
+        "wavfile": "M01_141118_010_BTH", 
+        "wsj_name": "20EC010I"
+    }, 
+    {
+        "dot": "Even if there was a contract it was void", 
+        "end": 1169.539687500000, 
+        "environment": "BTH", 
+        "prompt": "Even if there was a contract, it was void.", 
+        "speaker": "F03", 
+        "start": 1166.271750000000, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "408O030O"
+    }, 
+    {
+        "dot": "That would make non dollar equity investment less attractive", 
+        "end": 796.5723750000000, 
+        "environment": "BTH", 
+        "prompt": "That would make non-dollar equity investment less attractive.\"", 
+        "speaker": "M02", 
+        "start": 792.4481250000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "01MC0204"
+    }, 
+    {
+        "dot": "Stock prices declined but the drop wasn\\'t as bad as many traders expected", 
+        "end": 463.3095000000000, 
+        "environment": "BTH", 
+        "prompt": "Stock prices declined, but the drop wasn't as bad as many traders expected.", 
+        "speaker": "F03", 
+        "start": 457.9064375000000, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "01WO030J"
+    }, 
+    {
+        "dot": "These days Representative Dingell says congressional power is much more diffuse", 
+        "end": 387.5499375000000, 
+        "environment": "BTH", 
+        "prompt": "These days, Representative Dingell says, congressional power is much more diffuse.", 
+        "speaker": "M02", 
+        "start": 381.2821250000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "406C020J"
+    }, 
+    {
+        "dot": "Mr\\. Moreland who is now working through a company called Continental Trading International Limited couldn\\'t be reached for comment", 
+        "end": 873.9854375000000, 
+        "environment": "BTH", 
+        "prompt": "Mr. Moreland, who is now working through a company called Continental Trading International Limited, couldn't be reached for comment.", 
+        "speaker": "M01", 
+        "start": 866.6296875000000, 
+        "wavfile": "M01_141118_010_BTH", 
+        "wsj_name": "40LO030S"
+    }, 
+    {
+        "dot": "For the nine months net increased to about six million dollars or fifty nine cents a share from threePOINT five million dollars a year earlier", 
+        "end": 254.1462500000000, 
+        "environment": "BTH", 
+        "prompt": "For the nine months, net increased to about six million dollars, or fifty nine cents a share, from three .POINT five million dollars a year earlier.", 
+        "speaker": "M01", 
+        "start": 245.9098125000000, 
+        "wavfile": "M01_141118_010_BTH", 
+        "wsj_name": "017O030Q"
+    }, 
+    {
+        "dot": "With the dollar under fire near term syndication may be limited to other currencies dealers said", 
+        "end": 225.5009375000000, 
+        "environment": "BTH", 
+        "prompt": "With the dollar under fire, near-term syndication may be limited to other currencies, dealers said.", 
+        "speaker": "M02", 
+        "start": 219.0894375000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "01IO030K"
+    }, 
+    {
+        "dot": "It was never able to come up with a fairness opinion on the original offer", 
+        "end": 669.5866250000000, 
+        "environment": "BTH", 
+        "prompt": "It was never able to come up with a fairness opinion on the original offer.", 
+        "speaker": "F02", 
+        "start": 664.2590000000000, 
+        "wavfile": "F02_141106_010_BTH", 
+        "wsj_name": "01UO030E"
+    }, 
+    {
+        "dot": "The motion was only passed by members of the ruling Partido Revolucionario Institucional which has a majority in Congress", 
+        "end": 1169.291750000000, 
+        "environment": "BTH", 
+        "prompt": "The motion was only passed by members of the ruling Partido Revolucionario Institucional, which has a majority in Congress.", 
+        "speaker": "M02", 
+        "start": 1160.352187500000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "01WO030U"
+    }, 
+    {
+        "dot": "While big unionized steelmakers are stumbling minimills    small plants that make steel from scrap instead of iron ore    are flourishing", 
+        "end": 761.6135000000000, 
+        "environment": "BTH", 
+        "prompt": "While big, unionized steelmakers are stumbling, minimills -- small plants that make steel from scrap instead of iron ore -- are flourishing.", 
+        "speaker": "M02", 
+        "start": 751.6741875000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "207O0109"
+    }, 
+    {
+        "dot": "Guests swim through man made waterfalls zip down a one hundred thirty foot tall water slide and observe flocks of swans penguins and flamingos", 
+        "end": 338.5842500000000, 
+        "environment": "BTH", 
+        "prompt": "Guests swim through man-made waterfalls, zip down a one hundred thirty-foot-tall water slide and observe flocks of swans, penguins and flamingos.", 
+        "speaker": "M02", 
+        "start": 327.6844375000000, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "207C010G"
+    }, 
+    {
+        "dot": "The payoff came last month at the Toronto summit of major industrial nations where Japan was praised for its leadership on such issues as debt forgiveness for poor countries", 
+        "end": 641.3667500000000, 
+        "environment": "BTH", 
+        "prompt": "The payoff came last month at the Toronto summit of major industrial nations, where Japan was praised for its leadership on such issues as debt forgiveness for poor countries.", 
+        "speaker": "F03", 
+        "start": 629.8033124999999, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "407C0216"
+    }, 
+    {
+        "dot": "Sure enough that autumn they found and shared the treasure", 
+        "end": 996.6114375000000, 
+        "environment": "BTH", 
+        "prompt": "Sure enough, that autumn they found and shared the treasure.", 
+        "speaker": "M02", 
+        "start": 992.1554374999999, 
+        "wavfile": "M02_141128_010_BTH", 
+        "wsj_name": "027C021G"
+    }, 
+    {
+        "dot": "Acer International Corporation of Taiwan shows a machine billed as compatible with the bottom of the line P\\. S\\.  two Model thirty", 
+        "end": 1181.778125000000, 
+        "environment": "BTH", 
+        "prompt": "Acer International Corporation of Taiwan shows a machine billed as compatible with the bottom-of-the-line P. S. /SLASH two Model thirty.", 
+        "speaker": "F03", 
+        "start": 1171.871500000000, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "01BO030P"
+    }, 
+    {
+        "dot": "If Texaco managers want to be there in the future it would make sense to boost the stock says an influential Texaco holder", 
+        "end": 564.0738125000000, 
+        "environment": "BTH", 
+        "prompt": "If Texaco managers \"want to be there in the future, it would make sense\" to boost the stock, says an influential Texaco holder.", 
+        "speaker": "F03", 
+        "start": 555.8315625000000, 
+        "wavfile": "F03_141121_010_BTH", 
+        "wsj_name": "028C021D"
+    }
+
+]

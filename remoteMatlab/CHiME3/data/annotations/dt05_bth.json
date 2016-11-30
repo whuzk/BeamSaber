@@ -1,0 +1,202 @@
+[
+    {
+        "dot": "Last month overall goods producing employment fell sixty eight thousand after a thirty two thousand job rise in February", 
+        "end": 372.1240000000000, 
+        "environment": "BTH", 
+        "prompt": "Last month, overall goods-producing employment fell sixty-eight thousand after a thirty-two thousand-job rise in February.", 
+        "speaker": "M04", 
+        "start": 364.3003750000000, 
+        "wavfile": "M04_141107_010_BTH", 
+        "wsj_name": "050C0101"
+    }, 
+    {
+        "dot": "The department said the decline in factory jobs was concentrated in motor vehicles and electrical and electronic equipment", 
+        "end": 558.2174375000000, 
+        "environment": "BTH", 
+        "prompt": "The department said the decline in factory jobs was concentrated in motor vehicles and electrical and electronic equipment.", 
+        "speaker": "M03", 
+        "start": 551.5578750000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C0102"
+    }, 
+    {
+        "dot": "Construction employment fell forty seven thousand after a fifteen thousand job decline the month before", 
+        "end": 471.5495625000000, 
+        "environment": "BTH", 
+        "prompt": "Construction employment fell forty-seven thousand after a fifteen thousand-job decline the month before.", 
+        "speaker": "F01", 
+        "start": 465.3114375000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C0103"
+    }, 
+    {
+        "dot": "Mining employment which includes the oil and gas extraction industry rose three thousand after a one thousand job rise", 
+        "end": 633.9241250000000, 
+        "environment": "BTH", 
+        "prompt": "Mining employment, which includes the oil and gas extraction industry, rose three thousand after a one thousand-job rise.", 
+        "speaker": "F04", 
+        "start": 626.6005625000000, 
+        "wavfile": "F04_141111_010_BTH", 
+        "wsj_name": "050C0104"
+    }, 
+    {
+        "dot": "In a statement R\\. L\\. R\\. said the brokerage unit generated substantially all of its revenue", 
+        "end": 384.1547500000000, 
+        "environment": "BTH", 
+        "prompt": "In a statement, R. L. R. said the brokerage unit generated substantially all of its revenue.", 
+        "speaker": "F01", 
+        "start": 377.8350625000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C0105"
+    }, 
+    {
+        "dot": "It said it is negotiating the sale of certain assets of the brokerage unit", 
+        "end": 367.5618750000000, 
+        "environment": "BTH", 
+        "prompt": "It said it is negotiating the sale of certain assets of the brokerage unit.", 
+        "speaker": "M03", 
+        "start": 362.7340625000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C0106"
+    }, 
+    {
+        "dot": "The parent company added that it may seek other business opportunities subject to the availability of financing which may not be available", 
+        "end": 274.8619375000000, 
+        "environment": "BTH", 
+        "prompt": "The parent company added that it may \"seek other business opportunities,\" subject to the availability of financing, \"which may not be available.\"", 
+        "speaker": "M03", 
+        "start": 267.0503750000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C0107"
+    }, 
+    {
+        "dot": "U\\. S\\. car sales fell ten point one percent in early November from a year ago", 
+        "end": 1388.452812500000, 
+        "environment": "BTH", 
+        "prompt": "U. S. car sales fell ten point one percent in early November from a year ago.", 
+        "speaker": "M03", 
+        "start": 1383.073062500000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C0108"
+    }, 
+    {
+        "dot": "Though there was little evidence the stock market plunge had affected sales the outlook remains uncertain", 
+        "end": 260.5174375000000, 
+        "environment": "BTH", 
+        "prompt": "Though there was little evidence the stock market plunge had affected sales, the outlook remains uncertain.", 
+        "speaker": "F04", 
+        "start": 254.9853750000000, 
+        "wavfile": "F04_141111_010_BTH", 
+        "wsj_name": "050C0109"
+    }, 
+    {
+        "dot": "Chrysler reduced some prices on Friday", 
+        "end": 45.08006250000000, 
+        "environment": "BTH", 
+        "prompt": "Chrysler reduced some prices on Friday.", 
+        "speaker": "M03", 
+        "start": 42.16343750000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C010A"
+    }, 
+    {
+        "dot": "L\\. T\\. V\\. the nation\\'s Number two steelmaker said the sale is among a number of options under study for the plant", 
+        "end": 1280.169625000000, 
+        "environment": "BTH", 
+        "prompt": "L. T. V., the nation's Number two steelmaker, said the sale is among a number of options under study for the plant.", 
+        "speaker": "M03", 
+        "start": 1272.998312500000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C010B"
+    }, 
+    {
+        "dot": "Others include a joint venture with another company or an employee buy out", 
+        "end": 689.5013750000001, 
+        "environment": "BTH", 
+        "prompt": "Others include a joint venture with another company or an employee buy-out.", 
+        "speaker": "F01", 
+        "start": 684.1416250000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C010C"
+    }, 
+    {
+        "dot": "L\\. T\\. V\\. said it retained Shearson Lehman Brothers Incorporated to help with the study", 
+        "end": 217.0791875000000, 
+        "environment": "BTH", 
+        "prompt": "L. T. V. said it retained Shearson Lehman Brothers Incorporated to help with the study.", 
+        "speaker": "F04", 
+        "start": 211.7395000000000, 
+        "wavfile": "F04_141111_010_BTH", 
+        "wsj_name": "050C010D"
+    }, 
+    {
+        "dot": "Auto sales rose two point four percent in December after declining zero point seven percent in November", 
+        "end": 1486.872687500000, 
+        "environment": "BTH", 
+        "prompt": "Auto sales rose two point four percent in December after declining zero point seven percent in November.", 
+        "speaker": "M03", 
+        "start": 1480.669125000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C010E"
+    }, 
+    {
+        "dot": "Furniture sales fell zero point five percent after rising zero point two percent", 
+        "end": 780.1516250000000, 
+        "environment": "BTH", 
+        "prompt": "Furniture sales fell zero point five percent after rising zero point two percent.", 
+        "speaker": "M03", 
+        "start": 774.2598750000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C010F"
+    }, 
+    {
+        "dot": "Sales of building materials increased one point three percent after a one point one percent drop", 
+        "end": 248.3206250000000, 
+        "environment": "BTH", 
+        "prompt": "Sales of building materials increased one point three percent after a one point one percent drop.", 
+        "speaker": "F01", 
+        "start": 240.8088750000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C010G"
+    }, 
+    {
+        "dot": "Overall sales of durable goods intended to last three years or more climbed one point seven percent after a zero point two percent rise in November", 
+        "end": 929.5908750000000, 
+        "environment": "BTH", 
+        "prompt": "Overall, sales of durable goods, intended to last three years or more, climbed one point seven percent after a zero point two percent rise in November.", 
+        "speaker": "F04", 
+        "start": 920.4591875000000, 
+        "wavfile": "F04_141111_010_BTH", 
+        "wsj_name": "050C010H"
+    }, 
+    {
+        "dot": "Stock prices also were mixed in Paris Zurich and Stockholm", 
+        "end": 896.0105625000000, 
+        "environment": "BTH", 
+        "prompt": "Stock prices also were mixed in Paris, Zurich and Stockholm.", 
+        "speaker": "M03", 
+        "start": 891.9428750000000, 
+        "wavfile": "M03_141106_010_BTH", 
+        "wsj_name": "050C010I"
+    }, 
+    {
+        "dot": "Stocks rose in Amsterdam and were lower in Brussels and Milan", 
+        "end": 653.6389375000000, 
+        "environment": "BTH", 
+        "prompt": "Stocks rose in Amsterdam and were lower in Brussels and Milan.", 
+        "speaker": "F01", 
+        "start": 649.2551875000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C010J"
+    }, 
+    {
+        "dot": "Most European traders were reportedly staying out of action until the trade figures are released", 
+        "end": 233.4972500000000, 
+        "environment": "BTH", 
+        "prompt": "Most European traders were reportedly staying out of action until the trade figures are released.", 
+        "speaker": "F01", 
+        "start": 226.8575000000000, 
+        "wavfile": "F01_141107_010_BTH", 
+        "wsj_name": "050C010K"
+    }    
+]

@@ -1,0 +1,1625 @@
+[
+    {
+        "dot": "In this industry is this state they\\'re mostly pessimists", 
+        "end": 420.6403750000000, 
+        "environment": "PED", 
+        "prompt": "\"In this industry in this state, they're mostly pessimists.", 
+        "speaker": "F02", 
+        "start": 416.2965625000000, 
+        "transcription": "\"In this industry is this state, they're mostly pessimists.", 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "017C020N"
+    }, 
+    {
+        "dot": "With its members struggling to make every sale possible in the oversupplied world market OPEC has been obliging the refiners\\' heavy demand", 
+        "end": 313.8093125000000, 
+        "environment": "PED", 
+        "prompt": "With its members struggling to make every sale possible in the oversupplied world market, OPEC has been obliging the refiners' heavy demand.", 
+        "speaker": "M02", 
+        "start": 304.6618125000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "406C020O"
+    }, 
+    {
+        "dot": "More than sixty ballot measures    ranging from open pit mining to government ethics to parole reform    will confront voters in more than half the states", 
+        "end": 486.2601875000000, 
+        "environment": "BUS", 
+        "prompt": "More than sixty ballot measures -- ranging from open-pit mining to government ethics to parole reform -- will confront voters in more than half the states.", 
+        "speaker": "F03", 
+        "start": 476.7887500000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "014O0318"
+    }, 
+    {
+        "dot": "Indeed labor experts say there is only a slim chance that South Korea can lay a foundation for labor relations that might calm worker unrest soon", 
+        "end": 783.7245000000000, 
+        "environment": "STR", 
+        "prompt": "Indeed, labor experts say there is only a slim chance that South Korea can lay a foundation for labor relations that might calm worker unrest soon.", 
+        "speaker": "F03", 
+        "start": 773.8488125000000, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "01ZO030A"
+    }, 
+    {
+        "dot": "The world is made up of optimists and pessimists says Mr\\. Stone", 
+        "end": 293.4211250000000, 
+        "environment": "CAF", 
+        "prompt": "\"The world is made up of optimists and pessimists,\" says Mr. Stone.", 
+        "speaker": "M01", 
+        "start": 289.1212500000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "014C020I"
+    }, 
+    {
+        "dot": "The students flash a colorful representation of the Korean flag", 
+        "end": 119.5298750000000, 
+        "environment": "BUS", 
+        "prompt": "The students flash a colorful representation of the Korean flag.", 
+        "speaker": "M02", 
+        "start": 115.5420000000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "01FC021F"
+    }, 
+    {
+        "dot": "But the Commerce Department\\'s monthly estimate based on early reports from retailers frequently is revised substantially", 
+        "end": 449.7979375000000, 
+        "environment": "PED", 
+        "prompt": "But the Commerce Department's monthly estimate, based on early reports from retailers, frequently is revised substantially.", 
+        "speaker": "M01", 
+        "start": 441.6822500000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "01RC020N"
+    }, 
+    {
+        "dot": "But that proposal is given a smaller chance of passing the board the sources said", 
+        "end": 285.4156250000000, 
+        "environment": "STR", 
+        "prompt": "But that proposal is given a smaller chance of passing the board, the sources said.", 
+        "speaker": "M02", 
+        "start": 280.7560625000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "209O0106"
+    }, 
+    {
+        "dot": "At National Steel Corporation we have seen no pullback at all in order rates says Ronald H\\. Doerr executive vice president", 
+        "end": 551.2573750000000, 
+        "environment": "PED", 
+        "prompt": "At National Steel Corporation, \"we have seen no pullback at all in order rates,\" says Ronald H. Doerr, executive vice president.", 
+        "speaker": "M01", 
+        "start": 542.8535625000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "01DC020K"
+    }, 
+    {
+        "dot": "This spring Congress passed a ban on all  indecent  speech on dial it services", 
+        "end": 224.5239375000000, 
+        "environment": "BUS", 
+        "prompt": "This spring, Congress passed a ban on all \" indecent \" speech on dial-it services.", 
+        "speaker": "F02", 
+        "start": 219.0241250000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "01UO030X"
+    }, 
+    {
+        "dot": " That\\'s what I\\'m here for", 
+        "end": 197.9305625000000, 
+        "environment": "PED", 
+        "prompt": "\" That's what I'm here for.", 
+        "speaker": "F02", 
+        "start": 195.8026250000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "40EO030U"
+    }, 
+    {
+        "dot": "As the expansion keeps rolling however this is expected to come", 
+        "end": 860.0924375000000, 
+        "environment": "PED", 
+        "prompt": "As the expansion keeps rolling, however, this is expected to come.", 
+        "speaker": "F02", 
+        "start": 856.3084375000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "401O030C"
+    }, 
+    {
+        "dot": "The good will amortization represents the amount above book value that G\\. M\\. paid for Hughes Aircraft", 
+        "end": 358.0993125000000, 
+        "environment": "PED", 
+        "prompt": "The good-will amortization represents the amount above book value that G. M. paid for Hughes Aircraft.", 
+        "speaker": "F02", 
+        "start": 350.3716250000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "403C020J"
+    }, 
+    {
+        "dot": "A spokeswoman for Ashland said We have been outraged by this entire incident", 
+        "end": 216.5531875000000, 
+        "environment": "BUS", 
+        "prompt": "A spokeswoman for Ashland said, \"We have been outraged by this entire incident.\"", 
+        "speaker": "M01", 
+        "start": 211.7893125000000, 
+        "wavfile": "M01_141118_030_BUS", 
+        "wsj_name": "406C021D"
+    }, 
+    {
+        "dot": "But in a prepared statement Chairman Edwin E\\. Tuttle said the proposed sale of the units would be an effective deterrent to any takeovers", 
+        "end": 825.7566875000000, 
+        "environment": "BUS", 
+        "prompt": "But in a prepared statement, Chairman Edwin E. Tuttle said the proposed sale of the units would be an \"effective deterrent to any takeovers.\"", 
+        "speaker": "F03", 
+        "start": 816.2609375000000, 
+        "wavfile": "F03_141103_020_BUS", 
+        "wsj_name": "020C0218"
+    }, 
+    {
+        "dot": "U\\. S\\. X\\. which owns Marathon Oil rose five eighths to twenty six and five eighths on more than twoPOINT two million shares", 
+        "end": 453.1465000000000, 
+        "environment": "PED", 
+        "prompt": "U. S. X., which owns Marathon Oil, rose five eighths to twenty six and five eighths on more than two .POINT two million shares.", 
+        "speaker": "M02", 
+        "start": 444.0391875000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01RO030Q"
+    }, 
+    {
+        "dot": "The industrials ended the day up only eight point six two to one thousand nine hundred forty one point four eight", 
+        "end": 192.6971875000000, 
+        "environment": "CAF", 
+        "prompt": "The industrials ended the day up only eight point six two to one thousand, nine hundred forty-one point four eight.", 
+        "speaker": "M01", 
+        "start": 186.4210000000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "014C020S"
+    }, 
+    {
+        "dot": "He said he declined because the offer was too low and because it wasn\\'t being made to other holders", 
+        "end": 522.4935625000001, 
+        "environment": "STR", 
+        "prompt": "He said he declined because the offer was too low and because it wasn't being made to other holders.", 
+        "speaker": "M02", 
+        "start": 516.9377500000001, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "407O0310"
+    }, 
+    {
+        "dot": "Sooner or later they found themselves strangers in their new society", 
+        "end": 395.8754375000000, 
+        "environment": "STR", 
+        "prompt": "Sooner or later they found themselves strangers in their new society.", 
+        "speaker": "F02", 
+        "start": 391.8557500000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "013O030U"
+    }, 
+    {
+        "dot": "The posts had been vacant for about a year", 
+        "end": 206.6281250000000, 
+        "environment": "CAF", 
+        "prompt": "The posts had been vacant for about a year.", 
+        "speaker": "M02", 
+        "start": 203.3282500000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "20OO0105"
+    }, 
+
+    {
+        "dot": " This should be a two way street  said Michael Hatch commissioner of the Minnesota Commerce Department", 
+        "end": 762.0700000000001, 
+        "environment": "BUS", 
+        "prompt": "\" This should be a two-way street, \" said Michael Hatch, commissioner of the Minnesota Commerce Department.", 
+        "speaker": "M02", 
+        "start": 756.7303750000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "014O030A"
+    }, 
+    {
+        "dot": "The county office has had trouble recently hanging on to a receptionist", 
+        "end": 462.3131875000000, 
+        "environment": "BUS", 
+        "prompt": "The county office has had trouble recently hanging on to a receptionist.", 
+        "speaker": "F02", 
+        "start": 457.5933750000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "01MO030B"
+    }, 
+    {
+        "dot": "Banca Commerciale called the Fed\\'s requirements unacceptable and dropped its bid", 
+        "end": 976.3143125000000, 
+        "environment": "STR", 
+        "prompt": "Banca Commerciale called the Fed's requirements unacceptable and dropped its bid.", 
+        "speaker": "M02", 
+        "start": 971.4865000000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "011C021E"
+    }, 
+    {
+        "dot": "It effortlessly sold all the cars it could make in the U\\. S\\. and all it could ship from Japan", 
+        "end": 890.2738750000000, 
+        "environment": "PED", 
+        "prompt": "It effortlessly sold all the cars it could make in the U. S. and all it could ship from Japan.", 
+        "speaker": "M01", 
+        "start": 884.4783750000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "405O031F"
+    }, 
+    {
+        "dot": "That\\'s an idea. ", 
+        "end": 671.0758750000000, 
+        "environment": "CAF", 
+        "prompt": "That's an idea. \"", 
+        "speaker": "M02", 
+        "start": 669.3039375000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "405O0308"
+    }, 
+    {
+        "dot": "He said areas he hopes to fill in include a financial public relations company in New York and acquisitions in the Midwest", 
+        "end": 425.7060000000000, 
+        "environment": "STR", 
+        "prompt": "He said areas he hopes to fill in include a financial public relations company in New York and acquisitions in the Midwest.", 
+        "speaker": "F02", 
+        "start": 418.8623125000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "01GO030Q"
+    }, 
+    {
+        "dot": "What the J\\. V\\. P\\. has demonstrated is a tactical sophistication that has allowed it to ride each wave of discontent as it has surfaced", 
+        "end": 701.7304375000000, 
+        "environment": "CAF", 
+        "prompt": "What the J. V. P. has demonstrated is a tactical sophistication that has allowed it to ride each wave of discontent as it has surfaced.", 
+        "speaker": "M02", 
+        "start": 693.2229374999999, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "01BO0319"
+    }, 
+    {
+        "dot": "Early February North American built car sales edged up zeroPOINT three PERCENT according to figures reported last week", 
+        "end": 737.0544374999999, 
+        "environment": "PED", 
+        "prompt": "Early-February North American-built car sales edged up zero .POINT three %PERCENT, according to figures reported last week.", 
+        "speaker": "M02", 
+        "start": 729.0430000000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "02BO030N"
+    }, 
+    {
+        "dot": "The sale of the hotels is part of Holiday\\'s strategy to sell off assets and concentrate on property management", 
+        "end": 1141.812187500000, 
+        "environment": "CAF", 
+        "prompt": "The sale of the hotels is part of Holiday's strategy to sell off assets and concentrate on property management.", 
+        "speaker": "F03", 
+        "start": 1133.712500000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "011C0201"
+    }, 
+    {
+        "dot": "He has a huge sense of humor and is by all accounts a nice man", 
+        "end": 17.47031250000000, 
+        "environment": "BUS", 
+        "prompt": "He has a huge sense of humor and is, by all accounts, a nice man.", 
+        "speaker": "M02", 
+        "start": 13.23437500000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "01LO030R"
+    }, 
+    {
+        "dot": "Despite my best efforts I remain a reporter seated on a chair in a bookstore", 
+        "end": 440.5718750000000, 
+        "environment": "BUS", 
+        "prompt": "Despite my best efforts, I remain a reporter seated on a chair in a bookstore.", 
+        "speaker": "M02", 
+        "start": 435.8720625000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "406O030D"
+    }, 
+    {
+        "dot": "While rules are revived to deal with publicized concerns such as air and rail safety the government pullback continues in such areas as consumer protection and antitrust enforcement", 
+        "end": 1012.649062500000, 
+        "environment": "CAF", 
+        "prompt": "While rules are revived to deal with publicized concerns such as air and rail safety, the government pullback continues in such areas as consumer protection and antitrust enforcement.", 
+        "speaker": "M01", 
+        "start": 1001.757437500000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "02BO0303"
+    }, 
+    {
+        "dot": " Of course  he quickly adds  I don\\'t see myself as a robber baron in any way shape or form. ", 
+        "end": 499.0768750000000, 
+        "environment": "PED", 
+        "prompt": "\" Of course, \" he quickly adds, \" I don't see myself as a robber baron in any way, shape or form. \"", 
+        "speaker": "F02", 
+        "start": 492.9410000000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "406O030J"
+    }, 
+    {
+        "dot": "Real estate depreciation schedules also have been lengthened reducing their value", 
+        "end": 1268.935437500000, 
+        "environment": "CAF", 
+        "prompt": "Real estate depreciation schedules also have been lengthened, reducing their value.", 
+        "speaker": "F03", 
+        "start": 1263.275500000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "021C0206"
+    }, 
+    {
+        "dot": "Ms\\. Robbins was on vacation and couldn\\'t be reached for comment", 
+        "end": 403.3096250000000, 
+        "environment": "BUS", 
+        "prompt": "Ms. Robbins was on vacation and couldn't be reached for comment.", 
+        "speaker": "M02", 
+        "start": 399.3775625000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "408C021B"
+    }, 
+    {
+        "dot": "True he says  Sometimes I don\\'t know when to shut up. ", 
+        "end": 301.0228125000000, 
+        "environment": "BUS", 
+        "prompt": "True, he says: \" Sometimes I don't know when to shut up. \"", 
+        "speaker": "F02", 
+        "start": 297.5907500000000, 
+        "wavfile": "F02_141106_041_BUS", 
+        "wsj_name": "01LO030T"
+    }, 
+    {
+        "dot": "Williams Pipe Line managers and workers hold regular quality circle give and take sessions rubbing shoulders helped combine jobs and expand worker skills", 
+        "end": 334.4705000000000, 
+        "environment": "CAF", 
+        "prompt": "Williams Pipe Line managers and workers hold regular \"quality circle\" give-and-take sessions; rubbing shoulders helped combine jobs and expand worker skills.", 
+        "speaker": "M02", 
+        "start": 323.6910000000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "209C010M"
+    }, 
+    {
+        "dot": "The state charging breach of fiduciary duty is hoping to recover one hundred twelve million dollars from six former EPIC executives and from its three remaining holding companies", 
+        "end": 181.6791250000000, 
+        "environment": "BUS", 
+        "prompt": "The state, charging breach of fiduciary duty, is hoping to recover one hundred twelve million dollars from six former EPIC executives and from its three remaining holding companies.", 
+        "speaker": "M02", 
+        "start": 168.0398750000000, 
+        "wavfile": "M02_141128_060_BUS", 
+        "wsj_name": "407C0217"
+    }, 
+    {
+        "dot": "He has said some of us will  become dolphins. ", 
+        "end": 994.2353125000000, 
+        "environment": "PED", 
+        "prompt": "He has said some of us will \" become dolphins. \"", 
+        "speaker": "M02", 
+        "start": 990.7594375000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "406O030C"
+    }, 
+    {
+        "dot": "The company signed an agreement with Pfizer to develop and market XOMA\\'s monoclonal antibody based products for the treatment of septic shock", 
+        "end": 535.3570000000000, 
+        "environment": "STR", 
+        "prompt": "The company signed an agreement with Pfizer to develop and market XOMA's monoclonal antibody-based products for the treatment of septic shock.", 
+        "speaker": "M02", 
+        "start": 524.0816250000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "015C020F"
+    }, 
+
+    {
+        "dot": "We saw it with oil and we\\'re seeing it with gold says John Dessauer an Orleans Massachusetts money manager", 
+        "end": 685.0140000000000, 
+        "environment": "BUS", 
+        "prompt": "\"We saw it with oil and we're seeing it with gold,\" says John Dessauer, an Orleans, Massachusetts, money manager.", 
+        "speaker": "F03", 
+        "start": 677.2502500000001, 
+        "wavfile": "F03_141103_020_BUS", 
+        "wsj_name": "01MC020K"
+    }, 
+    {
+        "dot": " It\\'s going to knock the socks off the country and the world", 
+        "end": 443.9823750000000, 
+        "environment": "PED", 
+        "prompt": "\" It's going to knock the socks off the country and the world.", 
+        "speaker": "F03", 
+        "start": 440.3305000000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "40EO030Q"
+    }, 
+    {
+        "dot": "What are you going to do about it", 
+        "end": 769.2082500000000, 
+        "environment": "STR", 
+        "prompt": "\"What are you going to do about it?\"", 
+        "speaker": "M01", 
+        "start": 766.8284374999999, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "01FC0216"
+    }, 
+    {
+        "dot": "Lefrak a New York based development company run by Samuel J\\. LeFrak declined to comment", 
+        "end": 1193.677125000000, 
+        "environment": "CAF", 
+        "prompt": "Lefrak, a New York-based development company run by Samuel J. LeFrak, declined to comment.", 
+        "speaker": "M02", 
+        "start": 1186.777312500000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "207C010B"
+    }, 
+    {
+        "dot": " We don\\'t have an elegant formula  says Mr\\. Barron", 
+        "end": 897.9337500000000, 
+        "environment": "BUS", 
+        "prompt": "\" We don't have an elegant formula, \" says Mr. Barron.", 
+        "speaker": "F03", 
+        "start": 894.6169374999999, 
+        "wavfile": "F03_141103_020_BUS", 
+        "wsj_name": "01IO0318"
+    }, 
+    {
+        "dot": "What I am suggesting gentlemen is that the process has not worked", 
+        "end": 37.22050000000000, 
+        "environment": "BUS", 
+        "prompt": "What I am suggesting, gentlemen, is that the process has not worked.", 
+        "speaker": "F02", 
+        "start": 32.12468750000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "01LO030O"
+    }, 
+    {
+        "dot": "There\\'s tremendous room to grow in terms of ad pages", 
+        "end": 424.2226250000000, 
+        "environment": "BUS", 
+        "prompt": "\"There's tremendous room to grow in terms of ad pages.\"", 
+        "speaker": "F03", 
+        "start": 420.5106875000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "40CC0204"
+    }, 
+    {
+        "dot": "Last week the Treasury secretary warned in a speech that a continued decline in the U\\. S\\. currency\\'s value could be counterproductive", 
+        "end": 715.3911875000000, 
+        "environment": "PED", 
+        "prompt": "Last week, the Treasury secretary warned in a speech that a continued decline in the U. S. currency's value could be \"counterproductive.\"", 
+        "speaker": "M02", 
+        "start": 706.8915000000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01GC020E"
+    }, 
+    {
+        "dot": "Coniston among other things is calling for a new vote", 
+        "end": 1219.836125000000, 
+        "environment": "CAF", 
+        "prompt": "Coniston, among other things, is calling for a new vote.", 
+        "speaker": "M02", 
+        "start": 1215.808062500000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "015C0218"
+    }, 
+    {
+        "dot": "This some analysts say may mean that the London market reaction will be confined to a brief adjustment at the opening", 
+        "end": 58.48612500000000, 
+        "environment": "CAF", 
+        "prompt": "This, some analysts say, may mean that the London market reaction will be confined to a brief adjustment at the opening.", 
+        "speaker": "F03", 
+        "start": 49.91443750000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "40NC020X"
+    }, 
+    {
+        "dot": "The National Association of Realtors is throwing several parties and proudly boasts that eighty nine of its members are delegates or alternates to this convention", 
+        "end": 429.7696875000000, 
+        "environment": "STR", 
+        "prompt": "The National Association of Realtors is throwing several parties, and proudly boasts that eighty nine of its members are delegates or alternates to this convention.", 
+        "speaker": "M02", 
+        "start": 420.3980625000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "021O030Y"
+    }, 
+    {
+        "dot": "Analysts said traders are shifting their emphasis away from last year\\'s crop and to this year\\'s", 
+        "end": 971.9643125000000, 
+        "environment": "PED", 
+        "prompt": "Analysts said traders are shifting their emphasis away from last year's crop and to this year's.", 
+        "speaker": "M02", 
+        "start": 966.0963750000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01QO030N"
+    }, 
+    {
+        "dot": "What lies ahead", 
+        "end": 912.8852500000000, 
+        "environment": "CAF", 
+        "prompt": "What lies ahead?", 
+        "speaker": "F03", 
+        "start": 911.0650625000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "20BC010A"
+    }, 
+    {
+        "dot": "This he undoubtedly will try to do for the politics of the Democrats\\' Michael Dukakis is hardly in the Reagan mold", 
+        "end": 323.4380000000000, 
+        "environment": "STR", 
+        "prompt": "This he undoubtedly will try to do, for the politics of the Democrats' Michael Dukakis is hardly in the Reagan mold.", 
+        "speaker": "M02", 
+        "start": 316.7305625000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "02CC020W"
+    }, 
+    {
+        "dot": "Ohio Casualty an insurance issue added one quarter to forty nine and one quarter", 
+        "end": 1319.175812500000, 
+        "environment": "STR", 
+        "prompt": "Ohio Casualty, an insurance issue, added one quarter to forty nine and one quarter.", 
+        "speaker": "F03", 
+        "start": 1312.676125000000, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "011O031F"
+    }, 
+    {
+        "dot": "Chevron paid a total of five hundred fifty five million dollars for the stake but it already has taken write offs to reflect possible losses", 
+        "end": 1582.244187500000, 
+        "environment": "CAF", 
+        "prompt": "Chevron paid a total of five hundred fifty-five million dollars for the stake, but it already has taken write-offs to reflect possible losses.", 
+        "speaker": "M02", 
+        "start": 1573.376687500000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "024C0214"
+    }, 
+    {
+        "dot": "Volume on the New York Stock Exchange totaled two hundred eleven point nine million shares up from one hundred sixty six point four million shares traded Thursday", 
+        "end": 593.0212500000000, 
+        "environment": "BUS", 
+        "prompt": "Volume on the New York Stock Exchange totaled two hundred eleven point nine million shares, up from one hundred sixty-six point four million shares traded Thursday.", 
+        "speaker": "M02", 
+        "start": 583.2180000000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "017C020Z"
+    }, 
+    {
+        "dot": " I think he was trying to find a way back in. ", 
+        "end": 184.1978125000000, 
+        "environment": "BUS", 
+        "prompt": "\" I think he was trying to find a way back in. \"", 
+        "speaker": "F02", 
+        "start": 181.5420000000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "01JO030D"
+    }, 
+    {
+        "dot": "The rally in public works construction dominated the month\\'s activity", 
+        "end": 637.5684375000000, 
+        "environment": "STR", 
+        "prompt": "The rally in public works construction dominated the month's activity.", 
+        "speaker": "F02", 
+        "start": 633.4446250000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "01LO0302"
+    }, 
+    {
+        "dot": "If Hollywood\\'s insurers toil in a world of make believe they must still come up with real life ways to minimize their losses", 
+        "end": 294.8180000000000, 
+        "environment": "PED", 
+        "prompt": "If Hollywood's insurers toil in a world of make-believe, they must still come up with real-life ways to minimize their losses.", 
+        "speaker": "M02", 
+        "start": 286.4383125000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "014C021F"
+    }, 
+
+    {
+        "dot": "They see it as a vote of confidence in their conduct of monetary policy it reduces the threat of inflation and eases pressure for further interest rate increases", 
+        "end": 161.5920000000000, 
+        "environment": "BUS", 
+        "prompt": "They see it as a vote of confidence in their conduct of monetary policy; it reduces the threat of inflation and eases pressure for further interest-rate increases.", 
+        "speaker": "M02", 
+        "start": 151.9962500000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "409C0210"
+    }, 
+    {
+        "dot": "The public will not tolerate self dealing or conflicts of interest by exchange director or insiders he said Friday in a statement", 
+        "end": 44.66531250000000, 
+        "environment": "BUS", 
+        "prompt": "\"The public will not tolerate self-dealing or conflicts of interest by exchange director or insiders,\" he said Friday in a statement.", 
+        "speaker": "F03", 
+        "start": 36.80956250000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "20MC010P"
+    }, 
+    {
+        "dot": "High technology heart surgery for example would be given to young patients expected to have a promising response", 
+        "end": 124.1835000000000, 
+        "environment": "CAF", 
+        "prompt": "High-technology heart surgery, for example, \"would be given to young patients expected to have a promising response.", 
+        "speaker": "M02", 
+        "start": 116.2760000000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "20DC0108"
+    }, 
+    {
+        "dot": "The strategies involved in portfolio insurance reinforced the market\\'s trend says PaineWebber\\'s Mr\\. Kirschner", 
+        "end": 646.1098750000000, 
+        "environment": "STR", 
+        "prompt": "The strategies involved in portfolio insurance \"reinforced the market's trend,\" says PaineWebber's Mr. Kirschner.", 
+        "speaker": "M01", 
+        "start": 639.2418750000001, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "01WC020Q"
+    }, 
+    {
+        "dot": "This year through May twenty third the fund was about a half percentage point ahead of the S\\. and P\\. five hundred\\'s two point four percent rise", 
+        "end": 534.3819375000000, 
+        "environment": "CAF", 
+        "prompt": "This year, through May twenty-third, the fund was about a half percentage point ahead of the S. and P. five hundred's two point four percent rise.", 
+        "speaker": "M02", 
+        "start": 524.0903125000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "408C020U"
+    }, 
+    {
+        "dot": "The gunship carrying two crew members failed to return to a cruiser following Monday\\'s raids on Iranian oil platforms and vessels", 
+        "end": 697.2778125000000, 
+        "environment": "STR", 
+        "prompt": "The gunship, carrying two crew members, failed to return to a cruiser following Monday's raids on Iranian oil platforms and vessels.", 
+        "speaker": "F02", 
+        "start": 689.7061250000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "40AC020X"
+    }, 
+    {
+        "dot": "They also predicted that banks will raise their prime or base rates again to ten and one half PERCENT or eleven PERCENT from the current ten PERCENT level", 
+        "end": 397.3261250000000, 
+        "environment": "BUS", 
+        "prompt": "They also predicted that banks will raise their prime, or base, rates again to ten and one half %PERCENT or eleven %PERCENT from the current ten %PERCENT level.", 
+        "speaker": "M02", 
+        "start": 387.8820625000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "404O0314"
+    }, 
+    {
+        "dot": "Bondholders have the option on February fifteenth nineteen ninety three to put the bonds back to the company at par", 
+        "end": 451.7293125000000, 
+        "environment": "CAF", 
+        "prompt": "Bondholders have the option on February fifteenth, nineteen ninety three, to put the bonds back to the company at par.", 
+        "speaker": "M02", 
+        "start": 444.1337500000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "40HO030R"
+    }, 
+    {
+        "dot": "C\\. E\\.\\'s attitude is good", 
+        "end": 1159.546687500000, 
+        "environment": "PED", 
+        "prompt": "\"C. E.'s attitude is good.", 
+        "speaker": "F03", 
+        "start": 1156.552687500000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "20HC010J"
+    }, 
+    {
+        "dot": "People close to the situation say the company and pilots\\' union were hoping to hammer out an agreement that the other labor groups would find acceptable", 
+        "end": 280.4241875000000, 
+        "environment": "BUS", 
+        "prompt": "People close to the situation say the company and pilots' union were hoping to hammer out an agreement that the other labor groups would find acceptable.", 
+        "speaker": "F03", 
+        "start": 271.4126250000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "40CC021C"
+    }, 
+    {
+        "dot": "In addition by consenting to Rorer\\'s bid Robins may have put itself up for sale", 
+        "end": 532.4373125000000, 
+        "environment": "STR", 
+        "prompt": "In addition, by consenting to Rorer's bid, Robins may have put itself up for sale.", 
+        "speaker": "F02", 
+        "start": 526.5053750000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "206O0104"
+    }, 
+    {
+        "dot": "This warning now represents a minority view", 
+        "end": 686.1310625000000, 
+        "environment": "PED", 
+        "prompt": "This warning now represents a minority view.", 
+        "speaker": "M01", 
+        "start": 682.7753125000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "026O030Y"
+    }, 
+    {
+        "dot": "Measured in yen or volume Japanese trade hadn\\'t been faring as well", 
+        "end": 566.6610625000000, 
+        "environment": "BUS", 
+        "prompt": "Measured in yen or volume, Japanese trade hadn't been faring as well.", 
+        "speaker": "F03", 
+        "start": 561.8332500000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "016C020O"
+    }, 
+    {
+        "dot": "It is common for one third of all issues traded to fluctuate at least five percent in price every day he says", 
+        "end": 1281.151125000000, 
+        "environment": "CAF", 
+        "prompt": "\"It is common for one-third of all issues traded to fluctuate at least five percent in price every day,\" he says.", 
+        "speaker": "F03", 
+        "start": 1272.563125000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "020C0209"
+    }, 
+    {
+        "dot": "And feelings at Federated have run high against Campeau which surprised the company with a hostile bid last month", 
+        "end": 879.4168125000000, 
+        "environment": "STR", 
+        "prompt": "And feelings at Federated have run high against Campeau, which surprised the company with a hostile bid last month.", 
+        "speaker": "F03", 
+        "start": 872.3010624999999, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "026O030R"
+    }, 
+    {
+        "dot": "The Financial Times thirty share index rose elevenPOINT six to one thousand seven hundred seventy fivePOINT four", 
+        "end": 621.7821250000000, 
+        "environment": "CAF", 
+        "prompt": "The Financial Times thirty-share index rose eleven .POINT six to one thousand, seven hundred seventy five .POINT four.", 
+        "speaker": "M02", 
+        "start": 614.6581250000000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "01MO030V"
+    }, 
+    {
+        "dot": "If the buy out succeeds GranTree\\'s management is to hold an undisclosed stake in the company", 
+        "end": 71.32075000000000, 
+        "environment": "STR", 
+        "prompt": "If the buy-out succeeds, GranTree's management is to hold an undisclosed stake in the company.", 
+        "speaker": "M02", 
+        "start": 65.41306250000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "01MC020D"
+    }, 
+    {
+        "dot": "My wife Jodi got the idea of giving the character a name and putting him in a book", 
+        "end": 359.7378125000000, 
+        "environment": "PED", 
+        "prompt": "\"My wife, Jodi, got the idea of giving the character a name and putting him in a book.", 
+        "speaker": "M01", 
+        "start": 355.1661875000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "01IC0214"
+    }, 
+    {
+        "dot": "But he was unsuccessful in three multibillion dollar tender offers that would have put Wickes much more heavily into manufacturing", 
+        "end": 542.2688750000000, 
+        "environment": "STR", 
+        "prompt": "But he was unsuccessful in three multibillion-dollar tender offers that would have put Wickes much more heavily into manufacturing.", 
+        "speaker": "F02", 
+        "start": 533.8250000000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "029O0312"
+    }, 
+    {
+        "dot": "The S\\. E\\. C\\. economists concluded that trying to end the price run up is dangerous", 
+        "end": 29.33631250000000, 
+        "environment": "STR", 
+        "prompt": "The S. E. C. economists concluded that trying to end the price run-up is dangerous.", 
+        "speaker": "M01", 
+        "start": 24.43656250000000, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "01MO0307"
+    }, 
+
+
+
+
+
+    {
+        "dot": "Vicorp has risen sixty three PERCENT Shoney\\'s and Chili\\'s are up twenty five PERCENT.", 
+        "end": 427.6232500000000, 
+        "environment": "STR", 
+        "prompt": "Vicorp has risen sixty three %PERCENT; Shoney's and Chili's are up twenty five %PERCENT.", 
+        "speaker": "M01", 
+        "start": 421.9632500000000, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "01GO0311"
+    }, 
+    {
+        "dot": "While the gold here has hardly been touched     hardly nibbled at my friend     he is ready to cede control", 
+        "end": 721.2836875000000, 
+        "environment": "PED", 
+        "prompt": "While the gold here has hardly been touched -- \" hardly nibbled at, my friend \" -- he is ready to cede control.", 
+        "speaker": "F03", 
+        "start": 714.0324375000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "20BO010I"
+    }, 
+    {
+        "dot": "The British government retained a golden share in Britoil to safeguard the company\\'s independence after selling it to private investors", 
+        "end": 100.0204375000000, 
+        "environment": "CAF", 
+        "prompt": "The British government retained a \"golden share\" in Britoil to safeguard the company's independence after selling it to private investors.", 
+        "speaker": "M01", 
+        "start": 92.28868749999999, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "02CC020C"
+    }, 
+    {
+        "dot": "STEEL OF WEST VIRGINIA INCORPORATED began an initial public offering of one point six million common shares at twelve dollars and fifty cents a share", 
+        "end": 77.64518750000001, 
+        "environment": "CAF", 
+        "prompt": "STEEL OF WEST VIRGINIA INCORPORATED began an initial public offering of one point six million common shares at twelve dollars and fifty cents a share.", 
+        "speaker": "M01", 
+        "start": 68.83356250000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "028C020I"
+    }, 
+    {
+        "dot": "It\\'s a fashionable number said Mr\\. Chandross of Lloyd\\'s Bank New York", 
+        "end": 613.2755000000000, 
+        "environment": "PED", 
+        "prompt": "\"It's a fashionable number,\" said Mr. Chandross of Lloyd's Bank, New York.", 
+        "speaker": "M02", 
+        "start": 608.3436875000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "40FC0215"
+    }, 
+    {
+        "dot": "One New York trader said he witnessed the currency\\'s value jump as his bank executed a purchase order for two hundred fifty million dollars in several chunks", 
+        "end": 1278.358125000000, 
+        "environment": "PED", 
+        "prompt": "One New York trader said he witnessed the currency's value jump as his bank executed a purchase order for two hundred fifty million dollars in several chunks.", 
+        "speaker": "F03", 
+        "start": 1268.098500000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "40PC0202"
+    }, 
+    {
+        "dot": "But retailers have seen strong sales of big ticket items to well heeled customers", 
+        "end": 1154.427125000000, 
+        "environment": "PED", 
+        "prompt": "But retailers have seen strong sales of big-ticket items to well-heeled customers.", 
+        "speaker": "F03", 
+        "start": 1147.951250000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "406O0302"
+    }, 
+    {
+        "dot": "Taxpayers must use the longer more complicated Part three if any of the proceeds from the loan went for trade or business expenses", 
+        "end": 56.35362500000000, 
+        "environment": "BUS", 
+        "prompt": "Taxpayers must use the longer, more complicated Part three if any of the proceeds from the loan went for trade or business expenses.", 
+        "speaker": "F02", 
+        "start": 47.80218750000000, 
+        "wavfile": "F02_141106_041_BUS", 
+        "wsj_name": "40NO030L"
+    }, 
+    {
+        "dot": "I wanted to run my amateur theater like the big time he remembers", 
+        "end": 212.3880000000000, 
+        "environment": "STR", 
+        "prompt": "\"I wanted to run my amateur theater like the big time,\" he remembers.", 
+        "speaker": "F02", 
+        "start": 208.1920000000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "011C0204"
+    }, 
+    {
+        "dot": "Long term bulls predict N\\. C\\. N\\. B\\.\\'s price could easily double and some say triple", 
+        "end": 328.3215625000000, 
+        "environment": "BUS", 
+        "prompt": "Long term, bulls predict, N. C. N. B.'s price could easily double and, some say, triple.", 
+        "speaker": "M01", 
+        "start": 322.1017500000000, 
+        "wavfile": "M01_141118_040_BUS", 
+        "wsj_name": "20QC010F"
+    }, 
+    {
+        "dot": "He maintained that too often they leave companies loaded with debt and shrunken research budgets and ignore the interests of employees and the communities in which the companies do business", 
+        "end": 755.2970000000000, 
+        "environment": "STR", 
+        "prompt": "He maintained that too often they leave companies loaded with debt and shrunken research budgets and ignore the interests of employees and the communities in which the companies do business.", 
+        "speaker": "M01", 
+        "start": 745.8135000000000, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "40PO030H"
+    }, 
+    {
+        "dot": "The Calgary complex was on the site of a dismantled oil refinery and Mr\\. Sprung says the contaminants from the ground killed the plants", 
+        "end": 28.01031250000000, 
+        "environment": "PED", 
+        "prompt": "The Calgary complex was on the site of a dismantled oil refinery, and Mr. Sprung says contaminants from the ground killed the plants.", 
+        "speaker": "F02", 
+        "start": 19.77050000000000, 
+        "transcription": "The Calgary complex was on the site of a dismantled oil refinery, and Mr. Sprung says the contaminants from the ground killed the plants.", 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "027C020J"
+    }, 
+    {
+        "dot": " The window of opportunity for the creation of superregional banks might not be open long", 
+        "end": 121.2755625000000, 
+        "environment": "CAF", 
+        "prompt": "\" The window of opportunity for the creation of superregional banks might not be open long.", 
+        "speaker": "M01", 
+        "start": 115.7358125000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "40NO030Q"
+    }, 
+    {
+        "dot": "The twelfth was found guilty by a jury sentenced to thirty days of house arrest and fined thirty thousand dollars", 
+        "end": 93.78537500000000, 
+        "environment": "STR", 
+        "prompt": "The twelfth was found guilty by a jury, sentenced to thirty days of house arrest and fined thirty thousand dollars.", 
+        "speaker": "F02", 
+        "start": 86.44581250000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "208O010I"
+    }, 
+    {
+        "dot": "Roy H\\. Park seventy six remains chairman and chief executive officer", 
+        "end": 496.9376875000000, 
+        "environment": "BUS", 
+        "prompt": "Roy H. Park, seventy-six, remains chairman and chief executive officer.", 
+        "speaker": "F03", 
+        "start": 491.4974375000000, 
+        "wavfile": "F03_141103_020_BUS", 
+        "wsj_name": "01UC020F"
+    }, 
+    {
+        "dot": "Mr\\. Steward resides in an affluent section of west Detroit where he owns seven homes in the neighborhood using some of them to house the furniture he collects", 
+        "end": 43.29718750000000, 
+        "environment": "STR", 
+        "prompt": "Mr. Steward resides in an affluent section of west Detroit, where he owns seven homes in the neighborhood, using some of them to house the furniture he collects.", 
+        "speaker": "F03", 
+        "start": 33.10956250000000, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "016C0205"
+    }, 
+    {
+        "dot": "Mr\\. Blotnick called the allegations clearly unfounded", 
+        "end": 241.9471875000000, 
+        "environment": "BUS", 
+        "prompt": "Mr. Blotnick called the allegations \"clearly unfounded.\"", 
+        "speaker": "F02", 
+        "start": 237.0593750000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "40FC020H"
+    }, 
+    {
+        "dot": "New York City\\'s Fresh Kills landfill on Staten Island for one dumps four million gallons of toxic liquid into nearby freshwater streams every day", 
+        "end": 886.5293124999999, 
+        "environment": "PED", 
+        "prompt": "New York City's Fresh Kills landfill on Staten Island, for one, dumps four million gallons of toxic liquid into nearby freshwater streams every day.", 
+        "speaker": "M02", 
+        "start": 876.7002500000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01UC020J"
+    }, 
+    {
+        "dot": "In addition tickets must be purchased from August fifteenth to August twenty sixth", 
+        "end": 215.2872500000000, 
+        "environment": "PED", 
+        "prompt": "In addition, tickets must be purchased from August fifteenth to August twenty sixth.", 
+        "speaker": "F03", 
+        "start": 209.8035625000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "205O010L"
+    }, 
+    {
+        "dot": "Generally there\\'s no limit on how much of their funds employees can borrow if their accounts total ten thousand dollars or less", 
+        "end": 865.5131875000000, 
+        "environment": "PED", 
+        "prompt": "Generally there's no limit on how much of their funds employees can borrow if their accounts total ten thousand dollars or less.", 
+        "speaker": "M02", 
+        "start": 858.4132499999999, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "20EC010H"
+    }, 
+	
+    {
+        "dot": "Last year sixty five PERCENT of its business was in petrochemical refining thirty five PERCENT in non ferrous metals and other businesses", 
+        "end": 64.76375000000000, 
+        "environment": "PED", 
+        "prompt": "Last year sixty five %PERCENT of its business was in petrochemical refining, thirty five %PERCENT in non-ferrous metals and other businesses.", 
+        "speaker": "M02", 
+        "start": 55.98506250000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01KO0316"
+    }, 
+    {
+        "dot": "Nine month net a year ago included four hundred seventy five thousand dollars of special items", 
+        "end": 199.0782500000000, 
+        "environment": "PED", 
+        "prompt": "Nine-month net a year ago included four hundred seventy five thousand dollars of special items.", 
+        "speaker": "M02", 
+        "start": 193.2343125000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "017O030R"
+    }, 
+    {
+        "dot": "But First City wound up making loans to some of the most troubled energy concerns in Texas", 
+        "end": 93.65575000000000, 
+        "environment": "STR", 
+        "prompt": "But First City wound up making loans to some of the most troubled energy concerns in Texas.", 
+        "speaker": "M02", 
+        "start": 87.76400000000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "01IO030G"
+    }, 
+    {
+        "dot": "It is among more than two hundred words phrases and symbols for which the association has gained trademark protection in Canada", 
+        "end": 282.9948125000000, 
+        "environment": "STR", 
+        "prompt": "It is among more than two hundred words, phrases and symbols for which the association has gained trademark protection in Canada.", 
+        "speaker": "M01", 
+        "start": 275.4576875000000, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "20VO010C"
+    }, 
+    {
+        "dot": "Tate and Lyle paid an average of about two hundred sixty pence a share for its stake", 
+        "end": 374.9426875000000, 
+        "environment": "BUS", 
+        "prompt": "Tate and Lyle paid an average of about two hundred sixty pence a share for its stake.", 
+        "speaker": "M01", 
+        "start": 369.9751875000000, 
+        "wavfile": "M01_141118_030_BUS", 
+        "wsj_name": "020C020D"
+    }, 
+    {
+        "dot": " There is a year end phenomenon caused mostly by German austerity  one French official said", 
+        "end": 274.7291250000000, 
+        "environment": "STR", 
+        "prompt": "\" This is a year-end phenomenon, caused mostly by German austerity, \" one French official said.", 
+        "speaker": "F02", 
+        "start": 268.1732500000000, 
+        "transcription": "\" There is a year-end phenomenon, caused mostly by German austerity, \" one French official said.", 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "401O0304"
+    }, 
+    {
+        "dot": " For the most part lawyers have behaved in an ethical responsible manner  says Thomas Johnson chairman of the American Bar Association Commission on Advertising", 
+        "end": 845.4918750000001, 
+        "environment": "PED", 
+        "prompt": "\" For the most part, lawyers have behaved in an ethical, responsible manner, \" says Thomas Johnson, chairman of the American Bar Association Commission on Advertising.", 
+        "speaker": "M01", 
+        "start": 836.5042500000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "40HO0318"
+    }, 
+    {
+        "dot": "I guess Wickes must be happy he said noting that the buyout price barely tops what Wickes had paid for its ten percent stake", 
+        "end": 803.5848750000000, 
+        "environment": "STR", 
+        "prompt": "\"I guess Wickes must be happy,\" he said, noting that the buyout price barely tops what Wickes had paid for its ten percent stake.", 
+        "speaker": "F02", 
+        "start": 796.3572500000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "407C0203"
+    }, 
+    {
+        "dot": "That view is supported by the American Nursing Association which blames cost containment for exacerbating the current nursing shortage", 
+        "end": 683.0923749999999, 
+        "environment": "PED", 
+        "prompt": "That view is supported by the American Nursing Association, which blames cost containment for exacerbating the current nursing shortage.", 
+        "speaker": "F02", 
+        "start": 675.3966250000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wrong": true, 
+        "wsj_name": "01KO030N"
+    }, 
+    {
+        "dot": "But this time in deference to the elderly influential author he and his colleagues agreed to keep quiet", 
+        "end": 232.7037500000000, 
+        "environment": "CAF", 
+        "prompt": "But this time in deference to the elderly, influential author, he and his colleagues agreed to keep quiet.", 
+        "speaker": "M01", 
+        "start": 226.5795000000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "021O0318"
+    }, 
+    {
+        "dot": "A Murdoch aide said that Mr\\. Murdoch has been looking for a long time at the company", 
+        "end": 1654.712375000000, 
+        "environment": "CAF", 
+        "prompt": "A Murdoch aide said that Mr. Murdoch has been \"looking for a long time\" at the company.", 
+        "speaker": "F03", 
+        "start": 1649.012750000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "01MC020Z"
+    }, 
+    {
+        "dot": "Robins jumped one and a half to twenty one", 
+        "end": 366.1789375000000, 
+        "environment": "PED", 
+        "prompt": "Robins jumped one and one half to twenty one.", 
+        "speaker": "F02", 
+        "start": 362.5549375000000, 
+        "transcription": "Robins jumped one and a half to twenty one.", 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "016O030N"
+    }, 
+    {
+        "dot": "Meanwhile the price of doing business on the exchange has declined one third since the processing problem began", 
+        "end": 364.3482500000000, 
+        "environment": "STR", 
+        "prompt": "Meanwhile, the price of doing business on the exchange has declined one-third since the processing problem began.", 
+        "speaker": "M02", 
+        "start": 358.3043750000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "01LO030D"
+    }, 
+    {
+        "dot": " The operation was a pirate", 
+        "end": 292.1741250000000, 
+        "environment": "BUS", 
+        "prompt": "\" The operation was a pirate.", 
+        "speaker": "M01", 
+        "start": 289.6661875000000, 
+        "wavfile": "M01_141118_030_BUS", 
+        "wsj_name": "40EO0318"
+    }, 
+    {
+        "dot": "If it flies it works. ", 
+        "end": 237.7858750000000, 
+        "environment": "BUS", 
+        "prompt": "If it flies, it works. \"", 
+        "speaker": "F03", 
+        "start": 235.9018125000000, 
+        "wavfile": "F03_141103_030_BUS", 
+        "wsj_name": "20PO010C"
+    }, 
+    {
+        "dot": "Her torso was taut with tension leaning out beyond the bumpy dragon\\'s head upon which she rested her stomach", 
+        "end": 151.0005000000000, 
+        "environment": "BUS", 
+        "prompt": "Her torso was taut with tension, leaning out beyond the bumpy dragon's head, upon which she rested her stomach.", 
+        "speaker": "M02", 
+        "start": 142.9450625000000, 
+        "wavfile": "M02_141128_060_BUS", 
+        "wsj_name": "01LC0218"
+    }, 
+    {
+        "dot": "The market\\'s attack on the dollar suggests that this is a failed and dangerous policy", 
+        "end": 258.2385000000000, 
+        "environment": "STR", 
+        "prompt": "The market's attack on the dollar suggests that this is a failed and dangerous policy.", 
+        "speaker": "M01", 
+        "start": 253.7467500000000, 
+        "wavfile": "M01_141118_060_STR", 
+        "wsj_name": "01JC020R"
+    }, 
+    {
+        "dot": "He also said he wasn\\'t told that engineers for Morton Thiokol Incorporated maker of booster rockets urged a delay in launch until weather warmed up", 
+        "end": 736.0759375000000, 
+        "environment": "STR", 
+        "prompt": "He also said he wasn't told that engineers for Morton Thiokol Incorporated, maker of the booster rockets, urged a delay in the launch until the weather warmed up.", 
+        "speaker": "F02", 
+        "start": 726.0563750000000, 
+        "transcription": "He also said he wasn't told that engineers for Morton Thiokol Incorporated, maker of booster rockets, urged a delay in launch until weather warmed up.", 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "204O010B"
+    }, 
+    {
+        "dot": "Mr\\. Trump also has deep pockets    a personal fortune of up to three billion dollars by various estimates    and a willingness to spend freely", 
+        "end": 230.7888750000000, 
+        "environment": "BUS", 
+        "prompt": "Mr. Trump also has deep pockets -- a personal fortune of up to three billion dollars, by various estimates -- and a willingness to spend freely.", 
+        "speaker": "M02", 
+        "start": 222.2024375000000, 
+        "wavfile": "M02_141128_030_BUS", 
+        "wsj_name": "408O030H"
+    }, 
+    {
+        "dot": "American Standard said it\\'s  very pleased  by Black and Decker\\'s withdrawal", 
+        "end": 750.2493125000000, 
+        "environment": "PED", 
+        "prompt": "American Standard said it is \" very pleased \" by Black & Decker's withdrawal.", 
+        "speaker": "F02", 
+        "start": 745.6255000000000, 
+        "transcription": "American Standard said it's \" very pleased \" by Black & Decker's withdrawal.", 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "20VO010E"
+    }, 
+	
+    {
+        "dot": "It seems that the principles unicated at the beginning of this decade by Messrs", 
+        "end": 238.5302500000000, 
+        "environment": "CAF", 
+        "prompt": "It seems that the principles enunciated at the beginning of this decade by Messrs..", 
+        "speaker": "F02", 
+        "start": 234.1425000000000, 
+        "transcription": "It seems that the principles unicated at the beginning of this decade by Messrs..", 
+        "wavfile": "F02_141106_030_CAF", 
+        "wrong": true, 
+        "wsj_name": "20FO010O"
+    }, 
+    {
+        "dot": "A spot survey here showed that many executives think both gross and net sales for the industry this year may range from flat to down thirty PERCENT from last year", 
+        "end": 809.3346250000000, 
+        "environment": "PED", 
+        "prompt": "A spot survey here showed that many executives think both gross and net sales for the industry this year may range from flat to down thirty %PERCENT from last year.", 
+        "speaker": "F02", 
+        "start": 799.1191250000001, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "20FO0106"
+    }, 
+    {
+        "dot": "The board has decided not to appoint a second speaker to take my place", 
+        "end": 23.92900000000000, 
+        "environment": "PED", 
+        "prompt": "\"The board has decided not to appoint a second speaker to take my place.", 
+        "speaker": "M01", 
+        "start": 19.81300000000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "02EC020S"
+    }, 
+    {
+        "dot": "In both studies patients received six hundred or eight hundred milligrams of Virazole or a placebo", 
+        "end": 681.1604374999999, 
+        "environment": "STR", 
+        "prompt": "In both studies, patients received six hundred or eight hundred milligrams of Virazole or a placebo.", 
+        "speaker": "F03", 
+        "start": 673.8289375000001, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "01TO030H"
+    }, 
+    {
+        "dot": "Cash in on the Bash will be the theme of a Saturday party thrown by a New York television executive producer", 
+        "end": 230.0901875000000, 
+        "environment": "STR", 
+        "prompt": "Cash in on the Bash\" will be the theme of a Saturday party thrown by a New York television executive producer.", 
+        "speaker": "M02", 
+        "start": 223.5661875000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "01YC0218"
+    }, 
+    {
+        "dot": "A spokesman for the National Cable Television Association said We don\\'t oppose the proposal in principle", 
+        "end": 906.3413125000000, 
+        "environment": "CAF", 
+        "prompt": "A spokesman for the National Cable Television Association said, \"We don't oppose the proposal in principle.", 
+        "speaker": "F03", 
+        "start": 898.6417500000000, 
+        "transcription": "A spokesman for the National Cable Television Association said, \"We don't oppose the proposal in principle.", 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "205C010H"
+    }, 
+    {
+        "dot": "Israeli soldiers blocked about one thousand Palestinians from entering Israel in a test of new identification cards", 
+        "end": 220.8914375000000, 
+        "environment": "STR", 
+        "prompt": "Israeli soldiers blocked about one thousand Palestinians from entering Israel in a test of new identification cards.", 
+        "speaker": "F02", 
+        "start": 213.4718750000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "40BC021E"
+    }, 
+    {
+        "dot": "Vitaly Yurchenko of the K\\. G\\. B\\. the man who had told the F\\. B\\. I\\. of a spy code named Mr\\.", 
+        "end": 1265.998812500000, 
+        "environment": "PED", 
+        "prompt": "Vitaly Yurchenko of the K. G. B., the man who had told the F. B. I. of a spy code-named \"Mr.", 
+        "speaker": "F03", 
+        "start": 1258.971187500000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "40PC020C"
+    }, 
+    {
+        "dot": "Blackstone\\'s Mr\\. Peterson points out that the market capitalization of Nikko Securities is twice as large as the combined market caps of Merrill Lynch American Express and Manufacturers Hanover", 
+        "end": 1531.734375000000, 
+        "environment": "CAF", 
+        "prompt": "Blackstone's Mr. Peterson points out that the market capitalization of Nikko Securities is twice as large as the combined market caps of Merrill Lynch, American Express and Manufacturers Hanover.", 
+        "speaker": "M02", 
+        "start": 1518.706937500000, 
+        "wavfile": "M02_141128_020_CAF", 
+        "wsj_name": "01YO030Z"
+    }, 
+    {
+        "dot": "A nearby hotel picked them up    and charged them eighteen dollars and seventy five cents each for the van ride", 
+        "end": 185.0520000000000, 
+        "environment": "BUS", 
+        "prompt": "A nearby hotel picked them up -- and charged them eighteen dollars and seventy five cents each for the van ride.", 
+        "speaker": "F02", 
+        "start": 177.9481875000000, 
+        "wavfile": "F02_141106_041_BUS", 
+        "wsj_name": "40NO0310"
+    }, 
+    {
+        "dot": "Supporters of the export effort believe that it is a vital part of nurturing the country\\'s domestic industry", 
+        "end": 881.1103750000000, 
+        "environment": "BUS", 
+        "prompt": "Supporters of the export effort believe that it is a vital part of nurturing the country's domestic industry.", 
+        "speaker": "F03", 
+        "start": 874.3866875000000, 
+        "wavfile": "F03_141103_020_BUS", 
+        "wsj_name": "02BC0214"
+    }, 
+    {
+        "dot": "Called First Children\\'s Bank the branch will cater to children saving on their own as well as adults helping with future expenses such as college", 
+        "end": 863.5349375000000, 
+        "environment": "CAF", 
+        "prompt": "Called First Children's Bank, the branch will cater to children saving on their own, as well as adults helping with future expenses such as college.", 
+        "speaker": "M01", 
+        "start": 854.6113750000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "01KO030W"
+    }, 
+    {
+        "dot": "It\\'s really discouraging says Martin Weil Beijing representative of the National Council for U\\. S\\. China Trade", 
+        "end": 370.4958125000000, 
+        "environment": "BUS", 
+        "prompt": "\"It's really discouraging,\" says Martin Weil, Beijing representative of the National Council for U. S.-China Trade.", 
+        "speaker": "M01", 
+        "start": 364.3805000000000, 
+        "wavfile": "M01_141118_040_BUS", 
+        "wsj_name": "403C020W"
+    }, 
+    {
+        "dot": "An Eastern spokesman said the filings are without merit", 
+        "end": 743.0221250000000, 
+        "environment": "PED", 
+        "prompt": "An Eastern spokesman said the filings are without merit.", 
+        "speaker": "M02", 
+        "start": 739.4821250000000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "01KC020R"
+    }, 
+    {
+        "dot": "Philip Morris is even considering selling space to outside advertisers it already ran an ad for Time magazine on a test basis in its winter nineteen eighty seven issue", 
+        "end": 22.05093750000000, 
+        "environment": "STR", 
+        "prompt": "Philip Morris is even considering selling space to outside advertisers; it already ran an ad for Time magazine on a test basis in its winter nineteen eighty-seven issue.", 
+        "speaker": "M02", 
+        "start": 10.65531250000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "40JC020H"
+    }, 
+    {
+        "dot": "Last month auto sales fell onePOINT four PERCENT after rising fivePOINT seven PERCENT in August", 
+        "end": 1587.922937500000, 
+        "environment": "CAF", 
+        "prompt": "Last month, auto sales fell one .POINT four %PERCENT after rising five .POINT seven %PERCENT in August.", 
+        "speaker": "F03", 
+        "start": 1580.183250000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "01YO030P"
+    }, 
+    {
+        "dot": "Generally economists predict that home prices nationwide in the next few years will rise at the most only a few percentage points faster than inflation", 
+        "end": 373.0738125000000, 
+        "environment": "CAF", 
+        "prompt": "Generally, economists predict that home prices nationwide in the next few years will rise at the most only a few percentage points faster than inflation.", 
+        "speaker": "M01", 
+        "start": 364.2701250000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "01GC0202"
+    }, 
+    {
+        "dot": " The board considered virtually everything  said Johnny W\\. Thompson Pillsbury\\'s spokesman", 
+        "end": 818.8271250000000, 
+        "environment": "STR", 
+        "prompt": "\" The board considered virtually everything, \" said Johnny W. Thompson, Pillsbury's spokesman.", 
+        "speaker": "F03", 
+        "start": 813.1193750000000, 
+        "wavfile": "F03_141103_050_STR", 
+        "wsj_name": "014O030J"
+    }, 
+    {
+        "dot": "Store owners it says are licensees because they own their stores and don\\'t pay royalties to Benetton as franchisees typically do", 
+        "end": 1185.785750000000, 
+        "environment": "PED", 
+        "prompt": "Store owners, it says, are licensees because they own their stores and don't pay royalties to Benetton, as franchisees typically do.", 
+        "speaker": "F03", 
+        "start": 1176.558062500000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "01BC021E"
+    }, 
+    {
+        "dot": "But in general the wait and see attitude is still very prevalent out there", 
+        "end": 1048.253500000000, 
+        "environment": "CAF", 
+        "prompt": "But in general, the wait-and-see attitude is still very prevalent out there.", 
+        "speaker": "F02", 
+        "start": 1043.725625000000, 
+        "wavfile": "F02_141106_030_CAF", 
+        "wsj_name": "01EC020T"
+    },
+	
+    {
+        "dot": "Navy warships and aircraft searched for a missing U\\. S\\. helicopter in the southern Persian Gulf as Iran attacked two commercial vessels", 
+        "end": 181.9058125000000, 
+        "environment": "PED", 
+        "prompt": "Navy warships and aircraft searched for a missing U. S. helicopter in the southern Persian Gulf as Iran attacked two commercial vessels.", 
+        "speaker": "M01", 
+        "start": 174.0463125000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "20IC010D"
+    }, 
+    {
+        "dot": "Allstate officials also declined to comment", 
+        "end": 55.08943750000000, 
+        "environment": "STR", 
+        "prompt": "Allstate officials also declined to comment.", 
+        "speaker": "M02", 
+        "start": 51.63781250000000, 
+        "wavfile": "M02_141128_050_STR", 
+        "wsj_name": "407C021H"
+    }, 
+    {
+        "dot": "A trial on the suit has been scheduled for next Monday", 
+        "end": 905.0045625000000, 
+        "environment": "PED", 
+        "prompt": "A trial on the suit has been scheduled for next Monday.", 
+        "speaker": "F03", 
+        "start": 901.0166875000000, 
+        "wavfile": "F03_141103_040_PED", 
+        "wsj_name": "408O0311"
+    }, 
+    {
+        "dot": "I have never sought either willfully or otherwise to evade income tax Mr\\. Seow said", 
+        "end": 446.3590000000000, 
+        "environment": "CAF", 
+        "prompt": "\"I have never sought, either willfully or otherwise, to evade income tax,\" Mr. Seow said.", 
+        "speaker": "M01", 
+        "start": 439.7071875000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "40NC021A"
+    }, 
+    {
+        "dot": "Last weekend at an industry gathering here nearly fifty of them dressed up in fabrics designed for bedroom bathroom and other household walls", 
+        "end": 422.2351250000000, 
+        "environment": "BUS", 
+        "prompt": "Last weekend, at an industry gathering here, nearly fifty of them dressed up in fabrics designed for bedroom, bathroom and other household walls.", 
+        "speaker": "F02", 
+        "start": 412.6354375000000, 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "406C020W"
+    }, 
+    {
+        "dot": "He paid what he thought it was worth", 
+        "end": 934.4026249999999, 
+        "environment": "CAF", 
+        "prompt": "He paid what he thought it was worth.", 
+        "speaker": "F02", 
+        "start": 931.5067500000000, 
+        "wavfile": "F02_141106_030_CAF", 
+        "wsj_name": "01QO030V"
+    }, 
+    {
+        "dot": "Southwest said its new one day advance purchase discount fares contributed to its strong traffic", 
+        "end": 259.4178125000000, 
+        "environment": "STR", 
+        "prompt": "Southwest said its new one-day advance-purchase discount fares contributed to its strong traffic.", 
+        "speaker": "F02", 
+        "start": 253.2940000000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "407C020I"
+    }, 
+    {
+        "dot": "And Mr\\. Bush pledges to move forward on an issue that has become increasingly important to him in recent years a pact eliminating chemical and biological weapons", 
+        "end": 589.2975625000000, 
+        "environment": "CAF", 
+        "prompt": "And Mr. Bush pledges to move forward on an issue that has become increasingly important to him in recent years: a pact eliminating chemical and biological weapons.", 
+        "speaker": "M01", 
+        "start": 579.6218750000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "01DO030Z"
+    }, 
+    {
+        "dot": "A spokesman for Burmah said that the proposal made yesterday was final and that Burmah and S\\. H\\. V\\. wouldn\\'t contemplate a hostile offer", 
+        "end": 226.5612500000000, 
+        "environment": "BUS", 
+        "prompt": "A spokesman for Burmah said that the proposal made yesterday was final, and that Burmah and S. H. V. wouldn't contemplate a hostile offer.", 
+        "speaker": "M01", 
+        "start": 218.4773125000000, 
+        "wavfile": "M01_141118_030_BUS", 
+        "wsj_name": "013C020I"
+    }, 
+    {
+        "dot": "At the opposite end  Morning people take naps", 
+        "end": 424.3202500000000, 
+        "environment": "PED", 
+        "prompt": "At the opposite end, \" Morning people take naps.", 
+        "speaker": "F02", 
+        "start": 420.8561875000000, 
+        "wavfile": "F02_141106_050_PED", 
+        "wsj_name": "015O030D"
+    }, 
+    {
+        "dot": "I guess it\\'ll be better to feel like a toothpaste carton than to get squeezed", 
+        "end": 212.5824375000000, 
+        "environment": "BUS", 
+        "prompt": "I guess it'll be better to feel like a toothpaste carton than to get squeezed.", 
+        "speaker": "M01", 
+        "start": 208.1866875000000, 
+        "wavfile": "M01_141118_040_BUS", 
+        "wsj_name": "011C020S"
+    }, 
+    {
+        "dot": "Several other countries also have quotas", 
+        "end": 1006.218937500000, 
+        "environment": "PED", 
+        "prompt": "Several other countries also have quotas.", 
+        "speaker": "M02", 
+        "start": 1003.191062500000, 
+        "wavfile": "M02_141128_040_PED", 
+        "wsj_name": "40HC021D"
+    }, 
+    {
+        "dot": "But to identify the plane by number or flight time he added would be an admission of our own culpability in the problem", 
+        "end": 790.6500000000000, 
+        "environment": "CAF", 
+        "prompt": "But to identify the plane by number or flight time, he added, \"would be an admission of our own culpability\" in the problem.", 
+        "speaker": "F03", 
+        "start": 782.3180625000000, 
+        "wavfile": "F03_141103_010_CAF", 
+        "wsj_name": "404C020R"
+    }, 
+    {
+        "dot": "The company had a history of carnage at the top running through five different chief executives in the fourteen years before Messrs", 
+        "end": 553.5962500000001, 
+        "environment": "STR", 
+        "prompt": "The company had a history of carnage at the top, running through five different chief executives in the fourteen years before Messrs..", 
+        "speaker": "F02", 
+        "start": 544.7926875000001, 
+        "wavfile": "F02_141106_020_STR", 
+        "wsj_name": "01RO031B"
+    }, 
+    {
+        "dot": "Next year if we do well there may be a bigger check. ", 
+        "end": 861.5951250000001, 
+        "environment": "PED", 
+        "prompt": "Next year, if we do well, there may be a bigger check. \"", 
+        "speaker": "M01", 
+        "start": 857.9112500000000, 
+        "wavfile": "M01_141118_050_PED", 
+        "wsj_name": "01IO031A"
+    }, 
+    {
+        "dot": "Mr\\. Reagan said he couldn\\'t remember being told anything about the pipeline and expressed every confidence in Mr\\. Meese\\'s integrity", 
+        "end": 678.0221875000000, 
+        "environment": "CAF", 
+        "prompt": "Mr. Reagan said he couldn't remember being told anything about the pipeline, and expressed \"every confidence\" in Mr. Meese's integrity.", 
+        "speaker": "M01", 
+        "start": 669.9783125000000, 
+        "wavfile": "M01_141118_020_CAF", 
+        "wsj_name": "20PC010F"
+    }, 
+    {
+        "dot": "And employees tend to see a pension years away as less valuable than a payment here and now", 
+        "end": 123.8450625000000, 
+        "environment": "BUS", 
+        "prompt": "And employees tend to see a pension years away as less valuable than a payment here and now.", 
+        "speaker": "M01", 
+        "start": 118.6893125000000, 
+        "wavfile": "M01_141118_030_BUS", 
+        "wsj_name": "401C0217"
+    }, 
+    {
+        "dot": "Other exceptions include funds set aside for housing and pensions", 
+        "end": 336.7741250000000, 
+        "environment": "STR", 
+        "prompt": "Other exceptions include funds set aside for housing and pensions.", 
+        "speaker": "F02", 
+        "start": 332.5303125000000, 
+        "wavfile": "F02_141106_020_STR", 
+        "wrong": true, 
+        "wsj_name": "01IC020P"
+    }, 
+    {
+        "dot": "Net nineteen eighty six sales after redemptions were one hundred forty eightPOINT eight billion dollars", 
+        "end": 658.2951875000000, 
+        "environment": "CAF", 
+        "prompt": "Net nineteen eighty six sales, after redemptions, were one hundred forty eight .POINT eight billion dollars.", 
+        "speaker": "F02", 
+        "start": 650.2235625000000, 
+        "wavfile": "F02_141106_030_CAF", 
+        "wsj_name": "20FO0105"
+    }, 
+    {
+        "dot": "However a separate committee was set up to monitor the results of an experiment as it proceeded", 
+        "end": 511.2309375000000, 
+        "environment": "BUS", 
+        "prompt": "However, a separate committee was set up to monitor the results of the experiment as it proceeded.", 
+        "speaker": "F02", 
+        "start": 504.7431250000000, 
+        "transcription": "However, a separate committee was set up to monitor the results of an experiment as it proceeded.", 
+        "wavfile": "F02_141106_040_BUS", 
+        "wsj_name": "404O030R"
+    }
+]
