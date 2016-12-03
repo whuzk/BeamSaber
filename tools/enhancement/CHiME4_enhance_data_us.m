@@ -38,6 +38,7 @@ epath=['../../data/audio/16kHz/enhanced_' track 'r_track/']; % path to enhanced 
 cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
 bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 apath='../../data/annotations/'; % path to JSON annotations
+resultpath='../../result/';
 if strcmp(track,'6ch'),
     nchan=5;
 elseif strcmp(track,'2ch'),
@@ -118,7 +119,9 @@ for set_ind=1:length(sets),
 
                 for c=1:nchan,
                     n(:,c)=audioread([cpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
+                    % disp([cpath cname '.CH' int2str(chanlist(c)) '.wav']);
                 end
+                % disp(nchan);
             elseif strcmp(set,'tr05'),
                 cname=mat{utt_ind}.noise_wavfile;
                 cbeg=max(round(mat{utt_ind}.noise_start*16000)-cmax,1);
@@ -151,6 +154,7 @@ for set_ind=1:length(sets),
             % Compute noise covariance matrix
             N=stft_multi(n.',wlen);
             Ncov=zeros(nchan,nchan,nbin);
+
             for f=1:nbin,
                 for n=1:size(N,2),
                     Ntf=permute(N(f,n,:),[3 1 2]);
@@ -185,14 +189,15 @@ for set_ind=1:length(sets),
                 ENV_NUMBER=4;
             end;
             snr(utt_ind,1) = ENV_NUMBER;
-            snr(utt_ind,2) = 10*log10(sum(y.^2) ./ sum(sum(n.^2)));
+            diff = sum(sum(y.^2)) / sum(sum(bsxfun(@minus, x, y)).^2);
+            snr(utt_ind,2) = diff;
             disp(snr(utt_ind,2));
 
             % Write WAV file
             % y=y/max(abs(y));
             % audiowrite([edir uname '.wav'],y,fs);
         end
-        csvwrite(['SNR_base20_' mode '.csv'],snr);
+        csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
 
     end
 end

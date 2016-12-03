@@ -174,7 +174,8 @@ for set_ind=1:length(sets),
                 ENV_NUMBER=4;
             end;
             snr(utt_ind,1) = ENV_NUMBER;
-            snr(utt_ind,2) = 10*log10(sum(output.^2) ./ sum(sum(n.^2)));
+            diff = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
+            snr(utt_ind,2) = diff;
             disp(snr(utt_ind,2));
 
             % Write WAV file
