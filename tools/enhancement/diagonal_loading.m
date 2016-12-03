@@ -38,7 +38,7 @@ epath=['../../data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced u
 cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
 bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 apath='../../data/annotations/'; % path to JSON annotations
-resultpath='../result/';
+resultpath='../../result/';
 % track = '6ch';
 if strcmp(track,'6ch'),
     nchan=5;
