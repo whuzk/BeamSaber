@@ -1,28 +1,27 @@
-chimeRoot = 'G:/CHIME/CHiME3/';
-enhRoot = 'G:/CHIME/CHiME3/data/BSS_ENH_test/';
-workRoot = 'G:/CHIME/CHiME3/TEST/BSS_OPI/';
+chimeRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/';
+enhRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/data/custom_enhancement/';
+workRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/TEST/BSS_OPI/';
+dataRoot = '/home/mslab-deep/CHiME4/CHiME3/';
 addpath utils
-addpath enhan
+addpath enhancement
 
-Path.isolated = [chimeRoot,'data/audio/16kHz/isolated/'];
-Path.enhanced = [chimeRoot,'data/audio/16kHz/enhanced/']; 
-Path.embedded = [chimeRoot,'data/audio/16kHz/embedded/']; 
-Path.backgrounds = [chimeRoot,'data/audio/16kHz/backgrounds/'];
+Path.isolated = [dataRoot,'data/audio/16kHz/isolated/'];                % isolated data is at different locations same as backgrounds data
+Path.enhanced = [chimeRoot,'data/audio/16kHz/enhanced/'];
+Path.embedded = [dataRoot,'data/audio/16kHz/embedded/'];
+Path.backgrounds = [dataRoot,'data/audio/16kHz/backgrounds/'];
 Path.annotations = [chimeRoot,'data/annotations/']; % path to JSON annotations
 
-Path.enhBss = [enhRoot,'enhBss/'];
-Path.enhBssMvdrRtf = [enhRoot, 'enhBssMvdrRtf/'];
+% add path to enhancement result folder data
 Path.enhBssMvdrEg = [enhRoot, 'enhBssMvdrEg/'];
-Path.enhBssPmwf = [enhRoot, 'enhBssPmwf/'];
-Path.enhGsc = [enhRoot, 'enhGsc/'];
 
 Path.enhBssNoise = [enhRoot,'enhBssNoise/'];
 Path.enhBssMvdrRtfNoise = [enhRoot, 'enhBssMvdrRtfNoise/'];
 Path.enhBssMvdrEgNoise = [enhRoot, 'enhBssMvdrEgNoise/'];
 Path.enhBssPmwfNoise = [enhRoot, 'enhBssPmwfNoise/'];
 
-enhDirs = {'enhBss','enhBssMvdrRtf','enhBssMvdrEg','enhBssPmwf','enhGsc','enhBssNoise','enhBssMvdrRtfNoise','enhBssMvdrEgNoise','enhBssPmwfNoise'};
-sets={'et05','dt05','tr05'};
+enhDirs = {'enhBssMvdrEg'};
+% default set et05, dt05, tr05. use only dt05 to test the beamformer
+sets={'dt05'};
 envirs = {'bus','caf','ped','str'};
 modes={'real','simu'};
 for hlp = 1:length(enhDirs)

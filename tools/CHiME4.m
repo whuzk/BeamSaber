@@ -13,7 +13,7 @@ cmax = 12800; % maximum context duration (800 ms)
 EMITERNUM = 20;
 GAMMA = 20;
 
-sets = {'et05' 'dt05' 'tr05'};
+sets = {'dt05'};
 modes = {'real' 'simu'};
 micFailFid = fopen([workRoot 'micfail.txt'],'a');
 
@@ -26,11 +26,11 @@ uttIndBegin = [1    1;
                1    1;
                1    1];
 
-%for setInd = setIndBegin:length(sets)
-for setInd = setIndBegin:setIndEnd
+for setInd = setIndBegin:length(sets)
+% for setInd = setIndBegin:setIndEnd
     set = sets{setInd};
-    %for modeInd = modeIndBegin(setInd):length(modes)
-    for modeInd = modeIndBegin(setInd):modeIndEnd(setInd)
+    for modeInd = modeIndBegin(setInd):length(modes)
+    % for modeInd = modeIndBegin(setInd):modeIndEnd(setInd)
         mode = modes{modeInd};
 
         % Read annotations
@@ -45,11 +45,11 @@ for setInd = setIndBegin:setIndEnd
             uname = [mat{uttInd}.speaker '_' mat{uttInd}.wsj_name '_' mat{uttInd}.environment];
 
             % Load WAV files
-            xsize = size(wavread([udir uname '.CH1.wav']));
+            xsize = size(audioread([udir uname '.CH1.wav']));
             x = zeros(xsize(1),Nchan);
             xc = zeros(xsize(1),Nchan);
             for clp = 1:Nchan,
-                [x(:,clp),fs] = wavread([udir uname '.CH' int2str(clp) '.wav']);
+                [x(:,clp),fs] = audioread([udir uname '.CH' int2str(clp) '.wav']);
                 xc(:,clp) = x(:,clp) / norm(x(:,clp)) * norm(x(:,1));
             end
 
@@ -77,7 +77,7 @@ for setInd = setIndBegin:setIndEnd
             end
             if (any(fail))
                 disp(['find one failure: ',set,' ',mode,' ','uttInd ',num2str(uttInd),' ',uname,' : ',num2str(fail)]);
-                fprintf(micFailFid, [set,' ',mode,' ','uttInd ',num2str(uttInd),' ',uname,' : ',num2str(fail),'\n']);
+                % fprintf(micFailFid, [set,' ',mode,' ','uttInd ',num2str(uttInd),' ',uname,' : ',num2str(fail),'\n']);
             end
 
             % choose reference mic
@@ -101,52 +101,14 @@ for setInd = setIndBegin:setIndEnd
             Ncor = bsxfun(@rdivide, mean(bsxfun(@times, XX, permute(softmask(:,:,2),[3,4,1,2])),4),permute(mean(softmask(:,:,2),2), [2,3,1]));
             Gcor = Xcor - Ncor;
 
-            %for GSC
-            yGscFt= GSC(ftbin, targetY);
-            yGsc = ISTFT(yGscFt, Lwindow, overlap);
-            yGsc = yGsc / max(abs(yGsc));
-            wavwrite(yGsc, 16000, 16, [Path.enhGsc sem '/' uname '.wav']);
-
-
-            %for bss
-            yBssFt = bsxfun(@times, ftbin, permute(softmask(:,:,1),[3,1,2]));
-            yBssFt = squeeze(yBssFt(refMic,:,:));
-            nBssFt = bsxfun(@times, ftbin, permute(softmask(:,:,2),[3,1,2]));
-            nBssFt = squeeze(nBssFt(refMic,:,:));
-            yBss = ISTFT(yBssFt,Lwindow,overlap);
-            nBss = ISTFT(nBssFt,Lwindow,overlap);
-
-            SNR = sum(yBss.^2) / sum(nBss.^2);
-            yBss = yBss / max(abs(yBss));
-            nBss = nBss / max(abs(nBss));
-
-            wavwrite(yBss, 16000, 16, [Path.enhBss sem '/' uname '.wav']);
-            wavwrite(nBss, 16000, 16, [Path.enhBssNoise sem '/' uname '.wav']);
-
-            %for bssPmwf
-            yBssPmwfFt = PMWF(ftbin, Gcor, Ncor, refMic, min(GAMMA/SNR,50));
-            nBssPmwfFt = NOISE(ftbin, Gcor, Ncor, refMic);
-            yBssPmwf = ISTFT(yBssPmwfFt,Lwindow,overlap);
-            nBssPmwf = ISTFT(nBssPmwfFt,Lwindow,overlap);
-            yBssPmwf = yBssPmwf / max(abs(yBssPmwf));
-            nBssPmwf = nBssPmwf / max(abs(nBssPmwf));
-
-            wavwrite(yBssPmwf, 16000, 16, [Path.enhBssPmwf sem '/' uname '.wav']);
-            wavwrite(nBssPmwf, 16000, 16, [Path.enhBssPmwfNoise sem '/' uname '.wav']);
-
             %for bssMvdrEg
             yBssMvdrEgFt = MVDR_EV(ftbin, Gcor, Ncor);
             yBssMvdrEg = ISTFT(yBssMvdrEgFt,Lwindow,overlap);
             yBssMvdrEg = yBssMvdrEg / max(abs(yBssMvdrEg));
+            disp(sum(yBssMvdrEg));
             wavwrite(yBssMvdrEg, 16000, 16, [Path.enhBssMvdrEg sem '/' uname '.wav']);
-
-            %for bssMvdrRtf
-            yBssMvdrRtfFt = MVDR_RTF(ftbin, Gcor, Ncor, refMic);
-            yBssMvdrRtf = ISTFT(yBssMvdrRtfFt,Lwindow,overlap);
-            yBssMvdrRtf = yBssMvdrRtf / max(abs(yBssMvdrRtf));
-            wavwrite(yBssMvdrRtf, 16000, 16, [Path.enhBssMvdrRtf sem '/' uname '.wav']);
 
          end
      end
 end
-fclose(micFailFid);
+% fclose(micFailFid);
