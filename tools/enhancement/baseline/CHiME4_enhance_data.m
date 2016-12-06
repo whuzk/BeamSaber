@@ -146,7 +146,7 @@ function CHiME4_enhance_data()
 
         % Compute noise covariance matrix
         N=stft_multi(n.',wlen);
-        Ncov = ncov_diagonal(nbin, N);
+        Ncov = mvdr_diagonal(nbin, N);
 
         % Ncov=zeros(nchan,nchan,nbin);
         % for f=1:nbin,
@@ -156,7 +156,7 @@ function CHiME4_enhance_data()
         %   end
         %   Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
         % end
-        disp(Ncov);
+        % disp(Ncov);
 
         % Localize and track the speaker
         [~,TDOA]=localize(X,chanlist);
