@@ -32,12 +32,13 @@ function CHiME4_enhance_data()
   % version 3 (http://www.gnu.org/licenses/gpl.txt)
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   track = '6ch';
-  addpath ../utils;
-  upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-  epath=['../../data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced utterances
-  cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-  bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
-  apath='../../data/annotations/'; % path to JSON annotations
+  addpath ../../utils;
+  addpath ../;
+  upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
+  epath=['../../../data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced utterances
+  cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+  bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+  apath='../../../data/annotations/'; % path to JSON annotations
   if strcmp(track,'6ch'),
     nchan=5;
   elseif strcmp(track,'2ch'),
@@ -145,15 +146,17 @@ function CHiME4_enhance_data()
 
         % Compute noise covariance matrix
         N=stft_multi(n.',wlen);
-        Ncov=zeros(nchan,nchan,nbin);
-        for f=1:nbin,
-          for n=1:size(N,2),
-            Ntf=permute(N(f,n,:),[3 1 2]);
-            Ncov(:,:,f)=Ncov(:,:,f)+Ntf*Ntf';
-          end
-          Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
-        end
-        % disp(Ncov);
+        Ncov = ncov_diagonal(nbin, N);
+
+        % Ncov=zeros(nchan,nchan,nbin);
+        % for f=1:nbin,
+        %   for n=1:size(N,2),
+        %     Ntf=permute(N(f,n,:),[3 1 2]);
+        %     Ncov(:,:,f)=Ncov(:,:,f)+Ntf*Ntf';
+        %   end
+        %   Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
+        % end
+        disp(Ncov);
 
         % Localize and track the speaker
         [~,TDOA]=localize(X,chanlist);
