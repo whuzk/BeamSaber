@@ -1,4 +1,4 @@
-function [path,TDOA]=localize(X,chanlist)
+function [path,TDOA, TDOAx2, TDOAx4, TDOAx0]=localize_MESSL(X,chanlist)
 
 % LOCALIZE Tracks the speaker spatial position over time and computes the
 % corresponding TDOA using SRP-PHAT and the Viterbi algorithm
@@ -40,7 +40,7 @@ end
 pow_thresh=-20; % threshold in dB below which a microphone is considered to fail
 center_factor=0.05; % weight given to the prior that the speaker's horizontal position is close to the center
 smoothing_factor=3; % weight given to the transition probabilities
-            
+
 % Remove zero frequency
 X = X(2:end,:,:);
 [nbin,nfram,nchan] = size(X);
@@ -66,8 +66,12 @@ zmic=zmic(chanlist);
 % Define grid of possible speaker positions in centimeters
 xres=46;
 xpos=linspace(-45,45,xres);
+xpos2=linspace(-90,90,xres);
+xpos4=linspace(-180,180,xres);
 yres=46;
 ypos=linspace(-45,45,yres);
+ypos2=linspace(-90,90,yres);
+ypos4=linspace(-180,180,yres);
 zres=4;
 zpos=linspace(15,45,zres);
 ngrid=xres*yres*zres;
@@ -86,10 +90,22 @@ for c=1:nchan,
     d_grid(c,:,:,:)=sqrt(repmat((xpos.'-xmic(c)).^2,[1 yres zres])+repmat((ypos-ymic(c)).^2,[xres 1 zres])+repmat((permute(zpos,[3 1 2])-zmic(c)).^2,[xres yres 1]));
 end
 d_grid=reshape(d_grid,nchan,ngrid);
-pairs=[];
+
+d_grid2=zeros(nchan,xres,yres,zres); % speaker-to-microphone distances
 for c=1:nchan,
-    pairs=[pairs [c*ones(1,nchan-c); c+1:nchan]]; % microphone pairs
+    d_grid2(c,:,:,:)=sqrt(repmat((xpos2.'-xmic(c)).^2,[1 yres zres])+repmat((ypos2-ymic(c)).^2,[xres 1 zres])+repmat((permute(zpos,[3 1 2])-zmic(c)).^2,[xres yres 1]));
 end
+d_grid2=reshape(d_grid2,nchan,ngrid);
+
+
+d_grid4=zeros(nchan,xres,yres,zres); % speaker-to-microphone distances
+for c=1:nchan,
+    d_grid4(c,:,:,:)=sqrt(repmat((xpos4.'-xmic(c)).^2,[1 yres zres])+repmat((ypos4-ymic(c)).^2,[xres 1 zres])+repmat((permute(zpos,[3 1 2])-zmic(c)).^2,[xres yres 1]));
+end
+d_grid4=reshape(d_grid4,nchan,ngrid);
+
+
+pairs=[1 1 1 1 3 3 3 4 4 5; 3 4 5 6 4 5 6 5 6 6]; % front microphone pairs
 npairs=size(pairs,2);
 tau_grid=zeros(npairs,ngrid); % TDOAs
 for p=1:npairs,
@@ -98,7 +114,7 @@ for p=1:npairs,
     tau_grid(p,:)=(d_grid(c2,:)-d_grid(c1,:))/343/100;
 end
 
-% Compute the SRP-PHAT pseudo-spectrum 
+% Compute the SRP-PHAT pseudo-spectrum
 srp=zeros(nfram,ngrid);
 for p=1:npairs, % Loop over front pairs
     c1=pairs(1,p);
@@ -153,6 +169,17 @@ zpath=zpos(zpath(zind,:));
 % Derive TDOA
 d_path=d_grid(:,path);
 TDOA=d_path/343/100;
+
+d_path=d_grid2(:,path);
+TDOAx2=d_path/343/100;
+
+d_path=d_grid4(:,path);
+TDOAx4=d_path/343/100;
+
+d_path=d_grid(:,path);
+TDOAx0=d_path/343/100;
+TDOAx0=repmat(mean(TDOAx0,2),1,size(TDOAx0,2))  % mean path
+
 path=[xpath; ypath; zpath];
 
 return

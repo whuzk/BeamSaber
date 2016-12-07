@@ -6,22 +6,22 @@ clear;
 % default track
 track = '6ch';
 
-addpath ../utils;
+addpath ../../utils;
 % addpath ../utils/ArrayToolbox;
 % audio input path / segmented utterances
 % change data to remote directory to safe the space add "../CHiME4/CHiME3/"
 % upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
+upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
-epath=['../../../CHiME3/data/audio/16kHz/z430_enhanced_super_' track '_track/'];
+epath=['../../../../CHiME3/data/16kHz/z430_enhanced_super_' track '_track/'];
 % path to continuous recordings
-cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
 bpath='../../data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % cpath='../../../CHiME3/data/audio/16kHz/embedded/';
 % bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % path to JSON annotations
-apath=['../../data/annotations/'];
-
+apath=['../../../../CHiME3/data/annotations/'];
+resultpath = ['../../../result/'];
 if strcmp(track, '6ch'),
   nchan = 5;
 elseif strcmp(track, '2ch'),
@@ -111,54 +111,12 @@ for set_ind = 1:length(sets),
         fail = false(1, nchan);
       end
 
-      % % Load context (up to 5 s immediately preceding the utterance)
-      % if strcmp(mode,'real'),
-      %     cname=mat{utt_ind}.wavfile;
-      %     cbeg=max(round(mat{utt_ind}.start*16000)-cmax,1);
-      %     cend=max(round(mat{utt_ind}.start*16000)-1,1);
-      %     for utt_ind_over=1:length(mat),
-      %         cend_over=round(mat{utt_ind_over}.end*16000);
-      %         if strcmp(mat{utt_ind_over}.wavfile,cname) && (cend_over >= cbeg) && (cend_over < cend),
-      %             cbeg=cend_over+1;
-      %         end
-      %     end
-      %     cbeg=min(cbeg,cend-cmin);
-      %     n=zeros(cend-cbeg+1,nchan);
-      %     for c=1:nchan,
-      %         n(:,c)=audioread([cpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-      %     end
-      % elseif strcmp(set,'tr05'),
-      %     cname=mat{utt_ind}.noise_wavfile;
-      %     cbeg=max(round(mat{utt_ind}.noise_start*16000)-cmax,1);
-      %     cend=max(round(mat{utt_ind}.noise_start*16000)-1,1);
-      %     n=zeros(cend-cbeg+1,nchan);
-      %     for c=1:nchan,
-      %         n(:,c)=audioread([bpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-      %     end
-      % else
-      %     cname=mat{utt_ind}.noise_wavfile;
-      %     cbeg=max(round(mat{utt_ind}.noise_start*16000)-cmax,1);
-      %     cend=max(round(mat{utt_ind}.noise_start*16000)-1,1);
-      %     for utt_ind_over=1:length(real_mat),
-      %         cend_over=round(real_mat{utt_ind_over}.end*16000);
-      %         if strcmp(mat{utt_ind_over}.wavfile,cname) && (cend_over >= cbeg) && (cend_over < cend),
-      %             cbeg=cend_over+1;
-      %         end
-      %     end
-      %     cbeg=min(cbeg,cend-cmin);
-      %     n=zeros(cend-cbeg+1,nchan);
-      %     for c=1:nchan,
-      %         n(:,c)=audioread([cpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-      %     end
-      % end
-      % STFT
-      % disp(size(n));
       signal = stft_multi(x.', wlen);
       % disp(size(signal));
       [nbin, nfram, ~] = size(signal);
       % debugging
       % disp(size(stft_frame));
-      [~, TDOA, srp, s] = localize(signal, chanlist);
+      [~, TDOA] = localize(signal, chanlist);
 
       % define microphone positions in cm
       xmic = [-10 0 10 -10 0 10];
@@ -192,20 +150,6 @@ for set_ind = 1:length(sets),
         j = j + 1;
       end
 
-      % disp('should break here');
-      % for f=1:nbin,
-      %     for n=1:size(N,2),
-      %         Ntf=permute(N(f,n,:),[3 1 2]);
-      %         Ncov(:,:,f)=Ncov(:,:,f)+Ntf*Ntf';
-      %         % d = eig(Ncov);
-      %         % Ncov(:,:,f)= sinc((2 * pi * n * s) / c);
-      %
-      %     end
-      %     Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
-      % end
-      % disp(Ncov);
-      % break;
-      % disp(I);
       % compute superdirective and steering vector
       Xspec = permute(mean(abs(signal).^2, 2), [3 1 2]);
       mvdr = zeros(nbin, nfram);
@@ -250,13 +194,12 @@ for set_ind = 1:length(sets),
       end;
 
       snr(utt_ind,1) = ENV_NUMBER;
-      snr(utt_ind,2) = 10*log10(sum(output.^2) ./ sum(sum(n.^2)));
+      snr(utt_ind,2) = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
       % Write WAV file
       output=output/max(abs(output));
 
       audiowrite([edir uname '.wav'],output,fs);
-      disp([edir uname '.wav']);
     end
-    csvwrite(['SNR_mvdr_all_data' mode '.csv'],snr);
+    csvwrite([resultpath 'SNR_mvdr_all_data' mode '.csv'],snr);
   end
 end

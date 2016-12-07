@@ -32,13 +32,13 @@ function CHiME4_enhance_data(track)
 % version 3 (http://www.gnu.org/licenses/gpl.txt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-addpath ../utils;
-upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-epath=['../../data/audio/16kHz/enhanced_' track 'r_track/']; % path to enhanced utterances
-cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
-apath='../../data/annotations/'; % path to JSON annotations
-resultpath='../../result/';
+addpath ../../utils;
+upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
+epath=['../../../../CHiME3/data/audio/16kHz/enhanced_' track 'r_track/']; % path to enhanced utterances
+cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+apath=['../../../../CHiME3/data/annotations/'];
+resultpath='../../../result/';
 if strcmp(track,'6ch'),
     nchan=5;
 elseif strcmp(track,'2ch'),
@@ -176,8 +176,6 @@ for set_ind=1:length(sets),
                 end
             end
             y=istft_multi(Y,nsampl).';
-            devia = std2(y);
-            meania = mean2(y);
 
             % SNR calculation
             ENV_NUMBER=1;
@@ -188,14 +186,10 @@ for set_ind=1:length(sets),
             elseif strcmp(mat{utt_ind}.environment,'STR'),
                 ENV_NUMBER=4;
             end;
-            snr(utt_ind,1) = ENV_NUMBER;
-            diff = sum(sum(y.^2)) / sum(sum(bsxfun(@minus, x, y)).^2);
-            snr(utt_ind,2) = diff;
-            disp(snr(utt_ind,2));
 
             % Write WAV file
-            % y=y/max(abs(y));
-            % audiowrite([edir uname '.wav'],y,fs);
+            y=y/max(abs(y));
+            audiowrite([edir uname '.wav'],y,fs);
         end
         csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
 

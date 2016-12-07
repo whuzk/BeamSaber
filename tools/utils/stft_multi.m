@@ -25,8 +25,7 @@ function X=stft_multi(x,wlen)
 
 %%% Errors and warnings %%%
 if nargin<1, error('Not enough input arguments.'); end
-% if nargin<2, wlen=1024; end
-if nargin < 2, wlen=512; end
+if nargin<2, wlen=1024; end
 [nchan,nsampl]=size(x);
 if nchan>nsampl, error('The signals must be within rows.'); end
 if wlen~=4*floor(wlen/4), error('The window length must be a multiple of 4.'); end

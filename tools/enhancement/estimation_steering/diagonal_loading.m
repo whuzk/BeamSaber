@@ -32,13 +32,14 @@ function diagonal_loading()
 % version 3 (http://www.gnu.org/licenses/gpl.txt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 track = '6ch';
-addpath ../utils;
-upath=['../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-epath=['../../data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced utterances
-cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
-apath='../../data/annotations/'; % path to JSON annotations
-resultpath='../../result/';
+addpath ../../utils;
+addpath ../other_enchan;
+upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
+epath=['../../../../CHiME3/data/audio/16kHz/estimation_steering_' track '_track/']; % path to enhanced utterances
+cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+apath='../../../../CHiME3/data/annotations/'; % path to JSON annotations
+resultpath='../../../result/';
 % track = '6ch';
 if strcmp(track,'6ch'),
     nchan=5;
@@ -100,57 +101,6 @@ for set_ind=1:length(sets),
                 [x(:,c),fs]=audioread([udir uname '.CH' int2str(chanlist(c)) '.wav']);
             end
 
-            % Check microphone failure
-            if strcmp(track,'6ch'),
-                xpow=sum(x.^2,1);
-                xpow=10*log10(xpow/max(xpow));
-                fail=(xpow<=pow_thresh);
-            else
-                fail=false(1,nchan);
-            end
-
-            % Load context (up to 5 s immediately preceding the utterance)
-            if strcmp(mode,'real'),
-                cname=mat{utt_ind}.wavfile;
-                cbeg=max(round(mat{utt_ind}.start*16000)-cmax,1);
-                cend=max(round(mat{utt_ind}.start*16000)-1,1);
-                for utt_ind_over=1:length(mat),
-                    cend_over=round(mat{utt_ind_over}.end*16000);
-                    if strcmp(mat{utt_ind_over}.wavfile,cname) && (cend_over >= cbeg) && (cend_over < cend),
-                        cbeg=cend_over+1;
-                    end
-                end
-                cbeg=min(cbeg,cend-cmin);
-                n=zeros(cend-cbeg+1,nchan);
-
-                for c=1:nchan,
-                    n(:,c)=audioread([cpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-                end
-            elseif strcmp(set,'tr05'),
-                cname=mat{utt_ind}.noise_wavfile;
-                cbeg=max(round(mat{utt_ind}.noise_start*16000)-cmax,1);
-                cend=max(round(mat{utt_ind}.noise_start*16000)-1,1);
-                n=zeros(cend-cbeg+1,nchan);
-                for c=1:nchan,
-                    n(:,c)=audioread([bpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-                end
-            else
-                cname=mat{utt_ind}.noise_wavfile;
-                cbeg=max(round(mat{utt_ind}.noise_start*16000)-cmax,1);
-                cend=max(round(mat{utt_ind}.noise_start*16000)-1,1);
-                for utt_ind_over=1:length(real_mat),
-                    cend_over=round(real_mat{utt_ind_over}.end*16000);
-                    if strcmp(mat{utt_ind_over}.wavfile,cname) && (cend_over >= cbeg) && (cend_over < cend),
-                        cbeg=cend_over+1;
-                    end
-                end
-                cbeg=min(cbeg,cend-cmin);
-                n=zeros(cend-cbeg+1,nchan);
-                for c=1:nchan,
-                    n(:,c)=audioread([cpath cname '.CH' int2str(chanlist(c)) '.wav'],[cbeg cend]);
-                end
-            end
-
             % Gcor
             [nbin,Nframe,Nbin,Lspeech] =  STFT(x, Lwindow, overlap, Nfft);
             % for GSC fixed beamformer
@@ -173,16 +123,16 @@ for set_ind=1:length(sets),
             elseif strcmp(mat{utt_ind}.environment,'STR'),
                 ENV_NUMBER=4;
             end;
-            snr(utt_ind,1) = ENV_NUMBER;
-            diff = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
+            % snr(utt_ind,1) = ENV_NUMBER;
+            % diff = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
             snr(utt_ind,2) = diff;
-            disp(snr(utt_ind,2));
+
 
             % Write WAV file
-            % y=y/max(abs(y));
-            % audiowrite([edir uname '.wav'],y,fs);
+            output=output/max(abs(output));
+            audiowrite([edir uname '.wav'],output,fs);
         end
-        csvwrite([resultpath 'SNR_base20_' mode '.csv'],snr);
+        % csvwrite([resultpath 'SNR_base20_' mode '.csv'],snr);
 
     end
 end
