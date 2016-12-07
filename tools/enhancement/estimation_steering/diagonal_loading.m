@@ -1,36 +1,5 @@
 function diagonal_loading()
 
-% CHIME4_ENHANCE_DATA Enhances noisy datasets for the 4th CHiME Challenge
-% based on MVDR beamforming
-%
-% Note: This code is identical to the CHiME-3 baseline, except that only
-% the channels corresponding to each track are used. MVDR is known to work
-% poorly on real data due to the fact that it does not handle microphone
-% mismatches, microphone failures, early echoes, and reverberation. This
-% code is not intended to be run as such (the official CHiME-4 baseline
-% based on BeamformIt provides much better results) but to provide a set of
-% Matlab tools from which more advanced beamforming or source separation
-% techniques can be developed.
-%
-% CHiME4_enhance_data(track)
-%
-% Inputs:
-% track: '2ch' or '6ch'
-%
-% If you use this software in a publication, please cite:
-%
-% Jon Barker, Ricard Marxer, Emmanuel Vincent, and Shinji Watanabe, The
-% third 'CHiME' Speech Separation and Recognition Challenge: Dataset,
-% task and baselines, in Proc. IEEE 2015 Automatic Speech Recognition
-% and Understanding Workshop (ASRU), 2015.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright 2015-2016 University of Sheffield (Jon Barker, Ricard Marxer)
-%                     Inria (Emmanuel Vincent)
-%                     Mitsubishi Electric Research Labs (Shinji Watanabe)
-% This software is distributed under the terms of the GNU Public License
-% version 3 (http://www.gnu.org/licenses/gpl.txt)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 track = '6ch';
 addpath ../../utils;
 addpath ../other_enchan;
@@ -114,26 +83,11 @@ for set_ind=1:length(sets),
             mvdr_cg = MVDR_EV(nbin, Gcor, Ncor);
             output = istft_multi(mvdr_cg, nsampl).';
             output = output / max(abs(output));
-            % SNR calculation
-            ENV_NUMBER=1;
-            if strcmp(mat{utt_ind}.environment,'CAF'),
-                ENV_NUMBER=2;
-            elseif strcmp(mat{utt_ind}.environment,'PED'),
-                ENV_NUMBER=3;
-            elseif strcmp(mat{utt_ind}.environment,'STR'),
-                ENV_NUMBER=4;
-            end;
-            % snr(utt_ind,1) = ENV_NUMBER;
-            % diff = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
-            % snr(utt_ind,2) = diff;
-
 
             % Write WAV file
             output=output/max(abs(output));
             audiowrite([edir uname '.wav'],output,fs);
         end
-        % csvwrite([resultpath 'SNR_base20_' mode '.csv'],snr);
-
     end
 end
 

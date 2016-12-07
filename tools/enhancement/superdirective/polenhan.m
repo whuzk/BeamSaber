@@ -13,10 +13,10 @@ addpath ../../utils;
 % upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
 upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
-epath=['../../../../CHiME3/data/16kHz/z430_enhanced_super_' track '_track/'];
+epath=['../../../../CHiME3/data/audio/16kHz/enhan_superdirec_' track '_track/'];
 % path to continuous recordings
 cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % cpath='../../../CHiME3/data/audio/16kHz/embedded/';
 % bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % path to JSON annotations
@@ -184,22 +184,12 @@ for set_ind = 1:length(sets),
 
       % break;
       output = istft_multi(mvdr, nsampl).';
-      ENV_NUMBER=1;
-      if strcmp(mat{utt_ind}.environment,'CAF'),
-          ENV_NUMBER=2;
-      elseif strcmp(mat{utt_ind}.environment,'PED'),
-          ENV_NUMBER=3;
-      elseif strcmp(mat{utt_ind}.environment,'STR'),
-          ENV_NUMBER=4;
-      end;
-
-      snr(utt_ind,1) = ENV_NUMBER;
-      snr(utt_ind,2) = sum(sum(output.^2)) / sum(sum(bsxfun(@minus, x, output)).^2);
       % Write WAV file
       output=output/max(abs(output));
 
       audiowrite([edir uname '.wav'],output,fs);
+      disp([edir uname '.wav']);
     end
-    csvwrite([resultpath 'SNR_mvdr_all_data' mode '.csv'],snr);
+
   end
 end
