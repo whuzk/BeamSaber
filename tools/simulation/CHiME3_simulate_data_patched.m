@@ -34,11 +34,11 @@ end
 % bpath='../../data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % new data path without server
 addpath ../utils;
-upath = '/media/hipo/384F4C90006A3A33/chimi4/CHiME3/data/audio/16kHz/isolated';
-upath_ext = '/media/hipo/384F4C90006A3A33/chimi4/CHiME3/data/audio/16kHz/isolated_ext/';
-cpath='/media/hipo/384F4C90006A3A33/chimi4/CHiME3/data/audio/16kHz/embedded/';
-bpath='/media/hipo/384F4C90006A3A33/chimi4/CHiME3/data/audio/16kHz/backgrounds/';
-apath='/media/hipo/384F4C90006A3A33/chimi4/CHiME3/data/annotations/'; % path to JSON annotations
+upath = '../../../CHiME3/data/audio/16kHz/isolated';
+upath_ext = '../../../CHiME3/data/audio/16kHz/isolated_ext/';
+cpath='../../../CHiME3/data/audio/16kHz/embedded/';
+bpath='../../../CHiME3/data/audio/16kHz/backgrounds/';
+apath='../../data/annotations/'; % path to JSON annotations
 % mic number 0,1,2,3,4,5
 nchan=5;
 
