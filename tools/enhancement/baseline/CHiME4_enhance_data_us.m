@@ -34,7 +34,7 @@ function CHiME4_enhance_data(track)
 
 addpath ../../utils;
 upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-epath=['../../../../CHiME3/data/audio/16kHz/enhanced_' track 'r_track/']; % path to enhanced utterances
+epath=['../../../../CHiME3/data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced utterances
 cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
 bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 apath=['../../../../CHiME3/data/annotations/'];
@@ -178,20 +178,20 @@ for set_ind=1:length(sets),
             y=istft_multi(Y,nsampl).';
 
             % SNR calculation
-            ENV_NUMBER=1;
-            if strcmp(mat{utt_ind}.environment,'CAF'),
-                ENV_NUMBER=2;
-            elseif strcmp(mat{utt_ind}.environment,'PED'),
-                ENV_NUMBER=3;
-            elseif strcmp(mat{utt_ind}.environment,'STR'),
-                ENV_NUMBER=4;
-            end;
+            % ENV_NUMBER=1;
+            % if strcmp(mat{utt_ind}.environment,'CAF'),
+            %     ENV_NUMBER=2;
+            % elseif strcmp(mat{utt_ind}.environment,'PED'),
+            %     ENV_NUMBER=3;
+            % elseif strcmp(mat{utt_ind}.environment,'STR'),
+            %     ENV_NUMBER=4;
+            % end;
 
             % Write WAV file
             y=y/max(abs(y));
             audiowrite([edir uname '.wav'],y,fs);
         end
-        csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
+        % csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
 
     end
 end
