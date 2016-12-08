@@ -13,7 +13,7 @@ addpath ../../utils;
 % upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
 upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
-epath=['../../../../CHiME3/data/audio/16kHz/enhan_superdirec_' track '_track/'];
+epath=['../../../../CHiME3/data/audio/16kHz/superdirective_beamforming/'];
 % path to continuous recordings
 cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
 bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
@@ -147,7 +147,7 @@ for set_ind = 1:length(sets),
         if i >=6,
           i = 1;
         end
-        j = j + 1;
+        % j = j + 1;
       end
 
       % compute superdirective and steering vector

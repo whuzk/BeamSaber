@@ -4,12 +4,12 @@ if nargin < 1,
     official=true;
 end
 addpath ../utils;
-upath='../../data/audio/16kHz/isolated/'; % path to segmented utterances
+upath='../../../CHiME3/data/audio/16kHz/isolated/'; % path to segmented utterances
 %upath_ext = '../../data/audio/16kHz/isolated_ext/';
-upath_ext = '../../data/audio/16kHz/clean_dt/';
-cpath='../../data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../data/audio/16kHz/backgrounds/'; % path to noise backgrounds
-apath='../../data/annotations/'; % path to JSON annotations
+upath_ext = '../../../CHiME3/data/audio/16kHz/clean_dt/';
+cpath='../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+apath=['../../../CHiME3/data/annotations/']; % path to JSON annotations
 % new data path without server
 
 
@@ -36,6 +36,7 @@ for set_ind=1:length(sets),
 
     % Create new (non-official) annotations
     else
+        disp('recreate');
         mat=json2mat([apath set '_real.json']);
         clean_mat=json2mat([apath set '_bth.json']);
         for utt_ind=1:length(mat),
