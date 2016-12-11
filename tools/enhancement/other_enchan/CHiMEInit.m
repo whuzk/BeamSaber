@@ -1,8 +1,8 @@
-chimeRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/';
-enhRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/data/custom_enhancement/';
-workRoot = '/home/mslab-deep/CHiME4/CHiME3-MVDR/TEST/BSS_OPI/';
-dataRoot = '/home/mslab-deep/CHiME4/CHiME3/';
-addpath utils
+chimeRoot = '/home/hipo/workspace/CHiME3/';
+enhRoot = '/home/hipo/workspace/CHiME3/data/audio/16kHz/';
+workRoot = '/home/hipo/workspace/CHiME3/TEST/BSS_OPI/';
+dataRoot = '/home/hipo/workspace/CHiME3/';
+addpath ../../utils
 addpath enhancement
 
 Path.isolated = [dataRoot,'data/audio/16kHz/isolated/'];                % isolated data is at different locations same as backgrounds data

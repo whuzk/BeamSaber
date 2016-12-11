@@ -2,7 +2,7 @@
 function compare_snr()
 addpath obj_evaluation;
 utpath='../../../CHiME3/data/audio/16kHz/clean_data/'; % path to segmented utterances
-enpath='../../../CHiME3/data/audio/16kHz/export_FWModel/'; % path to segmented utterances
+enpath='../../../CHiME3/data/audio/16kHz/superdirective_beamforming/'; % path to segmented utterances
 anpath='../../../CHiME3/data/annotations/'; % path to JSON annotations
 resultpath='../../result/' ;
 
@@ -47,6 +47,6 @@ for set_ind=1:length(sets),
             snr(utt_ind,3) = peva;
 
 		    end
-        csvwrite([resultpath 'SNR_export_FWModel_' mode '.csv'],snr);
+        csvwrite([resultpath 'SNR_superdirective_beamforming_' mode '.csv'],snr);
     end
 end
