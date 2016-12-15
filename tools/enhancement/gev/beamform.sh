@@ -5,6 +5,6 @@
 # done
 
 
-for flist in dt05_simu dt05_real; do
+for flist in dt05_simu; do
     python3 beamform.py $flist "$@"
 done

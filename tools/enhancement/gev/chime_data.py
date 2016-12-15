@@ -17,7 +17,8 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
             '{}05_{}.json'.format(stage, 'simu'))) as fid:
         annotations = json.load(fid)
     if ext:
-        isolated_dir = 'isolated_ext'
+        #isolated_dir = 'isolated_ext'
+        isolated_dir = 'clean_dt'
     else:
         isolated_dir = 'isolated'
     flist = [os.path.join(
