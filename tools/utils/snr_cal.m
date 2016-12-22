@@ -1,10 +1,11 @@
 %clear;
-function compare_snr()
+function snr_cal(folder)
 addpath obj_evaluation;
 utpath='../../../CHiME3/data/audio/16kHz/clean_data/'; % path to segmented utterances
-enpath='../../../CHiME3/data/audio/16kHz/export_BLSTM/'; % path to segmented utterances
+enpath=['../../../CHiME3/data/audio/16kHz/' folder '/']; % path to segmented utterances
 anpath='../../../CHiME3/data/annotations/'; % path to JSON annotations
-resultpath='../../result/' ;
+resultsnr='../../result/SNR/' ;
+resultpesq='../../result/PESQ/' ;
 
 sets={'dt05'};
 modes={'simu'};
@@ -15,21 +16,25 @@ for set_ind=1:length(sets),
 
         % Read annotations
         mat=json2mat([anpath set '_' mode '.json']);
-        real_mat=json2mat([anpath set '_real.json']);
         snr = zeros(length(mat), 3);
+		pesqValues = zeros(length(mat), 2);
         for utt_ind=1:length(mat),
             utdir=[utpath]; % clean dir
 			endir=[enpath set '_' lower(mat{utt_ind}.environment) '_' mode '/']; % enchance dir
-      		  if ~exist(endir,'dir'),
-                    system(['mkdir -p ' endir]);
+
+			if ~exist(resultsnr,'dir'),
+                system(['mkdir -p ' resultsnr]);
             end
-			if ~exist(resultpath,'dir'),
-                system(['mkdir -p ' resultpath]);
+			if ~exist(resultpesq,'dir'),
+                system(['mkdir -p ' resultpesq]);
             end
+
             uname=[mat{utt_ind}.speaker '_' mat{utt_ind}.wsj_name];
             unaew=[mat{utt_ind}.speaker '_' mat{utt_ind}.wsj_name '_' mat{utt_ind}.environment];
             clean = ([utdir uname '.wav']);
+            disp(clean);
             enhan = ([endir unaew '.wav']);
+            disp(enhan);
       			%transient estimation
 
             ENV_NUMBER=1;
@@ -40,13 +45,19 @@ for set_ind=1:length(sets),
             elseif strcmp(mat{utt_ind}.environment,'STR'),
                 ENV_NUMBER=4;
             end;
-            peva = pesq(clean, enhan);
+
             [snr_mean, segsnr_mean] = comp_snr(clean, enhan);
             snr(utt_ind,1) = ENV_NUMBER;
             snr(utt_ind,2) = snr_mean;
-            snr(utt_ind,3) = peva;
+            snr(utt_ind,3) = segsnr_mean;
 
-		    end
-        csvwrite([resultpath 'SNR_export_BLSTM_' mode '.csv'],snr);
+			[pesqVal] = pesq(clean, enhan);
+			pesqValues(utt_ind,1) = ENV_NUMBER;
+            pesqValues(utt_ind,2) = pesqVal;
+
+		end
+
+		csvwrite([resultsnr 'SNR_' folder '_' mode '.csv'],snr);
+		csvwrite([resultpesq 'PESQ_' folder '_' mode '.csv'],pesqValues);
     end
 end

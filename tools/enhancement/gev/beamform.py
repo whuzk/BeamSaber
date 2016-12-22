@@ -87,7 +87,7 @@ for cur_line in tqdm(flist):
     with Timer() as t:
         N_mask = np.median(N_masks.data, axis=1)
         X_mask = np.median(X_masks.data, axis=1)
-        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask)
+        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
     t_beamform += t.msecs
 
     if scenario == 'simu':

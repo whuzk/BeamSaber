@@ -6,7 +6,7 @@ function [snr_mean, segsnr_mean]= comp_snr(cleanFile, enhdFile);
 %     as defined in [1, p. 45] (see Equation 2.12).
 %
 %   Usage:  [SNRovl, SNRseg]=comp_snr(cleanFile.wav, enhancedFile.wav)
-%           
+%
 %         cleanFile.wav - clean input file in .wav format
 %         enhancedFile  - enhanced output file in .wav format
 %         SNRovl        - overall SNR (dB)
@@ -14,8 +14,8 @@ function [snr_mean, segsnr_mean]= comp_snr(cleanFile, enhdFile);
 %
 %     This function returns 2 parameters.  The first item is the
 %     overall SNR for the two speech signals.  The second value
-%     is the segmental signal-to-noise ratio (1 seg-snr per 
-%     frame of input).  The segmental SNR is clamped to range 
+%     is the segmental signal-to-noise ratio (1 seg-snr per
+%     frame of input).  The segmental SNR is clamped to range
 %     between 35dB and -10dB (see suggestions in [2]).
 %
 %   Example call:  [SNRovl,SNRseg]=comp_SNR('sp04.wav','enhanced.wav')
@@ -27,7 +27,7 @@ function [snr_mean, segsnr_mean]= comp_snr(cleanFile, enhdFile);
 %	    Advanced Reference Series, Englewood Cliffs, NJ, 1988,
 %	    ISBN: 0-13-629056-6.
 %
-%     [2] P. E. Papamichalis, Practical Approaches to Speech 
+%     [2] P. E. Papamichalis, Practical Approaches to Speech
 %	    Coding, Prentice-Hall, Englewood Cliffs, NJ, 1987.
 %	    ISBN: 0-13-689019-9. (see pages 179-181).
 %
@@ -41,14 +41,14 @@ function [snr_mean, segsnr_mean]= comp_snr(cleanFile, enhdFile);
 if nargin ~=2
     fprintf('USAGE: [snr_mean, segsnr_mean]= comp_SNR(cleanFile, enhdFile) \n');
     return;
-end   
+end
 
 [data1, Srate1, Nbits1]= wavread(cleanFile);
 [data2, Srate2, Nbits2]= wavread(enhdFile);
 if (( Srate1~= Srate2) | ( Nbits1~= Nbits2))
     error( 'The two files do not match!\n');
 end
-  
+
 len= min( length( data1), length( data2));
 data1= data1( 1: len);
 data2= data2( 1: len);
@@ -86,6 +86,7 @@ end
 
 % overall_snr = 10* log10( sum(clean_speech.^2)/sum((clean_speech-processed_speech).^2));
 overall_snr = 10*log10( var(clean_speech)/var(clean_speech-processed_speech));
+% overall_snr = 10*log10( var(clean_speech)/var(processed_speech));
 
 % ----------------------------------------------------------------------
 % Global Variables
@@ -108,7 +109,7 @@ window     = 0.5*(1 - cos(2*pi*(1:winlength)'/(winlength+1)));
 for frame_count = 1: num_frames
 
    % ----------------------------------------------------------
-   % (1) Get the Frames for the test and reference speech. 
+   % (1) Get the Frames for the test and reference speech.
    %     Multiply by Hanning Window.
    % ----------------------------------------------------------
 
@@ -132,9 +133,8 @@ for frame_count = 1: num_frames
    end
    if segmental_snr(frame_count)>MAX_SNR
        segmental_snr(frame_count) = MAX_SNR;
-   end  
+   end
 
    start = start + skiprate;
 
 end
-

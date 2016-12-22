@@ -146,5 +146,6 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
         W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
 
     output = apply_beamforming_vector(W_gev, mix)
+    # print ("no normalization")
 
     return output.T
