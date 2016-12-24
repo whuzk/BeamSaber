@@ -121,7 +121,7 @@ def stft(time_signal, time_dim=None, size=1024, shift=256,
     :return: Single channel complex STFT signal
         with dimensions frames times size/2+1.
     """
-    print ("stft")
+
     if time_dim is None:
         time_dim = np.argmax(time_signal.shape)
 
@@ -173,7 +173,6 @@ def istft(stft_signal, size=1024, shift=256,
     :return: Single channel complex STFT signal
     :return: Single channel time signal.
     """
-    print ("istft")
     assert stft_signal.shape[1] == size // 2 + 1
 
     if window_length is None:

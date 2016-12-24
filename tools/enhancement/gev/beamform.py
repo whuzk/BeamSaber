@@ -66,6 +66,27 @@ t_net = 0
 t_beamform = 0
 # Beamform loop
 for cur_line in tqdm(flist):
+
+    if scenario == 'simu':
+        wsj_name = cur_line.split('/')[-1].split('_')[1]
+        spk = cur_line.split('/')[-1].split('_')[0]
+        env = cur_line.split('/')[-1].split('_')[-1]
+    elif scenario == 'real':
+        wsj_name = cur_line[3]
+        spk = cur_line[0].split('/')[-1].split('_')[0]
+        env = cur_line[0].split('/')[-1].split('_')[-1]
+
+    filename = os.path.join(
+            args.output_dir,
+            '{}05_{}_{}'.format(stage, env.lower(), scenario),
+            '{}_{}_{}.wav'.format(spk, wsj_name, env.upper())
+    )
+    noisename = os.path.join(
+            args.output_dir,
+            '{}05_{}_{}'.format(stage, env.lower(), scenario),
+            '{}_{}_{}.Noise.wav'.format(spk, wsj_name, env.upper())
+    )
+
     with Timer() as t:
         if scenario == 'simu':
             audio_data = get_audio_data(cur_line)
@@ -88,23 +109,10 @@ for cur_line in tqdm(flist):
     with Timer() as t:
         N_mask = np.median(N_masks.data, axis=1)
         X_mask = np.median(X_masks.data, axis=1)
-        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask)
+        audiowrite(istft(N_mask)[context_samples:], noisename, 16000, True, True)
+        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
     t_beamform += t.msecs
 
-    if scenario == 'simu':
-        wsj_name = cur_line.split('/')[-1].split('_')[1]
-        spk = cur_line.split('/')[-1].split('_')[0]
-        env = cur_line.split('/')[-1].split('_')[-1]
-    elif scenario == 'real':
-        wsj_name = cur_line[3]
-        spk = cur_line[0].split('/')[-1].split('_')[0]
-        env = cur_line[0].split('/')[-1].split('_')[-1]
-
-    filename = os.path.join(
-            args.output_dir,
-            '{}05_{}_{}'.format(stage, env.lower(), scenario),
-            '{}_{}_{}.wav'.format(spk, wsj_name, env.upper())
-    )
     with Timer() as t:
         audiowrite(istft(Y_hat)[context_samples:], filename, 16000, True, True)
     t_io += t.msecs
