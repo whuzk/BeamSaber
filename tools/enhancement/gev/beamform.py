@@ -69,6 +69,7 @@ for cur_line in tqdm(flist):
     with Timer() as t:
         if scenario == 'simu':
             audio_data = get_audio_data(cur_line)
+            print (cur_line);
             context_samples = 0
         elif scenario == 'real':
             audio_data, context_samples = get_audio_data_with_context(
@@ -87,7 +88,7 @@ for cur_line in tqdm(flist):
     with Timer() as t:
         N_mask = np.median(N_masks.data, axis=1)
         X_mask = np.median(X_masks.data, axis=1)
-        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
+        Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask)
     t_beamform += t.msecs
 
     if scenario == 'simu':

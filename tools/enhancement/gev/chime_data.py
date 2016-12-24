@@ -40,7 +40,7 @@ def gen_flist_real(chime_data_dir, stage):
     return flist_tuples
 
 
-def get_audio_data(file_template, postfix='', ch_range=range(1, 7)):
+def get_audio_data(file_template, postfix='', ch_range=range(1, 9)):
     audio_data = list()
     for ch in ch_range:
         audio_data.append(audioread(
@@ -48,7 +48,6 @@ def get_audio_data(file_template, postfix='', ch_range=range(1, 7)):
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
-
 
 def get_audio_data_with_context(embedded_template, t_start, t_end,
                                 ch_range=range(1, 7)):
