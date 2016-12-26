@@ -64,7 +64,7 @@ def _biorthogonal_window_loopy(analysis_window, shift):
     return synthesis_window
 
 
-def audioread(path, offset=0.0, duration=None, sample_rate=48000):
+def audioread(path, offset=0.0, duration=None, sample_rate=16000):
     """
     Reads a wav file, converts it to 32 bit float values and reshapes accoring
     to the number of channels.
@@ -173,6 +173,7 @@ def istft(stft_signal, size=1024, shift=256,
     :return: Single channel complex STFT signal
     :return: Single channel time signal.
     """
+    print ("istft")
     assert stft_signal.shape[1] == size // 2 + 1
 
     if window_length is None:
@@ -199,7 +200,7 @@ def istft(stft_signal, size=1024, shift=256,
     return time_signal
 
 
-def audiowrite(data, path, samplerate=48000, normalize=False, threaded=True):
+def audiowrite(data, path, samplerate=16000, normalize=False, threaded=True):
     """ Write the audio data ``data`` to the wav file ``path``
 
     The file can be written in a threaded mode. In this case, the writing

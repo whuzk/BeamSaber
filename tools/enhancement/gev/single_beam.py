@@ -46,7 +46,8 @@ t_beamform = 0
 
 
 # audio_data = audioread('2m_pub_new.wav');
-audio_data = get_audio_nochime('/home/hipo/Videos/2m/2m_pub_new')
+audio_data = get_audio_nochime('/home/hipo/Videos/new_audio/AUDIO_RECORDING')
+# audiowrite(audio_data, "beam.wav", 49000, True, True)
 # audio_data = np.concatenate(audio_data, axis=0)
 # audio_data = audio_data.astype(np.float32)
 
@@ -60,17 +61,27 @@ if args.gpu >= 0:
     Y_var.to_gpu(args.gpu)
 
 N_masks, X_masks = model.calc_masks(Y_var)
-N_masks.to_cpu()
-X_masks.to_cpu()
-
-
+# N_masks.to_cpu()
+# X_masks.to_cpu()
 
 N_mask = np.median(N_masks.data, axis=1)
 X_mask = np.median(X_masks.data, axis=1)
 Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
-audiowrite(istft(N_mask), "8ChanNoise", 48000, True, True)
+audiowrite(istft(Y_hat), "new_audio.wav", 49000, True, True)
 
-audiowrite(istft(Y_hat), "8chanNomr", 48000, True, True)
+# second beamform using output to estimate the mask
+audioData = audioread('new_audio.wav');
+audioData = audioData.astype(np.float32)
+# yHat = istft(Y_hat)
+yHat = stft(audioData, time_dim=1).transpose((1, 0, 2))
+yVar = Variable(np.abs(yHat).astype(np.float32), True)
+nMask, xMask = model.calc_masks(yVar)
+
+
+
+#audiowrite(istft(N_mask), "8ChanNoise", 48000, True, True)
+
+
 
 
 

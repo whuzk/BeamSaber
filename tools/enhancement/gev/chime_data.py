@@ -53,7 +53,7 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9)):
     audio_data = list()
     for ch in ch_range:
         audio_data.append(audioread(
-                file_template + '.CH{}{}.wav'.format(ch, postfix))[None, :])
+                file_template + '.CH{}{}.wav'.format(ch, postfix), 49000)[None, :])
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
