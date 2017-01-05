@@ -47,6 +47,7 @@ t_beamform = 0
 
 # audio_data = audioread('new_dataset/AUDIO_RECORDING.wav', sample_rate=49000);
 audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new')
+noise_data = audioread('babble.wav')
 # audiowrite(audio_data, "beam.wav", 49000, True, True)
 # audio_data = np.concatenate(audio_data, axis=0)
 # audio_data = audio_data.astype(np.float32)
