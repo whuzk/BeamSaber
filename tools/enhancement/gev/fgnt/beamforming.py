@@ -2,6 +2,7 @@ import numpy as np
 from numpy.linalg import solve
 from scipy.linalg import eig
 from scipy.linalg import eigh
+from fgnt.signal_processing import audiowrite, stft, istft, audioread
 
 
 def get_power_spectral_density_matrix(observation, mask=None):
@@ -138,7 +139,8 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
 
     target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
     noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
-
+    audiowrite(istft(noise_psd_matrix), "noise_psd_matrix.wav", 49000, True, True)
+    print(target_psd_matrix)
     # Beamforming vector
     W_gev = get_gev_vector(target_psd_matrix, noise_psd_matrix)
 
@@ -146,6 +148,9 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
         W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
 
     output = apply_beamforming_vector(W_gev, mix)
+
+    # beamformer_psd_matrix = get_power_spectral_density_matrix(output)
+    # print(beamformer_psd_matrix)
     # print ("no normalization")
 
     return output.T
