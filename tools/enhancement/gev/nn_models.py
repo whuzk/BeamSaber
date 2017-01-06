@@ -14,6 +14,14 @@ class MaskEstimator(Chain):
         N_mask, X_mask = self._propagate(Y, dropout)
         return N_mask, X_mask
 
+    def calc_mask_speech(self, Y, dropout=0):
+        Y_mask = self._propagate(Y, dropout)
+        return Y_mask
+
+    def calc_mask_noise(self, Y, dropout=0):
+        N_mask = self._propagate(Y, dropout)
+        return N_mask
+
     def train_and_cv(self, Y, IBM_N, IBM_X, dropout=0.):
         N_mask_hat, X_mask_hat = self._propagate(Y, dropout)
         loss_X = binary_cross_entropy(X_mask_hat, IBM_X)

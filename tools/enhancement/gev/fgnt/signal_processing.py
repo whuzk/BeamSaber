@@ -129,7 +129,6 @@ def stft(time_signal, time_dim=None, size=1024, shift=256,
     if fading:
         pad = [(0, 0)] * time_signal.ndim
         pad[time_dim] = [size - shift, size - shift]
-        print (pad[time_dim])
         time_signal = np.pad(time_signal, pad, mode='constant')
 
     # Pad with trailing zeros, to have an integral number of frames.
