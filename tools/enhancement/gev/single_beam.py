@@ -43,33 +43,50 @@ t_io = 0
 t_net = 0
 t_beamform = 0
 
-# audio_data = audioread('new_dataset/AUDIO_RECORDING.wav', sample_rate=49000);
-audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new')
-noise_data = audioread('new_dataset/babble_noise/babble-01.wav', sample_rate=19980)
-noise_data = np.array(noise_data).astype(np.float32)
+with Timer() as t:
+    # audio_data = audioread('new_dataset/AUDIO_RECORDING.wav', sample_rate=49000);
+    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new')
+    # noise_data = audioread('new_dataset/babble_noise/babble-01.wav', sample_rate=19980)
+    # noise_data = np.array(noise_data).astype(np.float32)
 
-print(len(audio_data), len(noise_data))
+    # print(len(audio_data), len(noise_data))
+# calculate the time for load the audio files
+t_io += t.msecs
 
+# change the audio files into frequency domain
 Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
-N = stft(noise_data)
-print(len(Y), len(N))
+print(len(Y), type(Y))
 
+# change the noise file into frequency domain
+# the stft needs to perform single channel stft
+# N = stft(noise_data)
+# print(len(Y), len(N))
+
+#
 Y_var = Variable(np.abs(Y).astype(np.float32), True)
-N_var = Variable(np.abs(N).astype(np.float32), True)
-print(type(Y_var), len(Y_var), type(N_var), len(N_var))
+# N_var = Variable(np.abs(N).astype(np.float32), True)
+# print(type(Y_var), len(Y_var), type(N_var), len(N_var))
 
-if args.gpu >= 0:
-    Y_var.to_gpu(args.gpu)
+# mask estimation
+with Timer() as t:
+    N_masks, X_masks = model.calc_mask_speech(Y_var)
+    # N_masks = model.calc_mask_noise(N_var)
+    N_masks.to_cpu()
+    X_masks.to_cpu()
 
-X_masks = model.calc_mask_speech(Y_var)
-N_masks = model.calc_mask_noise(N_var)
+t_net+=t.msecs
 
-N_masks.to_cpu()
-X_masks.to_cpu()
+with Timer() as t:
+    N_mask = np.median(N_masks.data, axis=1)
+    X_mask = np.median(X_masks.data, axis=1)
+    Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
+t_beamform+=t.msecs
 
-N_mask = np.median(N_masks.data, axis=1)
-X_mask = np.median(X_masks.data, axis=1)
-Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
-audiowrite(istft(Y_hat), "2m_pub_enhancement.wav", 49000, True, True)
+with Timer() as t:
+    audiowrite(istft(Y_hat), "2m_pub_enhancement.wav", 49000, True, True)
+t_io+=t.msecs
 
 print('Finished')
+print('Timings: I/O: {:.2f}s | Net: {:.2f}s | Beamformer: {:.2f}s'.format(
+        t_io / 1000, t_net / 1000, t_beamform / 1000
+))

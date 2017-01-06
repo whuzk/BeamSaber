@@ -139,8 +139,7 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
 
     target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
     noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
-    audiowrite(istft(noise_psd_matrix), "noise_psd_matrix.wav", 49000, True, True)
-    print(target_psd_matrix)
+
     # Beamforming vector
     W_gev = get_gev_vector(target_psd_matrix, noise_psd_matrix)
 
