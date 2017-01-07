@@ -15,11 +15,11 @@ class MaskEstimator(Chain):
         return N_mask, X_mask
 
     def calc_mask_speech(self, Y, dropout=0):
-        Y_mask = self._propagate(Y, dropout)
-        return Y_mask
+        N_mask, X_mask = self._propagate(Y, dropout)
+        return X_mask
 
     def calc_mask_noise(self, Y, dropout=0):
-        N_mask = self._propagate(Y, dropout)
+        N_mask, X_mask = self._propagate(Y, dropout)
         return N_mask
 
     def train_and_cv(self, Y, IBM_N, IBM_X, dropout=0.):

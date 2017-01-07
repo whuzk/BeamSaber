@@ -17,14 +17,14 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
             '{}05_{}.json'.format(stage, 'simu'))) as fid:
         annotations = json.load(fid)
     if ext:
-        #isolated_dir = 'isolated_ext'
+        # isolated_dir = 'isolated_ext'
         isolated_dir = 'clean_dt'
     else:
         isolated_dir = 'isolated'
     flist = [os.path.join(
-            chime_data_dir, 'audio', '16kHz', isolated_dir,
-            '{}05_{}_{}'.format(stage, a['environment'].lower(), 'simu'),
-            '{}_{}_{}'.format(a['speaker'], a['wsj_name'], a['environment']))
+        chime_data_dir, 'audio', '16kHz', isolated_dir,
+        '{}05_{}_{}'.format(stage, a['environment'].lower(), 'simu'),
+        '{}_{}_{}'.format(a['speaker'], a['wsj_name'], a['environment']))
              for a in annotations]
     return flist
 
@@ -35,7 +35,7 @@ def gen_flist_real(chime_data_dir, stage):
             '{}05_{}.json'.format(stage, 'real'))) as fid:
         annotations = json.load(fid)
     flist_tuples = [(os.path.join(
-            chime_data_dir, 'audio', '16kHz', 'embedded', a['wavfile']),
+        chime_data_dir, 'audio', '16kHz', 'embedded', a['wavfile']),
                      a['start'], a['end'], a['wsj_name']) for a in annotations]
     return flist_tuples
 
@@ -44,19 +44,22 @@ def get_audio_data(file_template, postfix='', ch_range=range(1, 7)):
     audio_data = list()
     for ch in ch_range:
         audio_data.append(audioread(
-                file_template + '.CH{}{}.wav'.format(ch, postfix))[None, :])
+            file_template + '.CH{}{}.wav'.format(ch, postfix))[None, :])
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
 
-def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9)):
+
+def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000):
     audio_data = list()
     for ch in ch_range:
         audio_data.append(audioread(
-                file_template + '.CH{}{}.wav'.format(ch, postfix), sample_rate=49000)[None, :])
+            file_template + '.CH{}{}.wav'.format(ch, postfix), sample_rate=fs)[None, :])
+        print((file_template + '.CH{}{}.wav'.format(ch, postfix)))
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
+
 
 def get_audio_data_with_context(embedded_template, t_start, t_end,
                                 ch_range=range(1, 7)):
@@ -65,8 +68,8 @@ def get_audio_data_with_context(embedded_template, t_start, t_end,
     audio_data = list()
     for ch in ch_range:
         audio_data.append(audioread(
-                embedded_template + '.CH{}.wav'.format(ch),
-                offset=start_context, duration=t_end - start_context)[None, :])
+            embedded_template + '.CH{}.wav'.format(ch),
+            offset=start_context, duration=t_end - start_context)[None, :])
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data, context_samples

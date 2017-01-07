@@ -122,7 +122,7 @@ def apply_beamforming_vector(vector, mix):
 
 
 def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
-                         normalization=False):
+                         normalization=True):
     if noise_mask is None and target_mask is None:
         raise ValueError('At least one mask needs to be present.')
 
@@ -137,7 +137,9 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
     if noise_mask is None:
         noise_mask = np.clip(1 - target_mask, 1e-6, 1)
 
+    print("target_mask: ", target_mask.shape, "noise_mask: ", noise_mask.shape, end="\n")
     target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
+    print("psd matrix: ", target_psd_matrix.shape, end="\n")
     noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
 
     # Beamforming vector
@@ -145,6 +147,8 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
 
     if normalization:
         W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
+        print("get normalization", end="\n")
+    print("W_gev: ", W_gev.shape, end="\n")
 
     output = apply_beamforming_vector(W_gev, mix)
 
