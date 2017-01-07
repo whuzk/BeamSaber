@@ -83,8 +83,14 @@ def prepare_training_data(chime_data_dir, dest_dir):
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
             noise_audio = get_audio_data(f, '.Noise')
+            # read babble noise, the babble has different fs with chime data
+            noise_audio_babble = get_audio_nochime(f, '.Noise', ch_range=range(1, 7), fs=19980)
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
             N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
+
+            # stft the babble noise
+            N_babble = stft(noise_audio_babble, time_dim=1).transpose((1, 0, 2))
+
             IBM_X, IBM_N = estimate_IBM(X, N)
             Y_abs = np.abs(X + N)
             export_dict = {
