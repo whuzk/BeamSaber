@@ -17,8 +17,8 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
             '{}05_{}.json'.format(stage, 'simu'))) as fid:
         annotations = json.load(fid)
     if ext:
-        # isolated_dir = 'isolated_ext'
-        isolated_dir = 'clean_dt'
+        isolated_dir = 'isolated_ext'
+        # isolated_dir = 'clean_dt'
     else:
         isolated_dir = 'isolated'
     flist = [os.path.join(
@@ -45,6 +45,7 @@ def get_audio_data(file_template, postfix='', ch_range=range(1, 7)):
     for ch in ch_range:
         audio_data.append(audioread(
             file_template + '.CH{}{}.wav'.format(ch, postfix))[None, :])
+
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
@@ -55,7 +56,7 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000)
     for ch in ch_range:
         audio_data.append(audioread(
             file_template + '.CH{}{}.wav'.format(ch, postfix), sample_rate=fs)[None, :])
-        print((file_template + '.CH{}{}.wav'.format(ch, postfix)))
+
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
@@ -82,14 +83,13 @@ def prepare_training_data(chime_data_dir, dest_dir):
         mkdir_p(os.path.join(dest_dir, stage))
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
-            noise_audio = get_audio_data(f, '.Noise')
+            # noise_audio = get_audio_data(f, '.Noise')
             # read babble noise, the babble has different fs with chime data
-            noise_audio_babble = get_audio_nochime(f, '.Noise', ch_range=range(1, 7), fs=19980)
+            noise_audio = get_audio_nochime('new_dataset/babble/babble', ch_range=range(1, 7), fs=19980)
+
+            # noise_audio = get_audio_data(f, '.Noise')
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
             N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
-
-            # stft the babble noise
-            N_babble = stft(noise_audio_babble, time_dim=1).transpose((1, 0, 2))
 
             IBM_X, IBM_N = estimate_IBM(X, N)
             Y_abs = np.abs(X + N)

@@ -17,6 +17,12 @@ from fgnt.utils import mkdir_p
 from nn_models import BLSTMMaskEstimator
 from nn_models import SimpleFWMaskEstimator
 
+"""
+Template
+python3 train.py --chime_dir=../../../../CHiME3/data data --initmodel=data/BLSTM_model/best.nnet BLSTM
+
+"""
+
 parser = argparse.ArgumentParser(description='NN GEV training')
 parser.add_argument('data_dir', help='Directory used for the training data '
                                      'and to store the model file.')
