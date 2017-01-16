@@ -217,7 +217,6 @@ def audiowrite(data, path, samplerate=16000, normalize=False, threaded=True):
         thread
     :return: The number of clipped samples
     """
-    print ("write")
     data = data.copy()
     int16_max = np.iinfo(np.int16).max
     int16_min = np.iinfo(np.int16).min
