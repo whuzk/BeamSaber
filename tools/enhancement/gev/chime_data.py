@@ -68,17 +68,20 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000)
     audio_data = audio_data.astype(np.float32)
     return audio_data
 
-def get_audio_babble(noise_data, chime_data):
+
+def get_audio_babble(noise_data, chime_data, chan):
     audio_data = list()
-    print("new shape: ", chime_data.shape)
+    print("noise_data: ", noise_data.shape,
+          "chime_data: ", chime_data.shape,
+          "channel: ", chan, end="\n")
     # noise_data = audioread('new_dataset/babble.wav', sample_rate=16000)
-    start = 0
-    end = chime_data.shape[0]
-    for i in range(1, 7):
+    start = 800
+    end = chime_data.shape[1] + start
+    for i in range(1, chan):
         y = noise_data[start:end]
         print("start: ", start, "end: ", end, end="\n")
-        start = end
-        end = end + chime_data.shape[0]
+        # start = end
+        # end = end + chime_data.shape[1]
         # audiowrite(y, "new_dataset/babble_noise/babble.CH{}.wav".format(i))
         audio_data.append(y[None, :])
     # sleep(0.01)
@@ -87,6 +90,7 @@ def get_audio_babble(noise_data, chime_data):
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
+
 
 def get_audio_data_with_context(embedded_template, t_start, t_end,
                                 ch_range=range(1, 7)):
@@ -114,7 +118,7 @@ def prepare_custom_audio(noise_data, chime_data):
         end = end + chime_data.shape[0]
         audiowrite(y, "new_dataset/babble_noise/babble.CH{}.wav".format(i))
     sleep(0.01)
-    print("last_shape: ",chime_data.shape)
+    print("last_shape: ", chime_data.shape)
 
 
 def prepare_training_data(chime_data_dir, dest_dir):
@@ -134,7 +138,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
             # print(chime_size.shape[0])
             # read babble noise, the babble has different fs with chime data
             # noise_audio = get_audio_nochime('new_dataset/babble_noise/babble', ch_range=range(1, 7), fs=16000)
-            noise_audio = get_audio_babble(noise_data, chime_size)
+            noise_audio = get_audio_babble(noise_data, chime_size, 7)
             print("clean shape: ", clean_audio.shape, "noise shape: ", noise_audio.shape, end="\n")
 
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
