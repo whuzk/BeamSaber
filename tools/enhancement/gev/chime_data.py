@@ -74,19 +74,15 @@ def get_audio_babble(noise_data, chime_data, chan):
     print("noise_data: ", noise_data.shape,
           "chime_data: ", chime_data.shape,
           "channel: ", chan, end="\n")
-    # noise_data = audioread('new_dataset/babble.wav', sample_rate=16000)
-    start = 0
+    start = noise_data
     end = chime_data.shape[0] + start
     for i in range(1, chan):
         y = noise_data[start:end]
         print("start: ", start, "end: ", end, end="\n")
         start = end
         end = end + chime_data.shape[0]
-        # audiowrite(y, "new_dataset/babble_noise/babble.CH{}.wav".format(i))
         audio_data.append(y[None, :])
-    # sleep(0.01)
     print("last_shape: ", chime_data.shape)
-    # print(type(audio_data))
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
@@ -122,6 +118,8 @@ def prepare_custom_audio(noise_data, chime_data):
 
 
 def prepare_training_data(chime_data_dir, dest_dir):
+    start = 0
+    end = 0
     for stage in ['tr', 'dt']:
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
         print(type(flist))
@@ -133,17 +131,30 @@ def prepare_training_data(chime_data_dir, dest_dir):
             clean_audio = get_audio_data(f, '.Clean')
             # noise_audio = get_audio_data(f, '.Noise')
             # print(chime_data_dir)
-            # prepare the noise data
+
             chime_size = audioread('{}.CH{}{}.Clean.wav'.format(f, 1, ''))
-            # prepare_custom_audio(noise_data, chime_size)
+
             # print(chime_size.shape[0])
-            # read babble noise, the babble has different fs with chime data
-            # noise_audio = get_audio_nochime('new_dataset/babble_noise/babble', ch_range=range(1, 7), fs=16000)
             noise_audio = get_audio_babble(noise_data, chime_size, 7)
+
+            noise_files = list()
+            # start = noise_data
+            # end = chime_size.shape[0] + start
+            for i in range(1, 7):
+                print("start: ", start, "end: ", end, end="\n")
+                start = end
+                end = end + chime_size.shape[0]
+                y = noise_data[start:end]
+                noise_files.append(y[None, :])
+            print("last_shape: ", chime_size.shape)
+            noise_files = np.concatenate(noise_files, axis=0)
+            noise_files = noise_files.astype(np.float32)
+
+
             print("clean shape: ", clean_audio.shape, "noise shape: ", noise_audio.shape, end="\n")
 
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
-            N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
+            N = stft(noise_files, time_dim=1).transpose((1, 0, 2))
             print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
 
             IBM_X, IBM_N = estimate_IBM(X, N)
