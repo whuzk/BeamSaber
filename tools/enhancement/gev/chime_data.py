@@ -119,14 +119,15 @@ def prepare_custom_audio(noise_data, chime_data):
 
 def prepare_training_data(chime_data_dir, dest_dir):
     start = 0
-    print("loop")
+    print("sdsd")
     for stage in ['tr', 'dt']:
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
         print(type(flist))
 
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('new_dataset/babble.wav', sample_rate=16000)
+        noise_data = audioread('new_dataset/babble_7min.wav', sample_rate=44100)
+        print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
             # noise_audio = get_audio_data(f, '.Noise')
@@ -134,28 +135,33 @@ def prepare_training_data(chime_data_dir, dest_dir):
 
             chime_size = audioread('{}.CH{}{}.Clean.wav'.format(f, 1, ''))
 
-            # print(chime_size.shape[0])
-            noise_audio = get_audio_babble(noise_data, chime_size, 7)
+            print(chime_size.shape[0])
+            # noise_audio = get_audio_babble(noise_data, chime_size, 7)
 
             noise_files = list()
             # start = noise_data
             end = chime_size.shape[0] + start
-            print(end)
+            if end > 20000000:
+                start = 0
+                end = chime_size.shape[0] + start
+                print("reset")
+                print(chr(27) + "[2J")
+            print("ksjdkjd", end)
             for i in range(1, 7):
                 y = noise_data[start:end]
-                print("start: ", start, "end: ", end, end="\n")
                 start = end
                 end = end + chime_size.shape[0]
                 noise_files.append(y[None, :])
+                print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
             print("last_shape: ", chime_size.shape)
             noise_files = np.concatenate(noise_files, axis=0)
             noise_files = noise_files.astype(np.float32)
-
+            noise_audio = noise_files
 
             print("clean shape: ", clean_audio.shape, "noise shape: ", noise_audio.shape, end="\n")
 
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
-            N = stft(noise_files, time_dim=1).transpose((1, 0, 2))
+            N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
             print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
 
             IBM_X, IBM_N = estimate_IBM(X, N)
