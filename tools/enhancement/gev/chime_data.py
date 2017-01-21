@@ -119,7 +119,7 @@ def prepare_custom_audio(noise_data, chime_data):
 
 def prepare_training_data(chime_data_dir, dest_dir):
     start = 0
-    end = 0
+    print("loop")
     for stage in ['tr', 'dt']:
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
         print(type(flist))
@@ -139,7 +139,8 @@ def prepare_training_data(chime_data_dir, dest_dir):
 
             noise_files = list()
             # start = noise_data
-            # end = chime_size.shape[0] + start
+            end = chime_size.shape[0] + start
+            print(noise_files.shape)
             for i in range(1, 7):
                 print("start: ", start, "end: ", end, end="\n")
                 start = end
