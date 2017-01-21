@@ -75,13 +75,13 @@ def get_audio_babble(noise_data, chime_data, chan):
           "chime_data: ", chime_data.shape,
           "channel: ", chan, end="\n")
     # noise_data = audioread('new_dataset/babble.wav', sample_rate=16000)
-    start = 800
-    end = chime_data.shape[1] + start
+    start = 0
+    end = chime_data.shape[0] + start
     for i in range(1, chan):
         y = noise_data[start:end]
         print("start: ", start, "end: ", end, end="\n")
-        # start = end
-        # end = end + chime_data.shape[1]
+        start = end
+        end = end + chime_data.shape[0]
         # audiowrite(y, "new_dataset/babble_noise/babble.CH{}.wav".format(i))
         audio_data.append(y[None, :])
     # sleep(0.01)

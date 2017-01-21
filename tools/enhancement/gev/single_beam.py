@@ -81,13 +81,12 @@ def single_noise():
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask)
 
-    audiowrite(istft(Y_hat), "new_dataset_result/AUDIO_REC_babble.wav", 49000, True, True)
+    audiowrite(istft(Y_hat), "new_dataset_result/AUDIO_REC_old_model_babble.wav", 49000, True, True)
 
     print('Finished')
 
 
 def single_normal():
-
     # audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
     audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
     context_samples = 0
@@ -111,10 +110,11 @@ def single_normal():
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask)
 
-    audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/AUDIO_REC_nor.wav", 49000, True, True)
+    audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/AUDIO_REC_new_model_nor.wav", 49000, True, True)
 
     print('Finished')
 
+
 if __name__ == '__main__':
     single_normal()
-    single_noise()
+    # single_noise()
