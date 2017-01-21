@@ -124,7 +124,8 @@ def prepare_custom_audio(noise_data, chime_data):
 def prepare_training_data(chime_data_dir, dest_dir):
     for stage in ['tr', 'dt']:
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
-        # print(type(flist))
+        print(type(flist))
+
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
         noise_data = audioread('new_dataset/babble.wav', sample_rate=16000)
