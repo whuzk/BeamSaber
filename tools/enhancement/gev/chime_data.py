@@ -142,10 +142,10 @@ def prepare_training_data(chime_data_dir, dest_dir):
             end = chime_size.shape[0] + start
             print(noise_files.shape)
             for i in range(1, 7):
+                y = noise_data[start:end]
                 print("start: ", start, "end: ", end, end="\n")
                 start = end
                 end = end + chime_size.shape[0]
-                y = noise_data[start:end]
                 noise_files.append(y[None, :])
             print("last_shape: ", chime_size.shape)
             noise_files = np.concatenate(noise_files, axis=0)
