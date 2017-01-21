@@ -140,7 +140,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
             noise_files = list()
             # start = noise_data
             end = chime_size.shape[0] + start
-            print(noise_files.shape)
+            print(end)
             for i in range(1, 7):
                 y = noise_data[start:end]
                 print("start: ", start, "end: ", end, end="\n")
