@@ -111,8 +111,8 @@ def single_normal():
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
 
-    audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
-
+    # audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
+    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_3.wav", 49000, True, True)
     print('Finished')
 
 
