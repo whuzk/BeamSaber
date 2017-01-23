@@ -50,8 +50,8 @@ t_beamform = 0
 
 
 def single_noise():
-    # audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
-    audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
+    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
+    # audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
     noise_audio = audioread('new_dataset/babble.wav', sample_rate=16000)
     noise_data = get_audio_babble(noise_audio, audio_data, 9)
     print("Noise audio: ", noise_data.shape)
@@ -87,8 +87,8 @@ def single_noise():
 
 
 def single_normal():
-    # audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
-    audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
+    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
+    # audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
@@ -110,7 +110,7 @@ def single_normal():
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask)
 
-    audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/AUDIO_REC_new_model_nor.wav", 49000, True, True)
+    audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m.wav", 49000, True, True)
 
     print('Finished')
 

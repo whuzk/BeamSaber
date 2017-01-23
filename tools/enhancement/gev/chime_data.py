@@ -141,7 +141,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
             noise_files = list()
             # start = noise_data
             end = chime_size.shape[0] + start
-            if end > 20000000:
+            if end > 19000000:
                 start = 0
                 end = chime_size.shape[0] + start
                 print("reset")

@@ -22,6 +22,7 @@ Template
 python3 train.py --chime_dir=../../../../CHiME3/data /home/hipo/workspace/CHiME3/data/audio/16kHz/new_train  --initmodel=data/BLSTM_model/best.nnet BLSTM
 Server:
 python3 train.py --chime_dir=../../../data ../../../data/audio/16kHz/new_train  --initmodel=data/BLSTM_model/best.nnet BLSTM
+python3 train.py --chime_dir=../../../../../CHiME4/CHiME3/data/ ../../../../../CHiME4/CHiME3/data/audio/16kHz/gev_babble7min --initmodel=data/BLSTM_model/best.nnet --gpu 0 BLSTM
 
 """
 
