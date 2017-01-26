@@ -118,6 +118,7 @@ def blind_analytic_normalization(vector, noise_psd_matrix):
 
 
 def apply_beamforming_vector(vector, mix):
+    print("vector: ", vector.shape, "mix: ", mix.shape)
     return np.einsum('...a,...at->...t', vector.conj(), mix)
 
 

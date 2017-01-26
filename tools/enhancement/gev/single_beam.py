@@ -87,32 +87,35 @@ def single_noise():
 
 
 def single_normal():
-    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=49000)
+    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=48000)
     # audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
-    print("Y: ", len(Y), end="\n")
+    Y_phase = np.divide(Y, abs(Y))
+    print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
 
     Y_var = Variable(np.abs(Y).astype(np.float32), True)
     print("Y_var: ", Y_var.shape, end="\n")
 
     # mask estimation
     N_masks, X_masks = model.calc_masks(Y_var)
-    print("calculate n_mask x_mask")
-    N_masks.to_cpu()
-    X_masks.to_cpu()
+    print("N_masks: ", N_masks.shape)
+    # N_masks.to_cpu()
+    # X_masks.to_cpu()
 
     N_mask = np.median(N_masks.data, axis=1)
     X_mask = np.median(X_masks.data, axis=1)
-    audiowrite(istft(N_mask), "new_dataset_result/2m_noise.wav", 49000)
+
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
-
+    # Noise = np.outer(N_mask, Y_phase)
+    # print("Noise: ", Noise.shape)
+    # audiowrite(istft(N_mask), "new_dataset_result/2m_noise.wav", 49000)
     # audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
-    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_3.wav", 49000, True, True)
+    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_4.wav", 48000, True, True)
     print('Finished')
 
 
