@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="81072613-2fbf-4525-a69a-2f3580928729" name="MSLAB-117" url="http://140.115.53.117">
+        <fileTransfer host="140.115.53.117" port="22" rootFolder="/home/hipo/workspace/BeamSaber/tools/enhancement/gev" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

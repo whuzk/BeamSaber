@@ -27,7 +27,8 @@ parser.add_argument('model_type',
                     help='Type of model (BLSTM or FW)')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
                     help='GPU ID (negative value indicates CPU)')
-
+parser.add_argument('exNum',
+                    help='Experiment order')
 args = parser.parse_args()
 
 # Prepare model
@@ -115,7 +116,7 @@ def single_normal():
     # print("Noise: ", Noise.shape)
     # audiowrite(istft(N_mask), "new_dataset_result/2m_noise.wav", 49000)
     # audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
-    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_4.wav", 48000, True, True)
+    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_{}.wav".format(args.exNum), 48000, True, True)
     print('Finished')
 
 

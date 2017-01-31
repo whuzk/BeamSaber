@@ -22,6 +22,8 @@ parser.add_argument('model_type',
                     help='Type of model (BLSTM or FW)')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
                     help='GPU ID (negative value indicates CPU)')
+parser.add_argument('experiments',
+                    help='Number of current experiment')
 args = parser.parse_args()
 
 # Prepare model
@@ -70,12 +72,12 @@ with Timer() as t:
     X_mask = np.median(X_masks.data, axis=1)
     print("Y: ", Y.shape,"N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask)
-    audiowrite(istft(Y_hat), "2m_pub_new_1.wav", 48000, True, True)
+    # audiowrite(istft(Y_hat), "new_dataset_result/2m_feedback_.wav", 48000, True, True)
 t_beamform += t.msecs
 
 # second pass beamforming
 # second_channel = audioread('AUDIO_RECORDING.CH2.wav', sample_rate=48000)
-second_channel = audioread('2m_pub_new.CH5.wav', sample_rate=48000)
+second_channel = audioread('new_dataset/2m/2m_pub_new.CH5.wav', sample_rate=48000)
 second_channel = np.expand_dims(second_channel, axis=0)
 print("second_size", second_channel.shape, end="\n")
 
@@ -98,13 +100,13 @@ with Timer() as t:
     NN_mask = np.median(NN_masks.data, axis=1)
     XX_mask = np.median(XX_masks.data, axis=1)
     print("Y: ", Y_hat.shape, "N_mask: ", NN_mask.shape, "X_mask: ", XX_mask.shape, end="\n")
-    try:
-        YY_hat = gev_wrapper_on_masks(Y_hat, NN_mask, XX_mask)
-    except AttributeError:
-        YY_hat = gev_wrapper_on_masks(Y, NN_mask, XX_mask)
+    # try:
+    YY_hat = gev_wrapper_on_masks(Y_hat, NN_mask, XX_mask)
+    # except AttributeError:
+    #     YY_hat = gev_wrapper_on_masks(Y, NN_mask, XX_mask)
 
 with Timer() as t:
-    audiowrite(istft(YY_hat), "2m_pub_new_2.wav", 48000, True, True)
+    audiowrite(istft(YY_hat), "new_dataset_result/2m_feedback_{}.wav".format(args.experiments), 48000, True, True)
 t_io += t.msecs
 
 print('Finished')

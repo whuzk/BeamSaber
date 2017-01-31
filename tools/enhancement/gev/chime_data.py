@@ -28,7 +28,10 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
         chime_data_dir, 'audio', '16kHz', isolated_dir,
         '{}05_{}_{}'.format(stage, a['environment'].lower(), 'simu'),
         '{}_{}_{}'.format(a['speaker'], a['wsj_name'], a['environment']))
-             for a in annotations]
+             for a in annotations if a['environment'] == 'BUS']
+    # for a in annotations:
+    #     if a['environment'] == 'CAF':
+    #         print(annotations)
     return flist
 
 
@@ -122,8 +125,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
     # print("sdsd")
     for stage in ['tr', 'dt']:
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
-        # print(type(flist))
-
+        # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
         noise_data = audioread('new_dataset/babble_7min.wav', sample_rate=44100)
