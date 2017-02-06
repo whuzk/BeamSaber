@@ -128,7 +128,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('new_dataset/babble_7min.wav', sample_rate=44100)
+        noise_data = audioread('new_dataset/babble_7min.wav')
         # print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')

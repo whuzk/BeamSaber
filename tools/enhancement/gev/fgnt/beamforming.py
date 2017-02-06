@@ -105,11 +105,12 @@ def get_gev_vector(target_psd_matrix, noise_psd_matrix):
 
 def blind_analytic_normalization(vector, noise_psd_matrix):
     bins, sensors = vector.shape
+    print("sensors: ", sensors)
     normalization = np.zeros(bins)
     for f in range(bins):
         normalization[f] = np.abs(np.sqrt(np.dot(
                 np.dot(np.dot(vector[f, :].T.conj(), noise_psd_matrix[f]),
-                       noise_psd_matrix[f]), vector[f, :])))
+                       noise_psd_matrix[f]), vector[f, :]) / sensors))
         normalization[f] /= np.abs(np.dot(
                 np.dot(vector[f, :].T.conj(), noise_psd_matrix[f]),
                 vector[f, :]))

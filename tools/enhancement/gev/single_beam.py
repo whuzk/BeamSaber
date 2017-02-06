@@ -104,8 +104,10 @@ def single_normal():
     # mask estimation
     N_masks, X_masks = model.calc_masks(Y_var)
     print("N_masks: ", N_masks.shape)
-    # N_masks.to_cpu()
-    # X_masks.to_cpu()
+    N_masks.to_cpu()
+    X_masks.to_cpu()
+
+
 
     N_mask = np.median(N_masks.data, axis=1)
     X_mask = np.median(X_masks.data, axis=1)
