@@ -88,15 +88,17 @@ def single_noise():
 
 
 def single_normal():
-    audio_data = get_audio_nochime('new_dataset/2m/2m_pub_new', ch_range=range(1, 9), fs=48000)
+    # audio_data = get_audio_nochime('new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
     # audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
+    # audio_data = get_audio_nochime('new_dataset/audio_re/audio_re', ch_range=range(1, 9), fs=16000)
+    audio_data = get_audio_nochime('new_dataset/1m2/1m2', ch_range=range(1, 5), fs=16000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
-    Y_phase = np.divide(Y, abs(Y))
-    print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
+    # Y_phase = np.multiply(Y, abs(Y))
+    # print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
 
     Y_var = Variable(np.abs(Y).astype(np.float32), True)
     print("Y_var: ", Y_var.shape, end="\n")
@@ -111,14 +113,14 @@ def single_normal():
 
     N_mask = np.median(N_masks.data, axis=1)
     X_mask = np.median(X_masks.data, axis=1)
-
-    print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, end="\n")
+    # Y_phase = np.median(Y_phase.data, axis=1)
+    # print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, "Y_phase: ", Y_phase.shape,end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask, True)
-    # Noise = np.outer(N_mask, Y_phase)
+    # Noise = np.divide(N_mask, Y_phase)
     # print("Noise: ", Noise.shape)
-    # audiowrite(istft(N_mask), "new_dataset_result/2m_noise.wav", 49000)
+    # audiowrite(istft(Noise), "new_dataset_result/noise_{}".format(args.exNum), 16000, True, True)
     # audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
-    audiowrite(istft(Y_hat), "new_dataset_result/2m_pub_7m_{}.wav".format(args.exNum), 48000, True, True)
+    audiowrite(istft(Y_hat), "new_dataset_result/{}.wav".format(args.exNum), 16000, True, True)
     print('Finished')
 
 

@@ -41,9 +41,9 @@ parser.add_argument('--resume', '-r', default='',
                     help='Resume the optimization from snapshot')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
                     help='GPU ID (negative value indicates CPU)')
-parser.add_argument('--max_epochs', default=25, type=int,
+parser.add_argument('--max_epochs', default=50, type=int,
                     help='Max. number of epochs to train')
-parser.add_argument('--patience', default=5, type=int,
+parser.add_argument('--patience', default=10, type=int,
                     help='Max. number of epochs to wait for better CV loss')
 parser.add_argument('--dropout', default=.5, type=float,
                     help='Dropout probability')

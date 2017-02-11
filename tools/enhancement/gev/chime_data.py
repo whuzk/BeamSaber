@@ -29,9 +29,8 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
         '{}05_{}_{}'.format(stage, a['environment'].lower(), 'simu'),
         '{}_{}_{}'.format(a['speaker'], a['wsj_name'], a['environment']))
              for a in annotations if a['environment'] == 'BUS']
-    # for a in annotations:
-    #     if a['environment'] == 'CAF':
-    #         print(annotations)
+
+    # new noise format: caffe, babble, white noise
     return flist
 
 
@@ -128,8 +127,8 @@ def prepare_training_data(chime_data_dir, dest_dir):
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('new_dataset/babble_7min.wav')
-        # print("noise_data size:", noise_data.shape[0])
+        noise_data = audioread('new_dataset/babble_7min_converted.wav')
+        print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
             # noise_audio = get_audio_data(f, '.Noise')
@@ -143,7 +142,10 @@ def prepare_training_data(chime_data_dir, dest_dir):
             noise_files = list()
             # start = noise_data
             end = chime_size.shape[0] + start
-            if end > 19000000:
+            #  20 391 552
+            # 19 000 000
+            # 7 398 296
+            if end > 700000:
                 start = 0
                 end = chime_size.shape[0] + start
                 # print("reset")
@@ -154,7 +156,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
                 start = end
                 end = end + chime_size.shape[0]
                 noise_files.append(y[None, :])
-            #     print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
+                # print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
             # print("last_shape: ", chime_size.shape)
             noise_files = np.concatenate(noise_files, axis=0)
             noise_files = noise_files.astype(np.float32)
@@ -180,3 +182,4 @@ def prepare_training_data(chime_data_dir, dest_dir):
         with open(os.path.join(dest_dir, 'flist_{}.json'.format(stage)),
                   'w') as fid:
             json.dump(export_flist, fid, indent=4)
+# m

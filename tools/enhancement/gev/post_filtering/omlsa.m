@@ -68,6 +68,7 @@ nonstat='medium';                %Non stationarity  % new version
 % Read input data
 [y,Fs]=wavread(fin,1);  % read size of input data, Fs and NBITS
 N=wavread(fin,'size');
+disp(size(y));
 N = N(1);
 
 % Adjust parameters according to the actual sampling frequency
@@ -243,15 +244,19 @@ for l=1:Nframes
                 SMactt=St;
             end
         end
+	
         % 2.4. Noise Spectrum Estimate
         %     lambda_d=1.4685*lambda_dav;  % new version
         switch nonstat    % new version
             case   'high'  % new version
                 lambda_d=2*lambda_dav;  % new version
+		disp(size(lambda_d));
             otherwise  % new version
                 lambda_d=1.4685*lambda_dav;  % new version
+		disp(size(lambda_d));
         end  % new version
 
+%	[a,b] = wavread('noise_2m_3.wav');	
 
         % 4. A Priori Probability for Signal-Absence Estimate
         xi=alpha_xi*xi+(1-alpha_xi)*eta;
