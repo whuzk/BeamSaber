@@ -118,16 +118,33 @@ def prepare_custom_audio(noise_data, chime_data):
     sleep(0.01)
     print("last_shape: ", chime_data.shape)
 
+def get_noise_data(noise_data, audio_size):
+    # the variable to save the audio is list
+    the_noise = list()
+    # get the noise data shape
+    noise_data_shape = noise_data.shape[0]
+    # slice the noise data into 7 chunks (chime track) and then append it
+    for track in range(1, 7):
+        y = noise_data[:audio_size]
+        the_noise.append(y)
+    # new noise_data
+    new_noise_data = noise_data[audio_size:]
+    # convert the noise to the 1D numpy array
+    noise_files = np.concatenate(the_noise, axis=0)
+    noise_files = noise_files.astype(np.float32)
+    return noise_files
 
 def prepare_training_data(chime_data_dir, dest_dir):
     start = 0
+
     # print("sdsd")
     for stage in ['tr', 'dt']:
+        reset_counter = 0
         flist = gen_flist_simu(chime_data_dir, stage, ext=True)
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('new_dataset/babble_7min_converted.wav')
+        noise_data = audioread('data/new_dataset/noise.wav')
         print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
@@ -141,11 +158,22 @@ def prepare_training_data(chime_data_dir, dest_dir):
 
             noise_files = list()
             # start = noise_data
+
+            #  87 789 259
+            # 19 000 000
+            # 7 398 296
+            # if end > 87000000:
+            #     start = 0
+            #     end = chime_size.shape[0] + start
+            #     print("reset")
+            #     print(chr(27) + "[2J")
+            # print("ksjdkjd", end)
             end = chime_size.shape[0] + start
             #  20 391 552
             # 19 000 000
             # 7 398 296
-            if end > 700000:
+            if end > 87789200:
+                print("reset counter: ", reset_counter+1)
                 start = 0
                 end = chime_size.shape[0] + start
                 # print("reset")
@@ -153,14 +181,19 @@ def prepare_training_data(chime_data_dir, dest_dir):
             # print("ksjdkjd", end)
             for i in range(1, 7):
                 y = noise_data[start:end]
-                start = end
-                end = end + chime_size.shape[0]
-                noise_files.append(y[None, :])
-                # print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
+                audiowrite(y, "data/new_dataset/noise/{}/{}.CH{}{}.Noise.wav".format(f[71:85], f[86:98], i, ''))
+            # print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
+            start = end
+            # end = end + chime_size.shape[0]
+            noise_files.append(y[None, :])
+
+            # print("reset")
+            # print(chr(27) + "[2J")
             # print("last_shape: ", chime_size.shape)
             noise_files = np.concatenate(noise_files, axis=0)
             noise_files = noise_files.astype(np.float32)
             noise_audio = noise_files
+            # print(noise_audio.shape)
 
             # print("clean shape: ", clean_audio.shape, "noise shape: ", noise_audio.shape, end="\n")
 
