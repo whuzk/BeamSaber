@@ -71,6 +71,9 @@ N=wavread(fin,'size');
 disp(size(y));
 N = N(1);
 
+% custom noise estimation from audio files
+[noise, fs] = wavread('noise_2m_0-10.wav');
+
 % Adjust parameters according to the actual sampling frequency
 if Fs~=Fs_ref
     M=2^round(log2(Fs/Fs_ref*M_ref));
@@ -249,11 +252,11 @@ for l=1:Nframes
         %     lambda_d=1.4685*lambda_dav;  % new version
         switch nonstat    % new version
             case   'high'  % new version
-                lambda_d=2*lambda_dav;  % new version
-		disp(size(lambda_d));
+                %lambda_d=2*lambda_dav;  % new version
+				lambda_d = 2 * noise;
             otherwise  % new version
-                lambda_d=1.4685*lambda_dav;  % new version
-		disp(size(lambda_d));
+                %lambda_d=1.4685*lambda_dav;  % new version
+				lambda_d = noise([1:257], :);
         end  % new version
 
 %	[a,b] = wavread('noise_2m_3.wav');	
