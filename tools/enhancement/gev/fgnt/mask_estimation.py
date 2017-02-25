@@ -131,9 +131,9 @@ def quantile_mask(observations, quantile_fraction=0.98, quantile_weight=0.999):
 
 
 def estimate_IBM(X, N,
-                 threshold_unvoiced_speech=2,
+                 threshold_unvoiced_speech=5,
                  threshold_voiced_speech=0,
-                 threshold_unvoiced_noise=10,
+                 threshold_unvoiced_noise=-10,
                  threshold_voiced_noise=-10,
                  low_cut=5,
                  high_cut=500):

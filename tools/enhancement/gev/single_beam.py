@@ -1,17 +1,15 @@
 import argparse
-import os
 
 import numpy as np
+from scipy.signal import wiener
 from chainer import Variable
 from chainer import cuda
 from chainer import serializers
-from tqdm import tqdm
+import webrtcvad
 
 from chime_data import get_audio_nochime, get_audio_babble
 from fgnt.beamforming import gev_wrapper_on_masks
 from fgnt.signal_processing import audiowrite, stft, istft, audioread
-from fgnt.utils import Timer
-from fgnt.utils import mkdir_p
 from nn_models import BLSTMMaskEstimator, SimpleFWMaskEstimator
 
 """
@@ -89,46 +87,72 @@ def single_noise():
 
 def single_normal():
     audio_data = get_audio_nochime('data/new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
-    # audio_data = get_audio_nochime('new_dataset/new_audio/AUDIO_RECORDING', ch_range=range(1, 9), fs=49000)
     # audio_data = get_audio_nochime('data/new_dataset/audio_re/audio_re', ch_range=range(1, 9), fs=16000)
     # audio_data = get_audio_nochime('new_dataset/1m2/1m2', ch_range=range(1, 5), fs=16000)
-    noise_data = get_audio_nochime('data/new_dataset/gevnoise/gevnoise', ch_range=range(1, 9), fs=16000)
+    noise_data = get_audio_nochime('data/new_dataset/blstm_noise/noise_124', ch_range=range(1, 9), fs=16000)
+    # blstm_noise = audioread('/home/hipo/workspace/BeamSaber/result/noise/noise_124.wav', sample_rate=16000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
     N = stft(noise_data, time_dim=1).transpose((1, 0, 2))
+    # blstm_noise = stft(blstm_noise)
     Y_phase = np.divide(Y, abs(Y))
     print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
 
     Y_var = Variable(np.abs(Y).astype(np.float32), True)
     N_var = Variable(np.abs(N).astype(np.float32), True)
+    # blstm_noise = Variable(np.abs(blstm_noise).astype(np.float32), True)
     print("Y_var: ", Y_var.shape, "N_var: ", N_var.shape, end="\n")
 
     # mask estimation
     N_masks, X_masks = model.calc_masks(Y_var)
-    print("N_masks: ", N_masks.shape)
+    Noise_masks = model.calc_mask_noise(N_var)
 
     N_masks.to_cpu()
     X_masks.to_cpu()
+    Noise_masks.to_cpu()
+
     N_mask = np.median(N_masks.data, axis=1)
     X_mask = np.median(X_masks.data, axis=1)
-    print(N_masks.data.shape, Y.shape)
+
+    Noise_mask = np.median(Noise_masks.data, axis=1)
+
+    # signal = audioread('data/new_dataset/216m/2m_pub_new' + '.CH{}.wav'.format(ch), sample_rate=16000)
+    # noise = audioread('data/new_dataset/gevnoise/gevnoise' + '.CH{}.wav'.format(ch), sample_rate=16000)
+    # signal_ = stft(signal)
+    # noise_ = stft(noise)
+    #
+    # signal_phase = np.divide(signal, abs(signal_))
+    # noise_masks = model.calc_mask_noise(noise_)
+    # noise_to = np.multiply(noise_masks.data, signal_)
+    # noise_to = np.multiply(noise_to, signal_phase)
+    # audiowrite(istft(noise_to)[context_samples:],
+    #            "/home/hipo/workspace/BeamSaber/result/noise/noise_to_.CH{}.wav".format(ch), 16000, True, True)
+
     Noise = np.multiply(N_masks.data, Y)
     Noise = np.multiply(Noise, Y_phase)
+    Y_phase_med = np.median(Y_phase, axis=1)
+    print(Noise.shape)
+    # for ch in range(0, 8):
+    #     audiowrite(istft(Noise[:,ch,:])[context_samples:],
+    #                "/home/hipo/workspace/BeamSaber/result/noise/2mnoise_.CH{}.wav".format(ch), 16000, True, True)
     Noise = np.median(Noise, axis=1)
+
     print("N_mask: ", N_mask.shape, "X_mask: ", X_mask.shape, "Y_phase: ", Y_phase.shape, end="\n")
     Y_hat = gev_wrapper_on_masks(Y, N_mask, X_mask)
-
+    print(Y_hat.shape)
     print("Noise: ", Noise.shape)
     audiowrite(istft(Noise)[context_samples:],
                "/home/hipo/workspace/BeamSaber/result/noise/noise_{}.wav".format(args.exNum), 16000, True, True)
-    # audiowrite(istft(Y_hat)[context_samples:], "new_dataset_result/2m_pub_7m_2.wav", 49000, True, True)
     audiowrite(istft(Y_hat)[context_samples:],
                "/home/hipo/workspace/BeamSaber/result/enhanced/{}.wav".format(args.exNum), 16000, True, True)
-    audiowrite(istft(np.subtract(Y_hat, Noise))[context_samples:],
-               "/home/hipo/workspace/BeamSaber/result/enhanced/NC{}.wav".format(args.exNum), 16000, True, True)
+    # nc_wiener = wiener(Y_hat, noise=Noise)
+    # # nc_wiener = np.multiply(nc_wiener, np.median(Y, axis=1))
+    # nc_wiener = np.multiply(nc_wiener, Y_phase_med)
+    # audiowrite(istft(nc_wiener)[context_samples:],
+    #            "/home/hipo/workspace/BeamSaber/result/enhanced/NC{}.wav".format(args.exNum), 16000, True, True)
 
 if __name__ == '__main__':
     single_normal()

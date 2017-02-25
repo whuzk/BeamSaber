@@ -28,7 +28,7 @@ def gen_flist_simu(chime_data_dir, stage, ext=False):
         chime_data_dir, 'audio', '16kHz', isolated_dir,
         '{}05_{}_{}'.format(stage, a['environment'].lower(), 'simu'),
         '{}_{}_{}'.format(a['speaker'], a['wsj_name'], a['environment']))
-             for a in annotations if a['environment'] == 'BUS']
+             for a in annotations]
 
     # new noise format: caffe, babble, white noise
     return flist
@@ -144,7 +144,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('data/new_dataset/noise.wav')
+        noise_data = audioread('data/new_dataset/9x_dmm_signal-noise.wav')
         print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')
@@ -172,7 +172,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
             #  20 391 552
             # 19 000 000
             # 7 398 296
-            if end > 87789200:
+            if end > noise_data.shape[0]:
                 print("reset counter: ", reset_counter+1)
                 start = 0
                 end = chime_size.shape[0] + start
@@ -181,7 +181,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
             # print("ksjdkjd", end)
             for i in range(1, 7):
                 y = noise_data[start:end]
-                audiowrite(y, "data/new_dataset/noise/{}/{}.CH{}{}.Noise.wav".format(f[71:85], f[86:98], i, ''))
+                # audiowrite(y, "data/new_dataset/noise/{}/{}.CH{}{}.Noise.wav".format(f[71:85], f[86:98], i, ''))
             # print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
             start = end
             # end = end + chime_size.shape[0]
