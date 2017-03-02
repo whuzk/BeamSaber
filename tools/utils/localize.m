@@ -55,10 +55,12 @@ else
     xpow=zeros(1,2);
 end
 
+radi = 2.4;
+
 % Define microphone positions in centimeters
-xmic=[-10 0 10 -10 0 10]; % left to right axis
-ymic=[9.5 9.5 9.5 -9.5 -9.5 -9.5]; % bottom to top axis
-zmic=[0 -2 0 0 0 0]; % back to front axis
+xmic=[0 (radi*cosd(45)) 2.4 (radi*cosd(45)) 0 -(radi*cosd(45)) -2.4 -(radi*cosd(45))]; % left to right axis
+ymic=[2.4 (radi*sind(45)) 0 -(radi*sind(45)) -2.4 -(radi*sind(45)) 0 (radi*sind(45))]; % bottom to top axis
+zmic=[0 0 0 0 0 0 0 0]; % back to front axis
 xmic=xmic(chanlist);
 ymic=ymic(chanlist);
 zmic=zmic(chanlist);
@@ -116,11 +118,11 @@ for p=1:npairs, % Loop over front pairs
         end
     end
     lin_spec=shiftdim(sum(lin_spec,1));
-    tau_spec=zeros(nfram,ngrid); % GCC-PHAT pseudo-spectrum over the whole grid
-    for t=1:nfram,
-        tau_spec(t,:)=interp1(lin_grid,lin_spec(t,:),tau_grid(p,:));
-    end
-    srp=srp+tau_spec; % sum over the microphone pairs
+%     tau_spec=zeros(nfram,ngrid); % GCC-PHAT pseudo-spectrum over the whole grid
+%     for t=1:nfram,
+%         tau_spec(t,:)=interp1(lin_grid,lin_spec(t,:),tau_grid(p,:));
+%     end
+%     srp=srp+tau_spec; % sum over the microphone pairs
 end
 
 % Loop over possible z-axis positions

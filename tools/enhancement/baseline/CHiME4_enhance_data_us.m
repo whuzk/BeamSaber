@@ -33,11 +33,17 @@ function CHiME4_enhance_data(track)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 addpath ../../utils;
-upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-epath=['../../../../CHiME3/data/audio/16kHz/enhanced_' track '_track/']; % path to enhanced utterances
-cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
-apath=['../../../../CHiME3/data/annotations/'];
+% upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
+upath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/isolated_' track '_track/'];
+% audio output path / enhanced utterances
+epath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/superdirective_beamforming/'];
+% path to continuous recordings
+cpath='/media/hipo/Mega Store/workspace/CHiME3/CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+% cpath='../../../CHiME3/data/audio/16kHz/embedded/';
+% bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+% path to JSON annotations
+apath=['/media/hipo/Mega Store/workspace/CHiME3/data/annotations/'];
 resultpath='../../../result/';
 if strcmp(track,'6ch'),
     nchan=5;
@@ -154,7 +160,7 @@ for set_ind=1:length(sets),
             % Compute noise covariance matrix
             N=stft_multi(n.',wlen);
             Ncov=zeros(nchan,nchan,nbin);
-
+            disp(size(X));
             for f=1:nbin,
                 for n=1:size(N,2),
                     Ntf=permute(N(f,n,:),[3 1 2]);

@@ -63,8 +63,8 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000)
     for ch in ch_range:
         audio_data.append(audioread(
             file_template + '.CH{}{}.wav'.format(ch, postfix), sample_rate=fs)[None, :])
-        print("shape: ", audioread(file_template + '.CH{}{}.wav'.format(ch, postfix)).shape, "size: ",
-              sys.getsizeof(audio_data))
+        # print("shape: ", audioread(file_template + '.CH{}{}.wav'.format(ch, postfix)).shape, "size: ",
+        #       sys.getsizeof(audio_data))
     # print(type(audio_data))
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
@@ -144,7 +144,7 @@ def prepare_training_data(chime_data_dir, dest_dir):
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('data/new_dataset/9x_dmm_signal-noise.wav')
+        noise_data = audioread('/media/hipo/Mega Store/Dataset/home_bg_noise/161120_002.wav')
         print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')

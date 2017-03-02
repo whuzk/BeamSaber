@@ -25,6 +25,8 @@ parser.add_argument('model_type',
                     help='Type of model (BLSTM or FW)')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
                     help='GPU ID (negative value indicates CPU)')
+parser.add_argument('data_directory',
+                    help='data experiment directory')
 parser.add_argument('exNum',
                     help='Experiment order')
 args = parser.parse_args()
@@ -86,11 +88,9 @@ def single_noise():
 
 
 def single_normal():
-    audio_data = get_audio_nochime('data/new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
-    # audio_data = get_audio_nochime('data/new_dataset/audio_re/audio_re', ch_range=range(1, 9), fs=16000)
-    # audio_data = get_audio_nochime('new_dataset/1m2/1m2', ch_range=range(1, 5), fs=16000)
+    # audio_data = get_audio_nochime('data/new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
     noise_data = get_audio_nochime('data/new_dataset/blstm_noise/noise_124', ch_range=range(1, 9), fs=16000)
-    # blstm_noise = audioread('/home/hipo/workspace/BeamSaber/result/noise/noise_124.wav', sample_rate=16000)
+    audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 9), fs=16000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
@@ -145,14 +145,9 @@ def single_normal():
     print(Y_hat.shape)
     print("Noise: ", Noise.shape)
     audiowrite(istft(Noise)[context_samples:],
-               "/home/hipo/workspace/BeamSaber/result/noise/noise_{}.wav".format(args.exNum), 16000, True, True)
+               "/home/hipo/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(args.exNum), 16000, True, True)
     audiowrite(istft(Y_hat)[context_samples:],
-               "/home/hipo/workspace/BeamSaber/result/enhanced/{}.wav".format(args.exNum), 16000, True, True)
-    # nc_wiener = wiener(Y_hat, noise=Noise)
-    # # nc_wiener = np.multiply(nc_wiener, np.median(Y, axis=1))
-    # nc_wiener = np.multiply(nc_wiener, Y_phase_med)
-    # audiowrite(istft(nc_wiener)[context_samples:],
-    #            "/home/hipo/workspace/BeamSaber/result/enhanced/NC{}.wav".format(args.exNum), 16000, True, True)
+               "/home/hipo/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_enhanced.wav".format(args.exNum), 16000, True, True)
 
 if __name__ == '__main__':
     single_normal()

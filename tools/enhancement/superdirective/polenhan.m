@@ -11,16 +11,16 @@ addpath ../../utils;
 % audio input path / segmented utterances
 % change data to remote directory to safe the space add "../CHiME4/CHiME3/"
 % upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-upath=['../../../../CHiME3/data/audio/16kHz/isolated_' track '_track/'];
+upath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
-epath=['../../../../CHiME3/data/audio/16kHz/superdirective_beamforming/'];
+epath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/superdirective_beamforming/'];
 % path to continuous recordings
-cpath='../../../../CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='../../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+cpath='/media/hipo/Mega Store/workspace/CHiME3/CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % cpath='../../../CHiME3/data/audio/16kHz/embedded/';
 % bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % path to JSON annotations
-apath=['../../../../CHiME3/data/annotations/'];
+apath=['/media/hipo/Mega Store/workspace/CHiME3/data/annotations/'];
 resultpath = ['../../../result/'];
 if strcmp(track, '6ch'),
   nchan = 5;
@@ -107,8 +107,12 @@ for set_ind = 1:length(sets),
         xpow = sum(x.^2, 1);
         xpow = 10*log10(xpow/max(xpow));
         fail = (xpow <= pow_thresh);
+        disp('fail1');
+        disp(fail);
       else
         fail = false(1, nchan);
+        disp('fail2');
+        disp(fail);
       end
 
       signal = stft_multi(x.', wlen);
