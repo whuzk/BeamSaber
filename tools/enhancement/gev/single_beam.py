@@ -5,7 +5,6 @@ from scipy.signal import wiener
 from chainer import Variable
 from chainer import cuda
 from chainer import serializers
-import webrtcvad
 
 from chime_data import get_audio_nochime, get_audio_babble
 from fgnt.beamforming import gev_wrapper_on_masks

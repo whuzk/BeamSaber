@@ -11,7 +11,7 @@ from chainer import optimizers
 from chainer import serializers
 from tqdm import tqdm
 
-from chime_data import prepare_training_data
+from chime_data import prepare_training_data, prepare_other_training_data
 from fgnt.utils import Timer
 from fgnt.utils import mkdir_p
 from nn_models import BLSTMMaskEstimator
@@ -66,7 +66,7 @@ if args.chime_dir != '':
     log.info(
             'Preparing training data and storing it in {}'.format(
                     args.data_dir))
-    prepare_training_data(args.chime_dir, args.data_dir)
+    prepare_other_training_data(args.chime_dir, args.data_dir)
 
 flists = dict()
 for stage in ['tr', 'dt']:
@@ -172,11 +172,11 @@ while (epoch < args.max_epochs and not exhausted):
     if loss_cv < best_cv_loss:
         best_epoch = epoch
         best_cv_loss = loss_cv
-        model_file = os.path.join(model_save_dir, '2-10.nnet')
+        model_file = os.path.join(model_save_dir, '0403_noise_model.nnet')
         log.info('New best loss during cross-validation. Saving model file '
                  'under {}'.format(model_file))
         serializers.save_hdf5(model_file, model)
-        serializers.save_hdf5(os.path.join(model_save_dir, '0-10mlp.tr'), optimizer)
+        serializers.save_hdf5(os.path.join(model_save_dir, '0403_noise_model_mlp.tr'), optimizer)
 
     if epoch - best_epoch == args.patience:
         exhausted = True
