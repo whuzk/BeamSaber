@@ -1,5 +1,7 @@
 import json
 import os
+from os import listdir
+from os.path import isfile, join
 import pickle
 
 from time import sleep
@@ -219,55 +221,45 @@ def prepare_training_data(chime_data_dir, dest_dir):
             json.dump(export_flist, fid, indent=4)
 
 
-def prepare_other_training_data(chime_data_dir, dest_dir):
+def prepare_other_training_data(train_dir, dest_dir):
     start = 0
+    # clean directory
+    export_flist = list()
+    train_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/'
+    noise_data = audioread('/media/hipo/Mega Store/Dataset/single file/guitar.wav')
+    onlyfiles = [f for f in listdir(train_dir) if isfile(join(train_dir, f))]
+    reset_counter = 0
+    # loop inside the folder
+    for f in tqdm.tqdm(onlyfiles, desc='Generating data for female'):
+        print(f)
+        path = os.path.join(train_dir, f)
+        # print(path)
+        clean_audio = audioread(path)
+        chime_size = audioread(path)
 
-    # print("sdsd")
-    for stage in ['tr', 'dt']:
-        reset_counter = 0
-        flist = gen_flist_simu(chime_data_dir, stage, ext=True)
-        # print(flist)
-        export_flist = list()
-        mkdir_p(os.path.join(dest_dir, stage))
-        clean_data = audioread('/media/hipo/Mega Store/Dataset/home_bg_noise/161120_002.wav')
-        print("noise_data size:", clean_data.shape[0])
-        for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
-            # clean_audio = get_audio_data(f, '.Clean')
-            noise_audio = get_audio_data(f, '.Noise')
-
-            chime_size = audioread('{}.CH{}{}.Noise.wav'.format(f, 1, ''))
-
-            clean_files = list()
+        end = chime_size.shape[0] + start
+        if end > noise_data.shape[0]:
+            print("reset counter: ", reset_counter + 1)
+            start = 0
             end = chime_size.shape[0] + start
-            if end > clean_data.shape[0]:
-                print("reset counter: ", reset_counter + 1)
-                start = 0
-                end = chime_size.shape[0] + start
-                break
-            for i in range(1, 7):
-                y = clean_data[start:end]
-            start = end
-            clean_files.append(y[None, :])
+        noise_audio = noise_data[start:end]
+        start = end
 
-            clean_files = np.concatenate(clean_files, axis=0)
-            clean_files = clean_files.astype(np.float32)
-            clean_audio = clean_files
+        X = stft(clean_audio)
+        N = stft(noise_audio)
+        # print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
 
-            X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
-            N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
-            # print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
-
-            IBM_X, IBM_N = estimate_IBM(X, N)
-            Y_abs = np.abs(X + N)
-            export_dict = {
-                'IBM_X': IBM_X.astype(np.float32),
-                'IBM_N': IBM_N.astype(np.float32),
-                'Y_abs': Y_abs.astype(np.float32)
-            }
-            export_name = os.path.join(dest_dir, stage, f.split('/')[-1])
-            with open(export_name, 'wb') as fid:
-                pickle.dump(export_dict, fid)
-            export_flist.append(os.path.join(stage, f.split('/')[-1]))
-        with open(os.path.join(dest_dir, 'flist_{}.json'.format(stage)),
-                  'w') as fid:
-            json.dump(export_flist, fid, indent=4)
+        IBM_X, IBM_N = estimate_IBM(X, N)
+        Y_abs = np.abs(X + N)
+        export_dict = {
+            'IBM_X': IBM_X.astype(np.float32),
+            'IBM_N': IBM_N.astype(np.float32),
+            'Y_abs': Y_abs.astype(np.float32)
+        }
+        export_name = os.path.join(dest_dir, f.split('/')[-1])
+        with open(export_name, 'wb') as fid:
+            pickle.dump(export_dict, fid)
+    #     export_flist.append(os.path.join(f.split('/')[-1]))
+    # with open(os.path.join(dest_dir, 'flist_{}.json'.format(stage)),
+    #           'w') as fid:
+    #     json.dump(export_flist, fid, indent=4)

@@ -10,8 +10,8 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
-      <webServer id="1a893977-807d-45bd-bb6c-dcb7ca799b02" name="MSLAB-121" url="http://140.115.53.121">
-        <fileTransfer host="140.115.53.121" port="22" rootFolder="/mnt/Data/dataset" accessType="SFTP">
+      <webServer id="1a893977-807d-45bd-bb6c-dcb7ca799b02" name="MSLAB-120" url="http://140.115.53.120">
+        <fileTransfer host="140.115.53.120" port="22" rootFolder="/media/mslab-deep/New Volume/mays/BeamSaber/tools/enhancement/gev" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

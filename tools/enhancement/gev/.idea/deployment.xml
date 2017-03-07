@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="MSLAB-121">
+  <component name="PublishConfigData" autoUpload="Always" serverName="MSLAB-120">
     <serverData>
       <paths name="MSLAB-117">
         <serverdata>
@@ -9,7 +9,7 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="MSLAB-121">
+      <paths name="MSLAB-120">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
