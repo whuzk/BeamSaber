@@ -66,17 +66,12 @@ if args.chime_dir != '':
     log.info(
             'Preparing training data and storing it in {}'.format(
                     args.data_dir))
-    prepare_other_training_data(args.chime_dir, args.data_dir)
-
-# flists = dict()
-# for stage in ['tr', 'dt']:
-#     with open(
-#             os.path.join(args.data_dir, 'flist_{}.json'.format(stage))) as fid:
-#         flists[stage] = json.load(fid)
-# log.debug('Loaded file lists')
+    prepare_training_data(args.chime_dir, args.data_dir)
 
 flists = dict()
+
 for stage in ['tr', 'dt']:
+    print(os.path.join(args.data_dir, 'flist_{}.json'.format(stage)))
     with open(
             os.path.join(args.data_dir, 'flist_{}.json'.format(stage))) as fid:
         flists[stage] = json.load(fid)
@@ -144,6 +139,7 @@ while (epoch < args.max_epochs and not exhausted):
     for i in tqdm(perm, desc='Training epoch {}'.format(epoch)):
         with Timer() as t:
             IBM_X, IBM_N, Y = _create_batch(flists['tr'][i])
+            print(flists['tr'][i])
         t_io += t.msecs
 
         model.zerograds()

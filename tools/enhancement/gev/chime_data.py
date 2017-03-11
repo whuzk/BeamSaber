@@ -65,9 +65,6 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000)
     for ch in ch_range:
         audio_data.append(audioread(
             file_template + '.CH{}{}.wav'.format(ch, postfix), sample_rate=fs)[None, :])
-        # print("shape: ", audioread(file_template + '.CH{}{}.wav'.format(ch, postfix)).shape, "size: ",
-        #       sys.getsizeof(audio_data))
-    # print(type(audio_data))
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
@@ -140,7 +137,6 @@ def get_noise_data(noise_data, audio_size):
 
 def prepare_training_data(chime_data_dir, dest_dir):
     start = 0
-
     # print("sdsd")
     for stage in ['tr', 'dt']:
         reset_counter = 0
@@ -154,56 +150,23 @@ def prepare_training_data(chime_data_dir, dest_dir):
             clean_audio = get_audio_data(f, '.Clean')
             # noise_audio = get_audio_data(f, '.Noise')
             # print(chime_data_dir)
-
             chime_size = audioread('{}.CH{}{}.Clean.wav'.format(f, 1, ''))
-
-            # print(chime_size.shape[0])
-            # noise_audio = get_audio_babble(noise_data, chime_size, 7)
-
             noise_files = list()
-            # start = noise_data
-
-            #  87 789 259
-            # 19 000 000
-            # 7 398 296
-            # if end > 87000000:
-            #     start = 0
-            #     end = chime_size.shape[0] + start
-            #     print("reset")
-            #     print(chr(27) + "[2J")
-            # print("ksjdkjd", end)
             end = chime_size.shape[0] + start
-            #  20 391 552
-            # 19 000 000
-            # 7 398 296
             if end > noise_data.shape[0]:
                 print("reset counter: ", reset_counter + 1)
                 start = 0
                 end = chime_size.shape[0] + start
-                # print("reset")
-                # print(chr(27) + "[2J")
-            # print("ksjdkjd", end)
             for i in range(1, 7):
                 y = noise_data[start:end]
-                # audiowrite(y, "data/new_dataset/noise/{}/{}.CH{}{}.Noise.wav".format(f[71:85], f[86:98], i, ''))
-            # print("start: ", start, "end: ", end, "size: {}".format(end - start), end="\n")
             start = end
-            # end = end + chime_size.shape[0]
             noise_files.append(y[None, :])
-
-            # print("reset")
-            # print(chr(27) + "[2J")
-            # print("last_shape: ", chime_size.shape)
             noise_files = np.concatenate(noise_files, axis=0)
             noise_files = noise_files.astype(np.float32)
             noise_audio = noise_files
-            # print(noise_audio.shape)
-
-            # print("clean shape: ", clean_audio.shape, "noise shape: ", noise_audio.shape, end="\n")
 
             X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
             N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
-            # print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
 
             IBM_X, IBM_N = estimate_IBM(X, N)
             Y_abs = np.abs(X + N)
@@ -223,43 +186,61 @@ def prepare_training_data(chime_data_dir, dest_dir):
 
 def prepare_other_training_data(train_dir, dest_dir):
     start = 0
-    # clean directory
-    export_flist = list()
-    train_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/'
-    noise_data = audioread('/media/hipo/Mega Store/Dataset/single file/guitar.wav')
-    onlyfiles = [f for f in listdir(train_dir) if isfile(join(train_dir, f))]
-    reset_counter = 0
-    # loop inside the folder
-    for f in tqdm.tqdm(onlyfiles, desc='Generating data for female'):
-        print(f)
-        path = os.path.join(train_dir, f)
-        # print(path)
-        clean_audio = audioread(path)
-        chime_size = audioread(path)
+    chime_data_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/tr/'
 
-        end = chime_size.shape[0] + start
-        if end > noise_data.shape[0]:
-            print("reset counter: ", reset_counter + 1)
-            start = 0
+    for stage in ['tr', 'dt']:
+        if stage is 'dt':
+            chime_data_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/dt/'
+        reset_counter = 0
+        # flist = gen_flist_simu(chime_data_dir, stage, ext=True)
+        flist = [f for f in listdir(chime_data_dir) if isfile(join(chime_data_dir, f))]
+        # print(flist)
+        export_flist = list()
+        mkdir_p(os.path.join(dest_dir, stage))
+        noise_data = audioread('/media/hipo/Mega Store/Dataset/s/guitar (27).wav')
+        print("noise_data size:", noise_data.shape[0])
+        for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
+            # clean_audio = get_audio_data(f)
+            path = os.path.join(chime_data_dir, f)
+            clean_audioa = audioread(path)
+            clean_audiob = audioread(path)
+            multi_track = list()
+            multi_track.append(clean_audioa[None, :])
+            multi_track.append(clean_audiob[None, :])
+            multi_track = np.concatenate(multi_track, axis=0)
+            multi_track = multi_track.astype(np.float32)
+            # print(multi_track.shape)
+            chime_size = audioread(path)
+
+            noise_files = list()
             end = chime_size.shape[0] + start
-        noise_audio = noise_data[start:end]
-        start = end
+            if end > noise_data.shape[0]:
+                print("reset counter: ", reset_counter + 1)
+                start = 0
+                end = chime_size.shape[0] + start
+            for i in range(1, 2):
+                y = noise_data[start:end]
+            start = end
+            noise_files.append(y[None, :])
 
-        X = stft(clean_audio)
-        N = stft(noise_audio)
-        # print("X shape: ", X.shape, "N shape: ", N.shape, end="\n")
+            noise_files = np.concatenate(noise_files, axis=0)
+            noise_files = noise_files.astype(np.float32)
+            noise_audio = noise_files
+            print("speech size: ", multi_track.shape, "noise size: ", noise_audio.shape)
+            X = stft(multi_track, time_dim=1).transpose((1, 0, 2))
+            N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
 
-        IBM_X, IBM_N = estimate_IBM(X, N)
-        Y_abs = np.abs(X + N)
-        export_dict = {
-            'IBM_X': IBM_X.astype(np.float32),
-            'IBM_N': IBM_N.astype(np.float32),
-            'Y_abs': Y_abs.astype(np.float32)
-        }
-        export_name = os.path.join(dest_dir, f.split('/')[-1])
-        with open(export_name, 'wb') as fid:
-            pickle.dump(export_dict, fid)
-    #     export_flist.append(os.path.join(f.split('/')[-1]))
-    # with open(os.path.join(dest_dir, 'flist_{}.json'.format(stage)),
-    #           'w') as fid:
-    #     json.dump(export_flist, fid, indent=4)
+            IBM_X, IBM_N = estimate_IBM(X, N)
+            Y_abs = np.abs(X + N)
+            export_dict = {
+                'IBM_X': IBM_X.astype(np.float32),
+                'IBM_N': IBM_N.astype(np.float32),
+                'Y_abs': Y_abs.astype(np.float32)
+            }
+            export_name = os.path.join(dest_dir, stage, f.split('/')[-1])
+            with open(export_name, 'wb') as fid:
+                pickle.dump(export_dict, fid)
+            export_flist.append(os.path.join(stage, f.split('/')[-1]))
+        with open(os.path.join(dest_dir, 'flist_{}.json'.format(stage)),
+                  'w') as fid:
+            json.dump(export_flist, fid, indent=4)
