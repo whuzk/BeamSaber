@@ -11,7 +11,7 @@ from chainer import optimizers
 from chainer import serializers
 from tqdm import tqdm
 
-from chime_data import prepare_training_data, prepare_other_training_data
+from chime_data import prepare_noise_training_data, prepare_other_training_data, prepare_clean_training_data
 from fgnt.utils import Timer
 from fgnt.utils import mkdir_p
 from nn_models import BLSTMMaskEstimator
@@ -66,7 +66,7 @@ if args.chime_dir != '':
     log.info(
             'Preparing training data and storing it in {}'.format(
                     args.data_dir))
-    prepare_training_data(args.chime_dir, args.data_dir)
+    prepare_clean_training_data(args.chime_dir, args.data_dir)
 
 flists = dict()
 
@@ -139,7 +139,7 @@ while (epoch < args.max_epochs and not exhausted):
     for i in tqdm(perm, desc='Training epoch {}'.format(epoch)):
         with Timer() as t:
             IBM_X, IBM_N, Y = _create_batch(flists['tr'][i])
-            print(flists['tr'][i])
+            # print(flists['tr'][i])
         t_io += t.msecs
 
         model.zerograds()
