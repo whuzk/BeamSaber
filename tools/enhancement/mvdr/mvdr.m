@@ -1,6 +1,6 @@
-function mvdr()
-
+clear all;
 addpath ../../utils;
+addpath ../other_enchan;
 % Define hyper-parameters
 chanlist=[1:8]; % number of microphone array
 pow_thresh=-20; % threshold in dB below which a microphone is considered to fail
@@ -25,26 +25,41 @@ X = stft_multi(x.',wlen);
 
 % Compute noise covariance matrix
 N=stft_multi(n.',wlen);
+disp('N size');
+disp(size(N));
 Ncov=zeros(nchan,nchan,nbin);
 disp(size(X));
-for f=1:nbin,
-	for n=1:size(N,2),
-		Ntf=permute(N(f,n,:),[3 1 2]);
-		Ncov(:,:,f)=Ncov(:,:,f)+Ntf*Ntf';
-	end
-	Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
+% for f=1:nbin,
+% 	for n=1:size(N,2),
+% 		Ntf=permute(N(f,n,:),[3 1 2]);
+% 		Ncov(:,:,f)=Ncov(:,:,f)+Ntf*Ntf';
+% 	end
+% 	Ncov(:,:,f)=Ncov(:,:,f)/size(N,2);
+% end
+
+for f=1:nbin
+    Ncov(:,:,f) = N(f);
 end
+disp(size(Ncov));
+% Ncov = N;
+disp(size(Ncov));
 % Localize and track the speaker
 % [~,TDOA]=localize(X,chanlist);
-% display(TDOA);
+% display(size(TDOA));
 % MVDR beamforming
 Xspec=permute(mean(abs(X).^2,2),[3 1 2]);
 Y=zeros(nbin,nfram);
+
+% Df=sqrt(1/nchan)*exp(-2*1i*pi*(f-1)/wlen*fs*TDOA(:,t)); % steering vector
+% disp('Df');
+% disp(size(Df));
+% 
+% disp('Df');
+% disp(size(Df));
 for f=1:nbin,
 	for t=1:nfram,
 		Xtf=permute(X(f,t,:),[3 1 2]);
-% 		Df=sqrt(1/nchan)*exp(-2*1i*pi*(f-1)/wlen*fs*TDOA(:,t)); % steering vector
-        f_center = f*fs/wlen;
+		f_center = f*fs/wlen;
         zeta = -1i*f_center*R*sin(theta)/c;
         Df = [exp(zeta*cos(0*phi)); ...
                         exp(zeta*cos((2*pi/nchan)-1*phi)); ...
@@ -54,7 +69,8 @@ for f=1:nbin,
                         exp(zeta*cos((2*5*pi/nchan)-5*phi)); ...
                         exp(zeta*cos((2*6*pi/nchan)-6*phi)); ...
                         exp(zeta*cos((2*7*pi/nchan)-7*phi))];
-		Y(f,t)=Df(:)'/(Ncov(:,:,f)+regul*diag(Xspec(:,f)))*Xtf(:)/(Df(:)'/(Ncov(:,:,f)+regul*diag(Xspec(:,f)))*Df(:));
+		Y(f,t)=Df(:)'/(Ncov(:,:,f)+regul*diag(Xspec(:,f)))*...
+                Xtf(:)/(Df(:)'/(Ncov(:,:,f)+regul*diag(Xspec(:,f)))*Df(:));
 	end
 end
 y=istft_multi(Y,nsampl).';
@@ -62,7 +78,7 @@ y=istft_multi(Y,nsampl).';
 % Write WAV file
 y=y/max(abs(y));
 audiowrite('2m_mvdr_us.wav',y,fs);
-end
+
 % csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
 
 

@@ -144,9 +144,9 @@ def single_normal():
     print(Y_hat.shape)
     print("Noise: ", Noise.shape)
     audiowrite(istft(Noise)[context_samples:],
-               "/home/hipo/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(args.exNum), 16000, True, True)
+               "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(args.exNum), 16000, True, True)
     audiowrite(istft(Y_hat)[context_samples:],
-               "/home/hipo/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_enhanced.wav".format(args.exNum), 16000, True, True)
+               "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_enhanced.wav".format(args.exNum), 16000, True, True)
 
 if __name__ == '__main__':
     single_normal()

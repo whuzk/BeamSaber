@@ -20,7 +20,7 @@ Path.enhBssMvdrEgNoise = [enhRoot, 'enhBssMvdrEgNoise/'];
 Path.enhBssPmwfNoise = [enhRoot, 'enhBssPmwfNoise/'];
 
 enhDirs = {'enhBssMvdrEg'};
-% default set et05, dt05, tr05. use only dt05 to test the beamformer
+% default set are et05, dt05, tr05. use only dt05 to test the beamformer
 sets={'dt05'};
 envirs = {'bus','caf','ped','str'};
 modes={'real','simu'};
