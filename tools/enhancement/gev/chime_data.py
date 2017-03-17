@@ -70,20 +70,12 @@ def get_audio_nochime(file_template, postfix='', ch_range=range(1, 9), fs=16000)
     return audio_data
 
 
-def get_audio_babble(noise_data, chime_data, chan):
+def get_audio_single(file_template, postfix='', ch_range=range(1, 2), fs=16000):
+
     audio_data = list()
-    # print("noise_data: ", noise_data.shape,
-    #       "chime_data: ", chime_data.shape,
-    #       "channel: ", chan, end="\n")
-    start = noise_data
-    end = chime_data.shape[0] + start
-    for i in range(1, chan):
-        y = noise_data[start:end]
-        # print("start: ", start, "end: ", end, end="\n")
-        start = end
-        end = end + chime_data.shape[0]
-        audio_data.append(y[None, :])
-    # print("last_shape: ", chime_data.shape)
+    for ch in ch_range:
+        audio_data.append(audioread(
+            file_template, sample_rate=fs)[None, :])
     audio_data = np.concatenate(audio_data, axis=0)
     audio_data = audio_data.astype(np.float32)
     return audio_data
@@ -235,29 +227,32 @@ def prepare_clean_training_data(chime_data_dir, dest_dir):
 
 def prepare_other_training_data(train_dir, dest_dir):
     start = 0
-    chime_data_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/tr/'
+    chime_data_dir = os.path.join(train_dir[:-1], 'tr')
+    print(chime_data_dir)
 
     for stage in ['tr', 'dt']:
         if stage is 'dt':
-            chime_data_dir = '/media/hipo/Mega Store/Dataset/s/female_vocal_collection/dt/'
+            chime_data_dir = os.path.join(train_dir[:-1], 'dt')
+            print(chime_data_dir)
         reset_counter = 0
         # flist = gen_flist_simu(chime_data_dir, stage, ext=True)
         flist = [f for f in listdir(chime_data_dir) if isfile(join(chime_data_dir, f))]
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('/media/hipo/Mega Store/Dataset/s/guitar (27).wav')
+        noise_data = audioread('/media/hipo/lento/Dataset/single file/noise_files/all_noise.wav')
         print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             # clean_audio = get_audio_data(f)
             path = os.path.join(chime_data_dir, f)
-            clean_audioa = audioread(path)
-            clean_audiob = audioread(path)
-            multi_track = list()
-            multi_track.append(clean_audioa[None, :])
-            multi_track.append(clean_audiob[None, :])
-            multi_track = np.concatenate(multi_track, axis=0)
-            multi_track = multi_track.astype(np.float32)
+            clean_audio = get_audio_single(path)
+            # clean_audioa = audioread(path)
+            # clean_audiob = audioread(path)
+            # multi_track = list()
+            # multi_track.append(clean_audioa[None, :])
+            # multi_track.append(clean_audiob[None, :])
+            # multi_track = np.concatenate(multi_track, axis=0)
+            # multi_track = multi_track.astype(np.float32)
             # print(multi_track.shape)
             chime_size = audioread(path)
 
@@ -275,8 +270,8 @@ def prepare_other_training_data(train_dir, dest_dir):
             noise_files = np.concatenate(noise_files, axis=0)
             noise_files = noise_files.astype(np.float32)
             noise_audio = noise_files
-            print("speech size: ", multi_track.shape, "noise size: ", noise_audio.shape)
-            X = stft(multi_track, time_dim=1).transpose((1, 0, 2))
+            # print("speech size: ", multi_track.shape, "noise size: ", noise_audio.shape)
+            X = stft(clean_audio, time_dim=1).transpose((1, 0, 2))
             N = stft(noise_audio, time_dim=1).transpose((1, 0, 2))
 
             IBM_X, IBM_N = estimate_IBM(X, N)

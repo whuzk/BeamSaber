@@ -3,7 +3,8 @@ import sys
 import os
 from fgnt.signal_processing import audioread, stft, audiowrite
 import numpy as np
-
+from os import listdir
+from os.path import isfile, join
 
 def gen_flist_simu(chime_data_dir, stage, ext=False):
     with open(os.path.join(
@@ -64,7 +65,27 @@ def annotation_manipulation():
             print(annotation)
 
 
+def audio_joiner(path):
+    chime_data_dir = path
+    print (path)
+    flist = [f for f in listdir(chime_data_dir) if isfile(join(chime_data_dir, f))]
+    thefile = open('list.txt', 'w')
+    y = list()
+    counter = 0
+    for item in flist:
+        audio_file = audioread('{}/{}'.format(path, item), sample_rate=16000)
+        print(item)
+        if len(audio_file) < len(y):
+            c = y.copy()
+            c[:len(audio_file)] += audio_file
+        else:
+            c = audio_file.copy()
+            c[:len(y)] += y
+
+        # y = y + audio_file
+
+    audiowrite(c, '/media/hipo/lento/Dataset/LibriSpeech/test/com.flac', samplerate=16000)
+
 if __name__ == '__main__':
-    noise_data = audioread('new_dataset/babble_7min.wav', sample_rate=44100)
-    slie = noise_data[0:19000000]
-    audiowrite(slie, 'new_dataset/babble_sliced.wav', samplerate=44100)
+    paths = input("input directory target: ")
+    audio_joiner(paths)

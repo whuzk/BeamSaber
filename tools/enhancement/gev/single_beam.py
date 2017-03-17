@@ -89,7 +89,7 @@ def single_noise():
 def single_normal():
     # audio_data = get_audio_nochime('data/new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
     noise_data = get_audio_nochime('data/new_dataset/blstm_noise/noise_124', ch_range=range(1, 9), fs=16000)
-    audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 9), fs=16000)
+    audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 2), fs=16000)
     context_samples = 0
 
     print("audio_data: ", audio_data.shape, end="\n")
@@ -146,7 +146,7 @@ def single_normal():
     audiowrite(istft(Noise)[context_samples:],
                "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(args.exNum), 16000, True, True)
     audiowrite(istft(Y_hat)[context_samples:],
-               "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_enhanced.wav".format(args.exNum), 16000, True, True)
+               "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_gev.wav".format(args.exNum), 16000, True, True)
 
 if __name__ == '__main__':
     single_normal()
