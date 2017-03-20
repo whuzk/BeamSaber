@@ -6,6 +6,7 @@ import numpy as np
 from os import listdir
 from os.path import isfile, join
 
+
 def gen_flist_simu(chime_data_dir, stage, ext=False):
     with open(os.path.join(
             chime_data_dir, 'annotations',
@@ -67,7 +68,7 @@ def annotation_manipulation():
 
 def audio_joiner(path):
     chime_data_dir = path
-    print (path)
+    print(path)
     flist = [f for f in listdir(chime_data_dir) if isfile(join(chime_data_dir, f))]
     thefile = open('list.txt', 'w')
     y = list()
@@ -82,10 +83,19 @@ def audio_joiner(path):
             c = audio_file.copy()
             c[:len(y)] += y
 
-        # y = y + audio_file
+            # y = y + audio_file
 
     audiowrite(c, '/media/hipo/lento/Dataset/LibriSpeech/test/com.flac', samplerate=16000)
 
+
+def audio_counter(path):
+    audio_data = audioread(path)
+    print(audio_data.shape)
+    audio_data = np.concatenate(audio_data, axis=0)
+    audio_data = audio_data.astype(np.float32)
+    print(audio_data.shape)
+
+
 if __name__ == '__main__':
     paths = input("input directory target: ")
-    audio_joiner(paths)
+    audio_counter(paths)

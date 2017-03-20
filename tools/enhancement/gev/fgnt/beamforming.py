@@ -105,7 +105,7 @@ def get_gev_vector(target_psd_matrix, noise_psd_matrix):
 
 def blind_analytic_normalization(vector, noise_psd_matrix):
     bins, sensors = vector.shape
-    print("sensors: ", sensors)
+    # print("sensors: ", sensors)
     normalization = np.zeros(bins)
     for f in range(bins):
         normalization[f] = np.abs(np.sqrt(np.dot(
@@ -119,7 +119,7 @@ def blind_analytic_normalization(vector, noise_psd_matrix):
 
 
 def apply_beamforming_vector(vector, mix):
-    print("vector: ", vector.shape, "mix: ", mix.shape)
+    # print("vector: ", vector.shape, "mix: ", mix.shape)
     return np.einsum('...a,...at->...t', vector.conj(), mix)
 
 
@@ -139,9 +139,9 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
     if noise_mask is None:
         noise_mask = np.clip(1 - target_mask, 1e-6, 1)
 
-    print("target_mask: ", target_mask.shape, "noise_mask: ", noise_mask.shape, end="\n")
+    # print("target_mask: ", target_mask.shape, "noise_mask: ", noise_mask.shape, end="\n")
     target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
-    print("psd matrix: ", target_psd_matrix.shape, end="\n")
+    # print("psd matrix: ", target_psd_matrix.shape, end="\n")
     noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
 
     # Beamforming vector
@@ -149,8 +149,8 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
 
     if normalization:
         W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
-        print("get normalization", end="\n")
-    print("W_gev: ", W_gev.shape, end="\n")
+        # print("get normalization", end="\n")
+    # print("W_gev: ", W_gev.shape, end="\n")
 
     output = apply_beamforming_vector(W_gev, mix)
 
