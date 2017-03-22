@@ -95,7 +95,7 @@ def single_normal():
 
     # check execution time
     with Timer() as t:
-        audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 3), fs=16000)
+        audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 9), fs=16000)
         context_samples = 0
         # print("audio_data: ", audio_data.shape, end="\n")
     t_io += t.msecs
@@ -117,7 +117,7 @@ def single_normal():
 
         N_masks.to_cpu()
         X_masks.to_cpu()
-    t_beamform += t.msecs
+    t_net += t.msecs
     # Noise_masks.to_cpu()
 
     with Timer() as t:
