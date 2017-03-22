@@ -34,6 +34,7 @@ if wlen~=4*floor(wlen/4), error('The window length must be a multiple of 4.'); e
 % Defining sine window
 win=sin((.5:wlen-.5)/wlen*pi).';
 % Zero-padding
+coder.extrinsic('ceil');
 nfram=ceil(nsampl/wlen*2);
 x=[x,zeros(nchan,nfram*wlen/2-nsampl)];
 % Pre-processing for edges

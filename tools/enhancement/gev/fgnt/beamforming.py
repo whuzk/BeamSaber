@@ -2,6 +2,7 @@ import numpy as np
 from numpy.linalg import solve
 from scipy.linalg import eig
 from scipy.linalg import eigh
+from fgnt.utils import Timer
 from fgnt.signal_processing import audiowrite, stft, istft, audioread
 
 
@@ -138,22 +139,33 @@ def gev_wrapper_on_masks(mix, noise_mask=None, target_mask=None,
         target_mask = np.clip(1 - noise_mask, 1e-6, 1)
     if noise_mask is None:
         noise_mask = np.clip(1 - target_mask, 1e-6, 1)
+    t_psd = 0
+    t_vector = 0
+    t_beam = 0
 
-    # print("target_mask: ", target_mask.shape, "noise_mask: ", noise_mask.shape, end="\n")
-    target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
-    # print("psd matrix: ", target_psd_matrix.shape, end="\n")
-    noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
-
+    with Timer() as t:
+        # print("target_mask: ", target_mask.shape, "noise_mask: ", noise_mask.shape, end="\n")
+        target_psd_matrix = get_power_spectral_density_matrix(mix, target_mask)
+        # print("psd matrix: ", target_psd_matrix.shape, end="\n")
+        noise_psd_matrix = get_power_spectral_density_matrix(mix, noise_mask)
+    t_psd += t.msecs
     # Beamforming vector
-    W_gev = get_gev_vector(target_psd_matrix, noise_psd_matrix)
 
-    if normalization:
-        W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
-        # print("get normalization", end="\n")
-    # print("W_gev: ", W_gev.shape, end="\n")
+    with Timer() as t:
+        W_gev = get_gev_vector(target_psd_matrix, noise_psd_matrix)
+    t_vector += t.msecs
 
-    output = apply_beamforming_vector(W_gev, mix)
+    with Timer() as t:
+        if normalization:
+            W_gev = blind_analytic_normalization(W_gev, noise_psd_matrix)
+            # print("get normalization", end="\n")
+        # print("W_gev: ", W_gev.shape, end="\n")
 
+        output = apply_beamforming_vector(W_gev, mix)
+    t_beam += t.msecs
+    print('Timings: PSD: {:.2f}s | Vector: {:.2f}s | Beam: {:.2f}s | Total: {:.2f}s'.format(
+        t_psd / 1000, t_vector / 1000, t_beam / 1000, ((t_psd + t_vector + t_beam) / 1000)
+    ))
     # beamformer_psd_matrix = get_power_spectral_density_matrix(output)
     # print(beamformer_psd_matrix)
     # print ("no normalization")

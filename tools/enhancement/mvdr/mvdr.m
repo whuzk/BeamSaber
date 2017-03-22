@@ -1,6 +1,5 @@
-clear all;
-addpath ../../utils;
-addpath ../other_enchan;
+function mvdr()
+
 % Define hyper-parameters
 chanlist=[1:8]; % number of microphone array
 pow_thresh=-20; % threshold in dB below which a microphone is considered to fail
@@ -12,6 +11,7 @@ R = 2.4;
 phi = 45;
 theta = 90;
 c = 343;
+coder.extrinsic('wavread');
 % load original file
 [x, fs] = wavread('audio/2m_pub_new16khz.wav');
 
@@ -20,11 +20,13 @@ c = 343;
 
 % STFT
 [nsampl, nchan] = size(x);
-X = stft_multi(x.',wlen);
+% X = stft_multi(x.',wlen);
+X= [4 5];
 [nbin,nfram,~] = size(X);
 
 % Compute noise covariance matrix
-N=stft_multi(n.',wlen);
+% N=stft_multi(n.',wlen);
+N = [1 2 3];
 disp('N size');
 disp(size(N));
 Ncov=zeros(nchan,nchan,nbin);
@@ -81,4 +83,4 @@ audiowrite('2m_mvdr_us.wav',y,fs);
 
 % csvwrite([resultpath 'SNR_baseline_20data_' mode '.csv'],snr);
 
-
+end
