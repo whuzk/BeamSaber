@@ -97,7 +97,7 @@ def single_normal():
     with Timer() as t:
         audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 9), fs=16000)
         context_samples = 0
-        # print("audio_data: ", audio_data.shape, end="\n")
+        print("audio_data: ", audio_data.shape, end="\n")
     t_io += t.msecs
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
@@ -105,16 +105,15 @@ def single_normal():
     # blstm_noise = stft(blstm_noise)
     Y_phase = np.divide(Y, abs(Y))
     # print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
-
     Y_var = Variable(np.abs(Y).astype(np.float32), True)
     # N_var = Variable(np.abs(N).astype(np.float32), True)
     # blstm_noise = Variable(np.abs(blstm_noise).astype(np.float32), True)
-    # print("Y_var: ", Y_var.shape, "N_var: ", end="\n")
+    print("Y_var: ", Y_var.shape, end="\n")
     with Timer() as t:
         # mask estimation
         N_masks, X_masks = model.calc_masks(Y_var)
         # Noise_masks = model.calc_mask_noise(N_var)
-
+        print("N_masks: ", N_masks.shape, end="\n")
         N_masks.to_cpu()
         X_masks.to_cpu()
     t_net += t.msecs
