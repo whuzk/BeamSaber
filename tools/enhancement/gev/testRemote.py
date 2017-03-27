@@ -97,5 +97,5 @@ def audio_counter(path):
 
 
 if __name__ == '__main__':
-    paths = input("input directory target: ")
+    paths = "/home/hipo/workspace/BeamSaber/2m_mvdr.wav"
     audio_counter(paths)

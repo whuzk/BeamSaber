@@ -175,11 +175,11 @@ while (epoch < args.max_epochs and not exhausted):
     if loss_cv < best_cv_loss:
         best_epoch = epoch
         best_cv_loss = loss_cv
-        model_file = os.path.join(model_save_dir, 'test-100.nnet')
+        model_file = os.path.join(model_save_dir, 'lstm-100.nnet')
         log.info('New best loss during cross-validation. Saving model file '
                  'under {}'.format(model_file))
         serializers.save_hdf5(model_file, model)
-        serializers.save_hdf5(os.path.join(model_save_dir, 'test-100.tr'), optimizer)
+        serializers.save_hdf5(os.path.join(model_save_dir, 'lstm-100.tr'), optimizer)
 
     if epoch - best_epoch == args.patience:
         exhausted = True

@@ -97,6 +97,7 @@ def audioread(path, offset=0.0, duration=None, sample_rate=16000):
                           mono=False,
                           offset=offset,
                           duration=duration)
+    # print("signal: ", signal[0])
     return signal[0]
 
 

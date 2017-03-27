@@ -3,7 +3,7 @@ from chainer.link import Chain
 
 from fgnt.chainer_extensions.binary_cross_entropy import binary_cross_entropy
 from fgnt.chainer_extensions.links.sequence_linear import SequenceLinear
-from fgnt.chainer_extensions.links.sequence_lstms import SequenceBLSTM
+from fgnt.chainer_extensions.links.sequence_lstms import SequenceBLSTM, SequenceLSTM
 
 
 class MaskEstimator(Chain):
@@ -33,6 +33,7 @@ class MaskEstimator(Chain):
 class BLSTMMaskEstimator(MaskEstimator):
     def __init__(self):
         blstm_layer = SequenceBLSTM(513, 256, normalized=True)
+
         relu_1 = SequenceLinear(256, 513, normalized=True)
         relu_2 = SequenceLinear(513, 513, normalized=True)
         noise_mask_estimate = SequenceLinear(513, 513, normalized=True)
