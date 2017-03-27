@@ -5,7 +5,7 @@ import numpy as np
 from chainer import Variable
 from chainer import cuda
 from chainer import serializers
-import cPick
+
 
 # from chime_data import get_audio_nochime
 from chime_data import get_audio_nochime
@@ -109,7 +109,7 @@ def single_normal():
     Y_var = Variable(np.abs(Y).astype(np.float32), True)
 
     # write Y_var into text
-    np.savetxt('cto.txt', Y)
+    # np.savetxt('cto.txt', Y)
 
     # N_var = Variable(np.abs(N).astype(np.float32), True)
     # blstm_noise = Variable(np.abs(blstm_noise).astype(np.float32), True)
