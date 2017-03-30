@@ -6,7 +6,6 @@ from chainer import Variable
 from chainer import cuda
 from chainer import serializers
 
-
 # from chime_data import get_audio_nochime
 from chime_data import get_audio_nochime
 from fgnt.utils import Timer
@@ -42,11 +41,11 @@ else:
     raise ValueError('Unknown model type. Possible are "BLSTM" and "FW"')
 
 serializers.load_hdf5(args.model, model)
+print("data type of 'model'", type(model))
 if args.gpu >= 0:
     cuda.get_device(args.gpu).use()
     model.to_gpu()
 xp = np if args.gpu < 0 else cuda.cupy
-
 
 
 # def single_noise():
@@ -85,7 +84,6 @@ xp = np if args.gpu < 0 else cuda.cupy
 #
 #     print('Finished')
 
-
 def single_normal():
     # audio_data = get_audio_nochime('data/new_dataset/216m/2m_pub_new', ch_range=range(1, 9), fs=16000)
     # noise_data = get_audio_nochime('data/new_dataset/blstm_noise/noise_124', ch_range=range(1, 9), fs=16000)
@@ -103,17 +101,29 @@ def single_normal():
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
     # N = stft(noise_data, time_dim=1).transpose((1, 0, 2))
-    # blstm_noise = stft(blstm_noise)
+
     Y_phase = np.divide(Y, abs(Y))
     # print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
-    Y_var = Variable(np.abs(Y).astype(np.float32), True)
+    # Y_var with or without chainer Variable class doesn't give any different
+    Y_var = np.abs(Y).astype(np.float32)
 
     # write Y_var into text
-    # np.savetxt('cto.txt', Y)
+    # hint: read numpy Input and output documentation
+    storeit = open('cto.txt', 'w')
+    print("Y_var: ", Y_var.shape, end="\n")
+    to_list = list()
+    to_list = audio_data.tolist()
+    for item in to_list:
+        storeit.write("%s\n" % item)
+
+    openit = open('cto.txt', 'r')
+    to_list = openit.read()
+    to_array = np.array(to_list)
+    print(to_array.shape)
 
     # N_var = Variable(np.abs(N).astype(np.float32), True)
     # blstm_noise = Variable(np.abs(blstm_noise).astype(np.float32), True)
-    print("Y_var: ", Y_var.shape, end="\n")
+
     with Timer() as t:
         # mask estimation
         N_masks, X_masks = model.calc_masks(Y_var)
@@ -159,13 +169,16 @@ def single_normal():
 
     with Timer() as t:
         audiowrite(istft(Noise)[context_samples:],
-                   "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(args.exNum), 16000, True, True)
+                   "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_noise.wav".format(
+                       args.exNum), 16000, True, True)
         audiowrite(istft(Y_hat)[context_samples:],
-                   "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_gev.wav".format(args.exNum), 16000, True, True)
+                   "/media/hipo/lento/workspace/BeamSaber/tools/enhancement/gev/PublicFOMLSA/sample/{}_gev.wav".format(
+                       args.exNum), 16000, True, True)
     t_io += t.msecs
     print('Timings: I/O: {:.2f}s | Net: {:.2f}s | Beamformer: {:.2f}s | Total: {:.2f}s'.format(
         t_io / 1000, t_net / 1000, t_beamform / 1000, ((t_io + t_net + t_beamform) / 1000)
     ))
+
 
 if __name__ == '__main__':
     single_normal()

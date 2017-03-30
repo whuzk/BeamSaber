@@ -8,7 +8,7 @@ from time import sleep
 
 import numpy as np
 import tqdm
-import sys
+# import sys
 
 from fgnt.mask_estimation import estimate_IBM
 from fgnt.signal_processing import audioread, audiowrite
@@ -138,7 +138,7 @@ def prepare_noise_training_data(chime_data_dir, dest_dir):
         # print(flist)
         export_flist = list()
         mkdir_p(os.path.join(dest_dir, stage))
-        noise_data = audioread('/media/hipo/Mega Store/Dataset/home_bg_noise/161120_002.wav')
+        noise_data = audioread('/media/hipo/lento/Dataset/single file/noise_files/9x_dmm_signal-noise_161120_001.wav')
         print("noise_data size:", noise_data.shape[0])
         for f in tqdm.tqdm(flist, desc='Generating data for {}'.format(stage)):
             clean_audio = get_audio_data(f, '.Clean')

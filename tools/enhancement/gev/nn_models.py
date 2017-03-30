@@ -33,7 +33,6 @@ class MaskEstimator(Chain):
 class BLSTMMaskEstimator(MaskEstimator):
     def __init__(self):
         blstm_layer = SequenceBLSTM(513, 256, normalized=True)
-
         relu_1 = SequenceLinear(256, 513, normalized=True)
         relu_2 = SequenceLinear(513, 513, normalized=True)
         noise_mask_estimate = SequenceLinear(513, 513, normalized=True)
