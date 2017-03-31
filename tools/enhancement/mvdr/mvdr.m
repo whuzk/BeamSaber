@@ -14,13 +14,14 @@ c = 343;
 coder.extrinsic('wavread');
 % load original file
 [x, fs] = wavread('audio/2m_pub_new16khz.wav');
-
+disp(x(1));
 % load noise file
 [n, fs] = wavread('audio/noise_1258.wav');
 
 % STFT
 [nsampl, nchan] = size(x);
-% X = stft_multi(x.',wlen);
+X = stft_multi(x.',wlen);
+disp(size(X));
 X= [4 5];
 [nbin,nfram,~] = size(X);
 

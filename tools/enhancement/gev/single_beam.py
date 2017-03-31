@@ -94,32 +94,20 @@ def single_normal():
 
     # check execution time
     with Timer() as t:
-        audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 9), fs=16000)
+        audio_data = get_audio_nochime(args.data_directory, ch_range=range(1, 3), fs=16000)
         context_samples = 0
         print("audio_data: ", audio_data.shape, end="\n")
+        # for i in range (0, 8):
+        #     print(audio_data[i][1])
     t_io += t.msecs
 
     Y = stft(audio_data, time_dim=1).transpose((1, 0, 2))
     # N = stft(noise_data, time_dim=1).transpose((1, 0, 2))
 
     Y_phase = np.divide(Y, abs(Y))
-    # print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
+    print("Y: ", Y.shape, "Y_phase: ", Y_phase.shape, end="\n")
     # Y_var with or without chainer Variable class doesn't give any different
-    Y_var = np.abs(Y).astype(np.float32)
-
-    # write Y_var into text
-    # hint: read numpy Input and output documentation
-    storeit = open('cto.txt', 'w')
-    print("Y_var: ", Y_var.shape, end="\n")
-    to_list = list()
-    to_list = audio_data.tolist()
-    for item in to_list:
-        storeit.write("%s\n" % item)
-
-    openit = open('cto.txt', 'r')
-    to_list = openit.read()
-    to_array = np.array(to_list)
-    print(to_array.shape)
+    Y_var = Variable(np.abs(Y).astype(np.float32))
 
     # N_var = Variable(np.abs(N).astype(np.float32), True)
     # blstm_noise = Variable(np.abs(blstm_noise).astype(np.float32), True)

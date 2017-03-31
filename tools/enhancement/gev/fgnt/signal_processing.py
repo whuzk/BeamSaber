@@ -153,7 +153,7 @@ def stft(time_signal, time_dim=None, size=1024, shift=256,
     mapping = letters[:time_signal_seg.ndim] + ',' + letters[time_dim + 1] \
               + '->' + letters[:time_signal_seg.ndim]
 
-    return rfft(np.einsum(mapping, time_signal_seg, window),
+    return rfft (np.einsum(mapping, time_signal_seg, window),
                 axis=time_dim + 1)
 
 

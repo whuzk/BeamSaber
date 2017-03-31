@@ -34,16 +34,16 @@ function CHiME4_enhance_data(track)
 
 addpath ../../utils;
 % upath=['../../data/audio/16kHz/isolated_' track '_track/']; % path to segmented utterances
-upath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/isolated_' track '_track/'];
+upath=['/media/hipo/lento/workspace/CHiME3/data/audio/16kHz/isolated_' track '_track/'];
 % audio output path / enhanced utterances
-epath=['/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/superdirective_beamforming/'];
+epath=['/media/hipo/lento/workspace/CHiME3/data/audio/16kHz/superdirective_beamforming/'];
 % path to continuous recordings
-cpath='/media/hipo/Mega Store/workspace/CHiME3/CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
-bpath='/media/hipo/Mega Store/workspace/CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
+cpath='/media/hipo/lento/workspace/CHiME3/CHiME3/data/audio/16kHz/embedded/'; % path to continuous recordings
+bpath='/media/hipo/lento/workspace/CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % cpath='../../../CHiME3/data/audio/16kHz/embedded/';
 % bpath='../../../CHiME3/data/audio/16kHz/backgrounds/'; % path to noise backgrounds
 % path to JSON annotations
-apath=['/media/hipo/Mega Store/workspace/CHiME3/data/annotations/'];
+apath=['/media/hipo/lento/workspace/CHiME3/data/annotations/'];
 resultpath='../../../result/';
 if strcmp(track,'6ch'),
     nchan=5;
